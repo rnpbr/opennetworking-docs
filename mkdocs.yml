@@ -1,7 +1,7 @@
 site_name: Redes Abertas
 edit_uri: tree/main/docs/
 repo_name: Redes Abertas
-repo_url: https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/docs
+repo_url: https://git.rnp.br/redes-abertas/docs
 
 theme:
   name: material

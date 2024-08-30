@@ -143,7 +143,7 @@ Agora é só preencher as informações solicitadas e o commit será feito de fo
 
 ## Não achei o que preciso aqui
 
-Caso não tenha encontrado o que precisa, você pode abrir uma [issue no projeto](https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/docs/-/issues) relatando o que não consegue fazer ou o que precisa ser melhor documentado
+Caso não tenha encontrado o que precisa, você pode abrir uma [issue no projeto](https://git.rnp.br/redes-abertas/docs/-/issues) relatando o que não consegue fazer ou o que precisa ser melhor documentado
 
 ## Melhoria contínua
 

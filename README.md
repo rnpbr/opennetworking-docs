@@ -4,6 +4,6 @@ Este guia abrangente o conduzirá pela configuração de um ambiente de simulaç
 
  - Documentação Local [aqui](docs/index.md).
 
- - Documentação online [em breve](https://gci.dev.git.rnp.br/docs).
+ - Documentação online [em breve](https://redes-abertas.readthedocs.io/pt-br/latest/).
 
 para Visualizar a documentação via navegador, basta acessar a aba de [Contribuiçãos](docs/Contribuições.md) e configurar o ambiente poetry e executar o comando `poetry run task docs`
