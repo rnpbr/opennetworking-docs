@@ -16,7 +16,7 @@ Os templates remotos ficam disponíveis online em um repositório Git. Para adic
 3. Na URL, adicione o seguinte link para usar o template:
 
    ```bash
-   https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/config-templates-data-source.git
+   https://git.rnp.br/redes-abertas/config-templates-data-source.git
    ```
 
 !!! warning "Atenção"

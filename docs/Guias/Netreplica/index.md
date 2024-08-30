@@ -13,7 +13,7 @@ Este guia descreve os passos necessários para configurar e executar o NetReplic
 1. Abra um terminal e clone o repositório do NetReplica utilizando o seguinte comando:
 
 ```bash
-git clone https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/netreplica-docker.git
+git clone https://git.rnp.br/redes-abertas/netreplica-docker.git
 ```
 
 2. Navegue para o diretório do NetReplica clonado:
