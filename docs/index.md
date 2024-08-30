@@ -1,0 +1,74 @@
+
+Bem-vindo ao projeto **Redes Abertas**! Este projeto tem como objetivo fornecer uma base sólida para a configuração e simulação de redes utilizando ferramentas modernas e eficientes: **Netbox**, **Containerlab** e **Netreplica**.
+
+
+O projeto **Redes Abertas** foi desenvolvido para profissionais e entusiastas da área de redes que desejam:
+
+- **Explorar**: Testar diferentes configurações de rede em um ambiente controlado.
+- **Automatizar**: Utilizar templates para padronizar e automatizar as configurações de dispositivos de rede.
+- **Replicar**: Reproduzir ambientes de rede reais em laboratórios virtuais para testes e validações.
+- **Gerenciar**: Centralizar a documentação e o gerenciamento de infraestruturas de rede de maneira eficiente.
+
+Com essas ferramentas, o projeto visa simplificar a criação, gerenciamento e documentação de topologias de rede complexas, proporcionando flexibilidade e escalabilidade.
+
+## Fluxograma dos laboratórios
+O fluxograma ilustra o fluxo de trabalho do Netreplica no contexto de um ambiente de simulação de rede. Abaixo está a explicação detalhada de cada etapa do processo:
+
+![workflow-netreplica.png](workflow-netreplica.png)
+
+## Estrutura do Fluxo de Trabalho
+
+### 1. Topologia
+A topologia de rede é o ponto de partida e define a estrutura e interconexão dos dispositivos de rede.
+
+### 2. Netbox
+A topologia é documentada e gerenciada no Netbox, uma plataforma centralizada para gerenciamento de infraestrutura de rede. O Netbox armazena informações detalhadas sobre dispositivos, endereços IP e conexões físicas.
+
+### 3. Netreplica
+O Netreplica é responsável por sincronizar as informações de configuração do Netbox e prepará-las para a simulação. Ele obtém os dados via API e gera arquivos de configuração YAML necessários para a simulação.
+
+### 4. Configurações
+Os arquivos de configuração gerados pelo Netreplica contêm as especificações detalhadas de como os dispositivos de rede devem ser configurados.
+
+### 5. Containerlab
+O Containerlab utiliza os arquivos de configuração gerados para criar e gerenciar topologias de rede complexas em contêineres Docker.
+
+### 6. Laboratório (Stack Docker)
+A simulação é executada em um ambiente de laboratório utilizando um stack Docker. A topologia definida é reproduzida, permitindo testes e validações.
+
+### 7. Graphite
+Para monitorar e visualizar métricas e desempenho da simulação, o Graphite é integrado ao laboratório. Ele coleta e exibe dados relevantes para análise.
+
+## Resumo do Fluxo
+
+1. **Definição da Topologia:** A estrutura e interconexão dos dispositivos de rede são definidas.
+2. **Documentação no Netbox:** A topologia é documentada e gerenciada no Netbox.
+3. **Sincronização com Netreplica:** O Netreplica sincroniza as informações do Netbox via API e gera configurações YAML.
+4. **Criação de Topologia com Containerlab:** O Containerlab usa as configurações YAML para criar a topologia de rede em contêineres Docker.
+5. **Execução da Simulação:** A topologia é executada em um ambiente de laboratório Docker.
+6. **Monitoramento com Graphite:** O desempenho e as métricas da simulação são monitorados e visualizados com Graphite.
+
+## Status do Projeto
+
+Projeto em andamento.
+
+## Getting Started
+
+Para começar, leia o [Guia de Configuração](Getting Started.md) para aprender como utilizar as ferramentas Netbox, Containerlab e Netreplica em conjunto.
+
+## Laboratórios Disponíveis
+
+- [OSPF Lab](Laboratórios/ospf-lab/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da juniper em uma topologia em anel
+
+## Ferramentas
+
+- [Netbox](Getting Started.md): Ferramenta para gerenciamento de infraestrutura de rede
+- [Containerlab](Getting Started.md): Ferramenta para simulacão de topologias de rede complexas
+- [Netreplica](Getting Started.md): Ferramenta para replicação de ambientes de rede do Netbox para o Containerlab
+- [ELK](Ferramentas/Elasticsearch/index.md): Em Breve
+- [Edgeshark](Ferramentas/Edgeshark/index.md): Em Breve
+- [LibreNMS](Ferramentas/LibreNMS/index.md): Em Breve
+
+## Contribua
+
+Contribua com o projeto. clicando [aqui](Contribua.md)

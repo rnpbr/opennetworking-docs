@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "redes-abertas-docs"
+version = "0.1.0"
+description = ""
+authors = ["kaio Guilherme  <kaioguilherme444@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mkdocs = "^1.6.0"
+mkdocs-material = "^9.5.29"
+termynal = "^0.12.1"
+taskipy = "^1.13.0"
+commitizen = "^3.28.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+docs = "mkdocs serve -a 0.0.0.0:9990"
+commit = "cz commit -a"
