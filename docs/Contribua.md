@@ -130,10 +130,10 @@ links uteis:
 O projeto utiliza o `commitizen` para padronizar as mensagens de commit. Para criar um commit, execute o seguinte comando:
 
 !!! Warning "Observação"
- você deve esta dentro do ambiente virtual do poetry, se não, execute o seguinte comando:
- ```bash
- poetry shell
- ```
+    você deve esta dentro do ambiente virtual do poetry, se não, execute o seguinte comando:
+     ```bash
+     poetry shell
+     ```
 
 ```bash
 task commit
