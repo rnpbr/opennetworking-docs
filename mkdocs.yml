@@ -61,8 +61,8 @@ plugins:
       languages:
         - locale: pt
           default: true
-          name: Português
+          name: português
           build: true
         - locale: en
-          name: English (shortly)
+          name: English (developing)
           build: false

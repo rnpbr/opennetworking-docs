@@ -66,9 +66,9 @@ Para começar, leia o [Guia de Configuração](Getting Started.md) para aprender
 - [Netbox](Getting Started.md): Ferramenta para gerenciamento de infraestrutura de rede
 - [Containerlab](Getting Started.md): Ferramenta para simulacão de topologias de rede complexas
 - [Netreplica](Getting Started.md): Ferramenta para replicação de ambientes de rede do Netbox para o Containerlab
-- [ELK](Ferramentas/Elasticsearch/index.md): Em Breve
-- [Edgeshark](Ferramentas/Edgeshark/index.md): Em Breve
-- [LibreNMS](Ferramentas/LibreNMS/index.md): Em Breve
+- [ELK](Ferramentas/Elasticsearch/index.md): Stack para monitoramento de logs e Fluxos de dados em tempo real
+- [Edgeshark](Ferramentas/Edgeshark/index.md): Ferramenta para captura e visualização de tráfego de rede
+- [LibreNMS](Ferramentas/LibreNMS/index.md): Ferramenta para monitoramento de dispositivos de rede
 
 ## Contribua
 
