@@ -55,3 +55,14 @@ markdown_extensions:
 plugins:
   - termynal
   - search
+  - i18n:
+      docs_structure: folder
+      reconfigure_search: true
+      languages:
+        - locale: pt
+          default: true
+          name: Português
+          build: true
+        - locale: en
+          name: English (shortly)
+          build: false

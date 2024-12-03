@@ -12,6 +12,7 @@ mkdocs-material = "^9.5.29"
 termynal = "^0.12.1"
 taskipy = "^1.13.0"
 commitizen = "^3.28.0"
+mkdocs-static-i18n = "^1.2.3"
 
 
 [build-system]
