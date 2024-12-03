@@ -13,7 +13,7 @@ build:
     python: "3.12"
   jobs:
     post_create_environment:
-      - pip3 install mkdocs-material termynal
+      - pip3 install mkdocs-material termynal mkdocs-static-i18n
 
 
 
