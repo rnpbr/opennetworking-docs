@@ -18,14 +18,14 @@ Após configurar a rede **br-lab**, você poderá selecionar a ferramenta que me
 
 A tabela a seguir oferece uma visão geral das ferramentas que cobrimos em nossos tutoriais, destacando seus principais recursos, tipo de monitoramento e opções de preço:
 
-!!! warning "EM DESENVOLVIMENTO"
-    **Comparação das Ferramentas em Desenvolvimento sujeito a alteração**
+### **Tabela: Comparação de Ferramentas de Monitoramento**
 
-| Ferramenta | Tipo de Monitoramento | Principais Recursos | Preço | Melhor Uso |
-| --- | --- | --- | --- | --- |
-| **ELK Stack** | Logs e eventos | Análise de logs, visualizações em tempo real | Gratuito (opções pagas) | Auditoria de logs e segurança |
-| **LibreNMS** | Dispositivos de rede (SNMP) | Monitoramento SNMP, alertas, gráficos históricos | Gratuito | Monitoramento de dispositivos de rede |
-| **EDSHARK** | Captura de pacotes | Análise detalhada de pacotes de rede | Gratuito | Troubleshooting e análise de tráfego |
+| **Ferramentas** | **Tecnologias de coleta e integração** | **Custo** | **Dificuldade de Implementação** | **Integrações** | **Ponto Forte** | **Comunidade/Documentação** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Zabbix** | [SNMP, ICMP, JMX, IPMI, API_rest, Agent](https://www.zabbix.com/documentation/current/manual/appendix/protocols), | [Gratuito](https://www.zabbix.com/pricing) | [Fácil](https://www.zabbix.com/documentation/current/manual/quickstart/installation) | [Grafana, prometheus,elastic, kafka, Graylog, ..etc](https://www.zabbix.com/integrations?cat=logfiles) | [Alertas avançados](https://www.zabbix.com/documentation/current/manual/config/notifications) | [Completa](https://www.zabbix.com/community) |
+| **ELK Stack** | [Syslog, IPFIX , Netflow, SNMP, ICMP](https://www.elastic.co/integrations/data-integrations)  | [Freemium](https://www.elastic.co/pricing/) | [Moderada](https://www.elastic.co/guide/en/observability/current/monitoring-getting-started.html) | [Fleet, logstash, filebeat, grafana, .etc](https://www.elastic.co/integrations/data-integrations) | [Análise centralizada de logs, Dashboard prontos](https://www.elastic.co/kibana/kibana-dashboard) | [Completa](https://www.elastic.co/docs) |
+| **Telegraf + InfluxDB + Grafana** | [SNMP, IPFIX, SFLOW, Syslog, gMNIC, Netflow, GRPC, etc](https://docs.influxdata.com/telegraf/v1/plugins/) | [Freemium](https://www.influxdata.com/products/pricing/) | [Moderado](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) | [Prometheus, Loki,](https://grafana.com/docs/grafana/latest/datasources/)  | [Stack modular e escalável](https://www.influxdata.com/time-series-platform/) | [Ampla](https://docs.influxdata.com) |
+| **LibreNMS** | [SNMP, Syslog, API_Rest](https://docs.librenms.org/Support/Configuration/) | [Gratuito](https://www.librenms.org/#pricing) | [Fácil](https://docs.librenms.org/Installation/) | [Grafana, Graylog, Proxmox](https://docs.librenms.org/Extensions/Applications/) | [Autodiscovery](https://docs.librenms.org/Support/Features/) | [Média](https://docs.librenms.org) |
 
 ---
 
