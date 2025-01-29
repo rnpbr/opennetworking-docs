@@ -113,9 +113,8 @@ Para conectar roteadores na rede `br-lab` usando cabos virtuais via Containerlab
 ### :gear: **Exemplo de Conexões:**
 
 ```yaml
-networks:
-  br-lab:
-    kind: bridge
+br-lab:
+  kind: bridge
 
 links:
   - endpoints: ["route1:eth1", "br-lab:eth1"]
