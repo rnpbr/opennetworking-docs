@@ -2,44 +2,45 @@
 
 ## :octicons-book-24: 1. Introduction
 
-In this guide, we will cover the configuration of the **ELK** (Elasticsearch, Logstash, and Kibana) stack for data monitoring and analysis in laboratory environments. ELK is a powerful combination of tools that allows for the collection, storage, analysis, and visualization of data in real-time, and is widely used for log management and system monitoring.
+In this guide, we will cover the configuration of the **ELK** stack (Elasticsearch, Logstash, and Kibana) for data monitoring and analysis in laboratory environments. ELK is a powerful combination of tools that allows for the collection, storage, analysis, and visualization of data in real-time, being widely used for log management and system monitoring.
 
 ## :simple-elastic: 2. What is ELK?
 
-<img src="../../../img/tools_imgs/flow_fleet_elasticsearch.png"" alt="Fleet Server Flow Diagram" width="800">
+![Flow_Fleet_Elasticsearch.png](../../../img/tools_imgs/flow_fleet_elasticsearch.png)
 Source: [Elastic Documentation](https://www.elastic.co/guide/en/fleet/current/add-fleet-server-on-prem.html)
+
 
 The image above illustrates the data flow and integration of ELK Stack components for centralized monitoring and real-time analysis.
 
-- **Elasticsearch**: Responsible for storing and indexing data received from the Fleet Server. With real-time search and analysis capabilities, Elasticsearch is the core of the ELK Stack, allowing efficient queries on large volumes of data and facilitating detailed analysis.
+- **Elasticsearch**: Responsible for storing and indexing the data received from the Fleet Server. With real-time search and analysis capabilities, Elasticsearch is the core of the ELK Stack, enabling efficient queries on large volumes of data and facilitating detailed analysis.
 
-- **Kibana**: Kibana offers a graphical interface where data in Elasticsearch can be visualized and analyzed. Kibana also manages the packages and integrations available for agents, which can be loaded from the Package Registry. With it, you can create dashboards, reports, and graphs, transforming raw data into visual insights.
+- **Kibana**: Kibana offers a graphical interface where the data in Elasticsearch can be viewed and analyzed. Kibana also manages the packages and integrations available for the agents, which can be loaded from the Package Registry. With it, you can create dashboards, reports, and charts, transforming raw data into visual insights.
 
-- **Elastic Agent**: Located on the devices to be monitored, the Elastic Agents collect data from logs, metrics, and events and send it to the Fleet Server Cluster. These agents are configured and managed by policies that control which data is collected and where it is sent.
+- **Elastic Agent**: Located on the devices to be monitored, the Elastic Agents collect log data, metrics, and events and send them to the Fleet Server Cluster. These agents are configured and managed by policies that control what data is collected and where it is sent.
 
-- **Fleet Server Cluster**: Using a load balancer for high availability, the Fleet Server Cluster centralizes the management of Elastic Agents. It distributes policies to the agents, ensuring consistent data collection, and then forwards them to Elasticsearch for storage and analysis.
+- **Fleet Server Cluster**: Utilizing a load balancer for high availability, the Fleet Server Cluster centralizes the management of Elastic Agents. It distributes policies to the agents, ensuring consistent data collection, and then forwards them to Elasticsearch for storage and analysis.
 
-This flow ensures that network data is collected in a unified way, stored in an optimized manner, and made available for visualization and analysis, offering a complete and robust solution for monitoring and analyzing complex and distributed networks.
+This flow ensures that network data is collected in a unified manner, stored in an optimized way, and made available for visualization and analysis, offering a complete and robust solution for monitoring and analyzing complex and distributed networks.
 
 !!! warning "Note"
-    In this installation we will not use **Logstash**, but the more modern collection version, which are **Fleet Server** and **Fleet Agent**.
+    In this installation, we will not use **Logstash**, but rather the more modern collection version, which are **Fleet Server** and **Fleet Agent**.
     To learn more, access the official documentation about Fleet: <a href="https://www.elastic.co/guide/en/fleet/current/fleet-overview.html" target="_blank">Elastic Documentation - Fleet</a>
 
 ---
 
 ## :octicons-checklist-24: 4. Prerequisites
 
-Before proceeding with the ELK configuration, it is necessary to configure the **br-lab** network. For details on this configuration, see the guide [**First Steps: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md).
+Before proceeding with the ELK configuration, it is necessary to configure the **br-lab** network. For details on this configuration, refer to the [**First Steps: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md) guide.
 
 ---
 
 ## :octicons-tools-24: 5. Preparing the Environment
 
-After ensuring that the **br-lab** network is configured, follow the steps below to prepare the working environment.
+After ensuring that the **br-lab** network is configured, follow the steps below to prepare the work environment.
 
 ## :fontawesome-brands-docker: 6. Downloading Docker Compose
 
-To download Docker Compose, execute the following command:
+To download Docker Compose, run the following command:
 
 ```bash
 curl -L -o get.sh "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.sh?inline=false" && sh get.sh && cd ELK-Stack
@@ -49,7 +50,7 @@ This command downloads the installation script and then navigates to the **ELK-S
 
 ## :octicons-container-24: 7. Starting the Containers
 
-After downloading Docker Compose, execute the command below to start the ELK services:
+After downloading Docker Compose, run the command below to start the ELK services:
 
 ```bash
 docker compose up -d
@@ -58,29 +59,29 @@ docker compose up -d
 This command will start three essential containers for the ELK stack to function:
 
 1. **Elasticsearch**
-    - **Description**: Search engine and data storage. It allows storing documents in JSON format and provides a RESTful API for search and analysis. Ideal for searching large volumes of data.
+    - **Description**: Search engine and data storage. It allows the storage of documents in JSON format and provides a RESTful API for search and analysis. Ideal for searching large volumes of data.
     - **IP**: `172.10.10.201`
-    - **Default port**: `9200`
+    - **Default Port**: `9200`
     - **Documentation**: [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 
 2. **Kibana**
     - **Description**: Graphical interface for visualizing data stored in Elasticsearch. Kibana allows users to create interactive dashboards and real-time data visualizations, facilitating data analysis and interpretation.
     - **IP**: `172.10.10.202`
-    - **Default port**: `5601`
+    - **Default Port**: `5601`
     - **Documentation**: [Kibana Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
 
 3. **Fleet Server**
-    - **Description**: Agent responsible for collecting metrics and logs from different sources and sending them to Elasticsearch. The Fleet Server facilitates centralized management of collection agents, such as the Elastic Agent, enabling efficient data collection and sending.
+    - **Description**: Agent responsible for collecting metrics and logs from different sources and sending them to Elasticsearch. The Fleet Server facilitates the centralized management of collection agents, such as the Elastic Agent, allowing for efficient data collection and sending.
     - **IP**: `172.10.10.203`
     - **Documentation**: [Fleet Server Documentation](https://www.elastic.co/guide/en/fleet/current/index.html)
 
 !!! info "Access"
     :material-access-point: Default username and password
-    - **Default username**: `elastic`
-    - **Default password**: `admin@123`
+    - **Default Username**: `elastic`
+    - **Default Password**: `admin@123`
 
 !!! tip "Configuration"
-    To change the password or the Elasticsearch version, edit the **.env** file.
+    To change the password or Elasticsearch version, edit the **.env** file.
 
 ## :simple-kibana: 8. Accessing the Kibana Interface
 
@@ -94,4 +95,4 @@ Log in with the default username and password.
 
 ## :material-skip-next-outline: Next Steps
 
-- **Configure IPFIX Collection**: After configuring ELK, the next step will be to configure data collection using IPFIX, with our guide on [IPFIX configuration](Configurando IPFIX no ELK.md).
+- **Configure IPFIX Collection**: After configuring the ELK, the next step will be to configure data collection using IPFIX, with our [IPFIX configuration](Configurando IPFIX no ELK.md) guide.
