@@ -147,7 +147,7 @@ A importação dos arquivos csv deve seguir a numeração estabelecida e conter 
 1. **Faça login como superusuário**: Acesse o NetBox com as credenciais de admin.
 2. **Encontre a opção de importação**: Verifique a seção relacionada aos dados que deseja importar, e procure por um **ícone** de importação como vemos na Figura 1 abaixo:
     
-    ![**Figura 1**: ao clicar no ícone importação é possivel fazer o upload do arquivo CSV.](netbox_imgs/import.png)
+    ![**Figura 1**: ao clicar no ícone importação é possivel fazer o upload do arquivo CSV.](../../../img/netbox_imgs/import.png)
     **Figura 1**: ao clicar no ícone importação é possivel fazer o upload do arquivo CSV.
     
 3. **Selecione o arquivo CSV**: Faça o upload do arquivo CSV com os dados preparados, cada CSV precisa conter os campos conforme descrito a Subseção 3.1.
@@ -165,17 +165,17 @@ Então edite as informações de `side*` e `interface*`
     **Observação**: as etapas devem ser feitas para todo Circuito ID existente.
     
 
-![**Figura 2**: clique no circuit (seta a esquerda), em seguida selecione o Circuirt ID (detacados e indicados com a seta) para realizar a configuração.](netbox_imgs/circuitID.png)
+![**Figura 2**: clique no circuit (seta a esquerda), em seguida selecione o Circuirt ID (detacados e indicados com a seta) para realizar a configuração.](../../../img/netbox_imgs/circuitID.png)
 **Figura 2**: clique no circuit (seta a esquerda), em seguida selecione o Circuirt ID (detacados e indicados com a seta) para realizar a configuração.
 
 - Após clicar em um dos circuitos, as configurações do circuito é similar a apresentada na Figura 3. As teminações devem ser editadas clicando no ícone `Edit` conforme destacado na imagem abaixo. Ao clicar no ícone, o Netbox encaminha para a parte de Cables em Conexões, conforme mostra a Figura 4.
 
-![Figura 3: tela de um Circuit ID. As edições de de cada Temination deve ser realizada clicando em `Edit` (destacado com a seta).](netbox_imgs/circuitEdit.png)
+![Figura 3: tela de um Circuit ID. As edições de de cada Temination deve ser realizada clicando em `Edit` (destacado com a seta).](../../../img/netbox_imgs/circuitEdit.png)
 **Figura 3:** tela de um Circuit ID. As edições de de cada Temination deve ser realizada clicando em `Edit` (destacado com a seta).
 
 - A Figura 4 apresenta a criação dos cabos de conexão, a numeração dos cabos seguem apenas a ordem de criação. Os itens `Side*` e `Interface*` devem ser preenchidos para finalizar a configuração da etapa 7.
 
-![Figura 4: tela de configuração dos cabos para conexão para a conexão entre os dispositivos.](netbox_imgs/circuitCable.png)
+![Figura 4: tela de configuração dos cabos para conexão para a conexão entre os dispositivos.](../../../img/netbox_imgs/circuitCable.png)
 **Figura 4:** tela de configuração dos cabos para conexão para a conexão entre os dispositivos.
 
 <aside>

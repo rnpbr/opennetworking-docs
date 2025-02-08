@@ -65,4 +65,4 @@ plugins:
           build: true
         - locale: en
           name: English (developing)
-          build: false
+          build: true

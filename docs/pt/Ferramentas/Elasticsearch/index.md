@@ -9,7 +9,7 @@ monitoramento de sistemas.
 
 ## :simple-elastic: 2. O que é ELK?
 
-<img src="flow-fleet.png" alt="Fleet Server Flow Diagram" width="800">
+<img src="../../../img/tools_imgs/flow_fleet_elasticsearch.png"" alt="Fleet Server Flow Diagram" width="800">
 Fonte: [Elastic Documentation](https://www.elastic.co/guide/en/fleet/current/add-fleet-server-on-prem.html)
 
 

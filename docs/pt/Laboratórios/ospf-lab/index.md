@@ -8,7 +8,7 @@ Este laboratório simula uma rede com 3 roteadores em uma topologia em anel, con
 
 A topologia consiste em três roteadores (PB, PE, JPA) conectados em um anel. Cada roteador está configurado com interfaces de rede e endereços IP, além de protocolos OSPF para roteamento e SNMP para monitoramento, como podemos ver na imagem a seguir.
 
-![Topologia.png](./Topologia.png)
+![Topologia.png](../../../img/labs_imgs/Topologia_ospf_lab.png)
 
 Os roteadores estão configurados com as seguintes tecnologias:
 

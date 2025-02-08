@@ -15,7 +15,7 @@ Com essas ferramentas, o projeto visa simplificar a criação, gerenciamento e d
 ## Fluxograma dos laboratórios
 O fluxograma ilustra o fluxo de trabalho do Netreplica no contexto de um ambiente de simulação de rede. Abaixo está a explicação detalhada de cada etapa do processo:
 
-![workflow-netreplica.png](workflow-netreplica.png)
+![workflow-netreplica.png](../../../img/tools_imgs/workflow-netreplica.png)
 
 ## Estrutura do Fluxo de Trabalho
 
