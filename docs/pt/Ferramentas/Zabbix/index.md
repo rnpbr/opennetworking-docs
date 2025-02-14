@@ -45,9 +45,9 @@ Para baixar o Docker Compose, execute o seguinte comando:
     ```
 
 === "Windows"
-```bash
-    curl -L -o get.bat "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/Zabbix/get.bat?inline=false" && call get.bat && cd Zabbix
-```
+    ```bash
+        curl -L -o get.bat "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/Zabbix/get.bat?inline=false" && call get.bat && cd Zabbix
+    ```
 
 Esse comando faz o download do script de instalação e, em seguida, navega para o diretório **Zabbix**.
 
