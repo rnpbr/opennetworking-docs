@@ -46,8 +46,15 @@ Após garantir que a rede **br-lab** está configurada, siga os passos abaixo pa
 
 Para baixar o Docker Compose, execute o seguinte comando:
 
+=== "Linux/ Mac"
+
+    ```bash
+        curl -L -o get.sh "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.sh?inline=false" && sh get.sh && cd ELK-Stack
+    ```
+
+=== "Windows"
 ```bash
-curl -L -o get.sh "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.sh?inline=false" && sh get.sh && cd ELK-Stack
+    curl -L -o get.bat "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.bat?inline=false" && call get.bat && cd ELK-Stack
 ```
 
 Esse comando faz o download do script de instalação e, em seguida, navega para o diretório **ELK-Stack**.
@@ -66,19 +73,16 @@ Esse comando irá iniciar três containers essenciais para o funcionamento do st
     - **Descrição**: Motor de busca e armazenamento de dados. Ele permite o armazenamento de documentos em formato JSON e fornece uma API RESTful para busca e análise. Ideal para pesquisa em grandes volumes de dados.
     - **IP**: `172.10.10.201`
     - **Porta padrão**: `9200`
-    - **Documentação**: [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
-
+    - **Documentação**: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blanck">Elasticsearch Documentation</a>
 2. **Kibana**
     - **Descrição**: Interface gráfica para visualização de dados armazenados no Elasticsearch. O Kibana permite que os usuários criem dashboards interativos e visualizações de dados em tempo real, facilitando a análise e interpretação de dados.
     - **IP**: `172.10.10.202`
     - **Porta padrão**: `5601`
-    - **Documentação**: [Kibana Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
-
+    - **Documentação**: <a href="https://www.elastic.co/guide/en/kibana/current/index.html" target="_blanck">Kibana Documentation</a>
 3. **Fleet Server**
     - **Descrição**: Agente responsável pela coleta de métricas e logs de diferentes fontes e seu envio para o Elasticsearch. O Fleet Server facilita a gestão centralizada de agentes de coleta, como o Elastic Agent, permitindo a coleta e envio eficiente de dados.
     - **IP**: `172.10.10.203`
-    - **Documentação**: [Fleet Server Documentation](https://www.elastic.co/guide/en/fleet/current/index.html)
-
+    - **Documentação**: <a href="https://www.elastic.co/guide/en/fleet/current/index.html" target="_blanck">Fleet Server Documentation</a>
 !!! info "Acesso"
     :material-access-point: Usuario e senha padrão
     - **Usuário padrão**: `elastic`
