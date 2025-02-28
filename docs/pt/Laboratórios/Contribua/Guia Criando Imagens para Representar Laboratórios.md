@@ -69,6 +69,3 @@ Após salvar a imagem, atualize o arquivo Markdown da documentação, incluindo 
 ```
 
 ---
-### 5. Proximos Passos
-
-Agora que você criou uma imagem para representar um laboratório, o próximo passo é cria a documentação de seu laboratorio, pode fazer isso seguindo este guia [Guia : Criando Documentação para Laboratórios](Guia: Criando Documentação para Laboratórios.md)

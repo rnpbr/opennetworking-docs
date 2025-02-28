@@ -51,4 +51,4 @@ In addition to these tools mentioned, there are others that can be configured ac
 
 To ensure that your labs are well documented and easy to understand, see the section on **Lab Documentation**. There, you will find best practices and examples for creating clear and useful documentation for your simulated environments.
 
-- **Link**: [Lab Documentation](contribua/index.md).
+- **Link**: [Lab Documentation](Contribua/index.md).

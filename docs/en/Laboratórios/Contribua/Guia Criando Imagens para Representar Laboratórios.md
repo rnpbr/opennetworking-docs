@@ -68,6 +68,3 @@ After saving the image, update the documentation's Markdown file, including the 
 ```
 
 ---
-### 5. Next Steps
-
-Now that you have created an image to represent a laboratory, the next step is to create the documentation for your laboratory. You can do this by following this guide [Guide: Creating Documentation for Laboratories](Guide: Creating Documentation for Laboratories.md) without changing the structure of the documentation or adding anything else.
