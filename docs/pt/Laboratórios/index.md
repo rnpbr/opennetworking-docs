@@ -52,4 +52,4 @@ além destas ferramentas mencionadas ha outras que podem ser configuradas confor
 
 Para garantir que seus laboratórios sejam bem documentados e fáceis de entender, consulte a seção sobre **Documentação de Labs**. Lá, você encontrará boas práticas e exemplos para criar documentação clara e útil para os seus ambientes simulados.
 
-- **Link**: [Documentação de Labs](contribua/index.md).
+- **Link**: [Documentação de Labs](Contribua/index.md).
