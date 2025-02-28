@@ -1,5 +1,3 @@
-Okay, here's the English translation of the Zabbix installation guide, maintaining the structure and without any additions:
-
 # Zabbix Installation Guide
 
 ## :octicons-book-24: 1. Introduction
