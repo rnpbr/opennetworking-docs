@@ -1,5 +1,3 @@
-Okay, here's the English translation of the provided document:
-
 # Guide: Creating Images to Represent Labs
 
 This guide teaches you how to create images representing network topologies for labs, using the [Draw.io](http://draw.io/) template provided in the repository. The images should follow the project's visual identity and be saved in **SVG** format within the correct folder.
