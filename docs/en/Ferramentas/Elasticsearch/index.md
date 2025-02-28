@@ -1,5 +1,3 @@
-Okay, here's the translation of the provided documentation to English, maintaining the structure and avoiding additions:
-
 # ELK (Elasticsearch) Installation Guide
 
 ## :octicons-book-24: 1. Introduction
