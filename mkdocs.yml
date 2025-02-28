@@ -64,5 +64,5 @@ plugins:
           name: português
           build: true
         - locale: en
-          name: English (developing)
+          name: English (WIP)
           build: true

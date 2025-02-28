@@ -1,32 +1,55 @@
+# Containerlab
 
-
-# **Containerlab**
-
-Containerlab é uma ferramenta poderosa para criar e gerenciar laboratórios de rede virtualizados. Com ele, você pode simular topologias de rede complexas utilizando contêineres Docker. Abaixo estão os pré-requisitos e as ferramentas de análise recomendadas para uso com o Containerlab.
-
-## **Pré-requisitos**
+**Containerlab** é uma ferramenta poderosa para criar e gerenciar laboratórios de rede virtualizados. Com ele, você pode simular topologias de rede complexas utilizando contêineres Docker. A seguir, você encontrará informações sobre os pré-requisitos, ferramentas recomendadas e como documentar seus laboratórios.
 
 ---
 
-Antes de começar a utilizar o Containerlab, certifique-se de ter instalado:
+## Pré-requisitos
 
-- **Docker**: Containerlab utiliza o Docker para criar e executar os contêineres que compõem a rede virtualizada, Instale o Containerlab de acordo com as instruções fornecidas na [documentação oficial](https://www.docker.com/get-started/).
-- **Containerlab**: Instale o Containerlab de acordo com as instruções fornecidas na [documentação oficial](https://containerlab.dev/install/).
+Antes de começar a utilizar o Containerlab, certifique-se de ter os seguintes pré-requisitos instalados:
 
-## **Labs**
+### Docker
+
+- O Docker é utilizado pelo Containerlab para criar e executar os contêineres que compõem a rede virtualizada.
+- **Link**: [Documentação oficial do Docker](https://www.docker.com/get-started/).
+
+### Containerlab
+
+- Instale o Containerlab conforme as instruções fornecidas na documentação oficial.
+- **Link**: [Documentação oficial do Containerlab](https://containerlab.dev/install/).
 
 ---
 
-[OSPF(Junos)](./ospf-lab/index.md)
+## Labs Disponíveis
 
-## **Ferramentas de Análise**
+Aqui está um exemplo de laboratório configurado para simular OSPF utilizando Junos:
+
+### OSPF (Junos)
+
+- Simulação de OSPF com Junos, uma das tecnologias de roteamento mais utilizadas.
+- **Link**: [OSPF (Junos) Lab](ospf-lab/index.md).
 
 ---
 
-Além disso, aqui estão algumas ferramentas de análise recomendadas que podem ser úteis para estudos e utilização dos labs:
+## Ferramentas de Análise Recomendadas
 
-- **LibreNMS**: Uma plataforma de monitoramento de rede baseada na web, que fornece insights sobre o desempenho e a saúde da rede.
-- **Wireshark**: Uma poderosa ferramenta de análise de protocolos de rede, que permite capturar e analisar o tráfego de pacotes em detalhes.
--
+Além do Containerlab, você pode utilizar as seguintes ferramentas de análise para monitorar e depurar sua rede virtualizada:
 
-Essas ferramentas podem ajudar na análise e depuração de problemas, bem como no monitoramento contínuo da rede virtualizada criada com o Containerlab.
+### LibreNMS
+
+- Uma plataforma de monitoramento de rede baseada na web, que fornece insights sobre o desempenho e a saúde da rede. Ideal para monitoramento contínuo da rede em tempo real.
+
+### Wireshark
+
+- Ferramenta de captura e análise de pacotes que permite examinar o tráfego de rede em detalhes. Essencial para depuração e análise de protocolos de rede.
+
+além destas ferramentas mencionadas ha outras que podem ser configuradas conforme suas necessidades, para saber mais acesse: [Ferramentas de Análise](../Ferramentas/index.md).
+
+
+---
+
+## Documentando Seus Labs
+
+Para garantir que seus laboratórios sejam bem documentados e fáceis de entender, consulte a seção sobre **Documentação de Labs**. Lá, você encontrará boas práticas e exemplos para criar documentação clara e útil para os seus ambientes simulados.
+
+- **Link**: [Documentação de Labs](contribua/index.md).

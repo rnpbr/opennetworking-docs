@@ -41,16 +41,48 @@ Após selecionar a ferramenta mais adequada, siga os tutoriais específicos para
 
 ---
 
+## :material-ip-network: **Configuração de Rede br-lab e Endereços Fixos**
+
+Todas as ferramentas são configuradas para serem atreladas à rede **br-lab** e para facilitar o uso delas, independentemente do laboratório, elas possuem IPs fixos. Esses IPs podem ser consultados na lista abaixo, permitindo que você se conecte diretamente a cada ferramenta sem a necessidade de configurações adicionais para cada novo laboratório.
+
+### **Tabela: IPs Fixos das Ferramentas**
+
+| Serviço | IP | Stack |
+| --- | --- | --- |
+| librenms-db | 172.10.10.100 | librenms |
+| librenms-redis | 172.10.10.101 | librenms |
+| librenms-msmtpd | 172.10.10.102 | librenms |
+| librenms-librenms | 172.10.10.103 | librenms |
+| librenms-dispatcher | 172.10.10.104 | librenms |
+| librenms-syslogng | 172.10.10.105 | librenms |
+| librenms-snmptrapd | 172.10.10.106 | librenms |
+| elk-setup | 172.10.10.107 | ELK |
+| elk-elasticsearch | 172.10.10.108 | ELK |
+| elk-kibana | 172.10.10.109 | ELK |
+| elk-fleet-server | 172.10.10.110 | ELK |
+| grafana-grafana | 172.10.10.111 | Grafana |
+| grafana-influxdb | 172.10.10.112 | Grafana |
+| grafana-chronograf | 172.10.10.113 | Grafana |
+| grafana-telegraf | 172.10.10.114 | Grafana |
+| zabbix-server | 172.10.10.115 | Zabbix |
+| zabbix-frontend | 172.10.10.116 | Zabbix |
+| zabbix-agent | 172.10.10.117 | Zabbix |
+| zabbix-database | 172.10.10.118 | Zabbix |
+
+Esses IPs fixos garantem uma comunicação estável e facilitada entre as ferramentas e os laboratórios configurados no **Containerlab**. Com isso, você pode integrar múltiplas ferramentas de monitoramento de forma eficiente, sem precisar redefinir configurações de rede a cada novo laboratório.
+
+---
+
+Essa adição inclui a configuração de rede Docker, a explicação sobre os IPs fixos e como eles facilitam a integração das ferramentas no seu ambiente de laboratório.
+
 ## :material-tools: **Ferramentas Futuras**
 
 Estamos constantemente testando e adicionando novas ferramentas ao nosso repertório. Algumas opções que consideramos explorar em breve incluem:
 
-- **Zabbix**: Plataforma de monitoramento e visualização de dados.
-- **Grafana**: Plataforma de monitoramento e visualização de dados.
 - **Prometheus**: Servidor de monitoramento e visualização de dados.
-- **Telegraf**: Coletor de métricas que se integra ao Prometheus e outros sistemas de monitoramento.
 - **OpenElastic**: Uma solução escalável e flexível para auditoria de logs e eventos, baseada no Elastic Stack.
 - **OpenNMS**: Ferramenta robusta para monitoramento de redes e sistemas, com foco em redes de grande escala.
+- **Akivorado**: Ferramenta de monitoramento de fluxo de dados para redes.
 
 Essas ferramentas podem ser integradas ao seu ambiente de laboratório com o **Containerlab**, 
 permitindo que você crie um ecossistema robusto para gerenciamento e análise de redes.

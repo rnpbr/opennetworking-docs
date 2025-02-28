@@ -1,7 +1,8 @@
-# Home
+# **Home**
 
-Bem-vindo ao projeto **Redes Abertas**! Este projeto tem como objetivo fornecer uma base sólida para a configuração e simulação de redes utilizando ferramentas modernas e eficientes: **Netbox**, **Containerlab** e **Netreplica**.
+**Bem-vindo ao projeto Redes Abertas!**
 
+Este projeto tem como objetivo fornecer uma base sólida para a configuração e simulação de redes utilizando ferramentas modernas e eficientes: **Netbox**, **Containerlab** e **Netreplica**.
 
 O projeto **Redes Abertas** foi desenvolvido para profissionais e entusiastas da área de redes que desejam:
 
@@ -12,54 +13,84 @@ O projeto **Redes Abertas** foi desenvolvido para profissionais e entusiastas da
 
 Com essas ferramentas, o projeto visa simplificar a criação, gerenciamento e documentação de topologias de rede complexas, proporcionando flexibilidade e escalabilidade.
 
-## Fluxograma dos laboratórios
-O fluxograma ilustra o fluxo de trabalho do Netreplica no contexto de um ambiente de simulação de rede. Abaixo está a explicação detalhada de cada etapa do processo:
+---
 
-![workflow-netreplica.png](../img/tools_imgs/workflow-netreplica.png)
+## Capacidades do Containerlab
+
+**Containerlab** é uma ferramenta poderosa para a criação e gerenciamento de laboratórios de rede virtualizados, utilizando contêineres Docker. Com ela, você pode testar e simular topologias de rede complexas em um ambiente controlado. A ferramenta suporta diversos dispositivos de rede, permitindo a configuração de redes **multivendor**, o que é ideal para testar interações entre diferentes fornecedores em um mesmo laboratório.
+Abaixo uma lista dos principais venrores suportados pelo Containerlab:
+![Vendors](../img/vendors.svg)
+
+---
+
+## Fluxograma dos Laboratórios
+
+O fluxograma ilustra o fluxo de trabalho do **Netreplica** no contexto de um ambiente de simulação de rede, em integração com o **Containerlab**:
+
+![../img/tools_imgs/workflow-netreplica.png](../img/tools_imgs/workflow-netreplica.png)
+
+---
 
 ## Estrutura do Fluxo de Trabalho
 
-### 1. Topologia
-A topologia de rede é o ponto de partida e define a estrutura e interconexão dos dispositivos de rede.
+### 1. **Topologia**
 
-### 2. Netbox
-A topologia é documentada e gerenciada no Netbox, uma plataforma centralizada para gerenciamento de infraestrutura de rede. O Netbox armazena informações detalhadas sobre dispositivos, endereços IP e conexões físicas.
+A topologia de rede define a estrutura e interconexão dos dispositivos de rede.
 
-### 3. Netreplica
-O Netreplica é responsável por sincronizar as informações de configuração do Netbox e prepará-las para a simulação. Ele obtém os dados via API e gera arquivos de configuração YAML necessários para a simulação.
+### 2. **Netbox**
 
-### 4. Configurações
-Os arquivos de configuração gerados pelo Netreplica contêm as especificações detalhadas de como os dispositivos de rede devem ser configurados.
+A topologia é documentada e gerenciada no **Netbox**, uma plataforma centralizada para gerenciamento de infraestrutura de rede. O Netbox armazena informações detalhadas sobre dispositivos, endereços IP e conexões físicas.
 
-### 5. Containerlab
-O Containerlab utiliza os arquivos de configuração gerados para criar e gerenciar topologias de rede complexas em contêineres Docker.
+### 3. **Netreplica**
 
-### 6. Laboratório (Stack Docker)
+O **Netreplica** sincroniza as informações de configuração do Netbox e prepara os dados para a simulação. Ele obtém os dados via API e gera arquivos de configuração YAML necessários para a simulação.
+
+### 4. **Configurações**
+
+O **Netreplica** gera arquivos de configuração YAML detalhados que descrevem como os dispositivos de rede devem ser configurados.
+
+### 5. **Containerlab**
+
+O **Containerlab** utiliza os arquivos de configuração gerados para criar e gerenciar topologias de rede complexas em contêineres Docker.
+
+### 6. **Laboratório (Stack Docker)**
+
 A simulação é executada em um ambiente de laboratório utilizando um stack Docker. A topologia definida é reproduzida, permitindo testes e validações.
 
-### 7. Graphite
-Para monitorar e visualizar métricas e desempenho da simulação, o Graphite é integrado ao laboratório. Ele coleta e exibe dados relevantes para análise.
+### 7. **Graphite**
+
+Para monitorar e visualizar métricas e desempenho da simulação, o **Graphite** é integrado ao laboratório. Ele coleta e exibe dados relevantes para análise.
+
+---
 
 ## Resumo do Fluxo
 
-1. **Definição da Topologia:** A estrutura e interconexão dos dispositivos de rede são definidas.
-2. **Documentação no Netbox:** A topologia é documentada e gerenciada no Netbox.
-3. **Sincronização com Netreplica:** O Netreplica sincroniza as informações do Netbox via API e gera configurações YAML.
-4. **Criação de Topologia com Containerlab:** O Containerlab usa as configurações YAML para criar a topologia de rede em contêineres Docker.
-5. **Execução da Simulação:** A topologia é executada em um ambiente de laboratório Docker.
-6. **Monitoramento com Graphite:** O desempenho e as métricas da simulação são monitorados e visualizados com Graphite.
+1. **Definição da Topologia**: A estrutura e interconexão dos dispositivos de rede são definidas.
+2. **Documentação no Netbox**: A topologia é documentada e gerenciada no **Netbox**.
+3. **Sincronização com Netreplica**: O **Netreplica** sincroniza as informações do **Netbox** via API e gera configurações YAML.
+4. **Criação de Topologia com Containerlab**: O **Containerlab** usa as configurações YAML para criar a topologia de rede em contêineres Docker.
+5. **Execução da Simulação**: A topologia é executada em um ambiente de laboratório Docker.
+6. **Monitoramento com Graphite**: O desempenho e as métricas da simulação são monitorados e visualizados com **Graphite**.
+
+---
 
 ## Status do Projeto
 
 Projeto em andamento.
 
+---
+
 ## Getting Started
 
-Para começar, leia o [Guia de Configuração](Getting Started.md) para aprender como utilizar as ferramentas Netbox, Containerlab e Netreplica em conjunto.
+Para começar, leia o [Guia de Configuração](Getting [Started.md](getting started.md)) para aprender como utilizar as ferramentas Netbox, Containerlab e Netreplica em conjunto.
 
-## Laboratórios Disponíveis
+---
 
-- [OSPF Lab](Laboratórios/ospf-lab/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da juniper em uma topologia em anel
+## Laboratórios Disponíveis
+
+- [OSPF Lab](Laborat%C3%B3rios/ospf-lab/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da Juniper em uma topologia em anel.
+
+---
 
 ## Ferramentas
 
@@ -70,6 +101,11 @@ Para começar, leia o [Guia de Configuração](Getting Started.md) para aprender
 - [Edgeshark](Ferramentas/Edgeshark/index.md): Ferramenta para captura e visualização de tráfego de rede
 - [LibreNMS](Ferramentas/LibreNMS/index.md): Ferramenta para monitoramento de dispositivos de rede
 
+
+---
+
 ## Contribua
 
-Contribua com o projeto. clicando [aqui](Contribua.md)
+Contribua com o projeto clicando [aqui](Contribua.md).
+
+---
