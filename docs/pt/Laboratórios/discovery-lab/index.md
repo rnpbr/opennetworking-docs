@@ -6,14 +6,14 @@ Este laboratório simula uma rede com 2 roteadores configurados com OSPF e SNMP,
 
 ---
 
-## 1. **Descrição**
+## :fontawesome-solid-prescription-bottle: 1. **Descrição**
 
-### **Objetivo do Lab**
+### :octicons-goal-16: 1.1 **Objetivo do Lab**
 
 O objetivo deste laboratório é importar os dispositivos de rede e suas configurações no Netbox a partir do Zabbix, além de demonstrar o funcionamento básico do roteamento OSPF entre dois roteadores conectados em anel e monitorados via SNMP.
 
 
-### :material-lan: **Topologia do Lab**
+### :material-lan: 1.2 **Topologia do Lab**
 Abaixo a topologia em formato imagem, representando os roteadores, servidores e suas conexões.
 
 ![Topologia.svg](../../../img/labs_imgs/Topologia_discovery_lab.svg)
@@ -25,7 +25,7 @@ Os roteadores estão configurados com as seguintes tecnologias:
 ---
 
 ## :material-tools: **2. Requisitos**
-### :material-alert: 2.1 Pré requisitos:
+### :material-alert: 2.1 Pré requisitos
 
 Para iniciar o laboratório, é necessário a instalação e configuração dos seguintes componentes:
 
@@ -37,7 +37,7 @@ Para iniciar o laboratório, é necessário a instalação e configuração dos 
 Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](/Getting Started)
 
 
-### :material-alert: 2.2 Tabela de Requisitos Computacionais:
+### :material-alert: 2.2 Tabela de Requisitos Computacionais
 
 | Requisito           | Detalhes |
 |---------------------| --- |
@@ -51,9 +51,9 @@ Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuraç
     Verifique se a versão do Docker e do Containerlab são compatíveis para evitar erros durante a implantação.
 ---
 
-## 3. Instalação
+## :octicons-tools-16: 3. Instalação
 
-### 3.1 Configurando a Rede Docker
+### :material-network-strength-4-cog: 3.1 Configurando a Rede Docker
 
 Antes de iniciar os containers, crie a rede bridge que interligará os dispositivos:
 
@@ -65,34 +65,23 @@ docker network create \
   br-lab
 ```
 
-### 3.2 Clonando o Repositório do Lab
+### :material-git: 3.2 Clonando o Repositório do Lab
 
 Clone o repositório do laboratório:
-
-=== "Linux/Mac"
-
 ```bash
-curl -L -o get.sh "<https://git.rnp.br/redes-abertas/labs/discovery-lab/raw/main/>discovery-lab/get.sh?inline=false" && sh get.sh && cd discovery-lab
-
+git clone https://git.rnp.br/redes-abertas/labs/-/tree/main/discovery-lab
 ```
 
-=== "Windows"
-
+Entre no repositório:
 ```bash
-curl -L -o get.bat "<https://git.rnp.br/redes-abertas/labs/discovery-lab/raw/main/><discovery-lab>/get.bat?inline=false" && call get.bat && cd discovery-lab
-
+cd discovery-lab/
 ```
-
-Este comando fará o download do script de instalação e o direcionará para o diretório do laboratório.
-
-!!! tip "Dica" 
-    Antes de executar os scripts, verifique se as permissões de execução estão corretas (use `chmod +x get.sh` no Linux/Mac).
 
 ---
 
-## 4. Implantação do Ambiente
+## :fontawesome-solid-house-chimney: 4. Implantação do Ambiente
 
-### 4.1 Subindo os Roteadores com Containerlab
+### :material-router-wireless: 4.1 Subindo os Roteadores com Containerlab
 
 Inicie a topologia com o comando:
 
@@ -105,24 +94,22 @@ sudo clab deploy -t clab/discovery-lab.clab.yaml
     Caso ocorra algum erro, verifique a saída do comando para possíveis mensagens de erro. Use `docker logs <container_name>` para depurar.
 
 
-### 4.2 Levantando o Zabbix
+### :material-server: 4.2 Levantando o Zabbix
+!!! tip "Dica" 
+    Caso você já possua um ambiente Zabbix configurado, basta pular esse passo.
 
 Para subir o container com o Zabbix:
 
 ```bash
 docker compose -f zabbix-docker/docker-compose.yml up -d
 ```
-
-!!! tip "Dica" 
-    ✅ A interface web do Zabbix ficará disponível na porta 81.
-
-Caso você já possua um ambiente Zabbix configurado, basta pular esse passo.
+A interface web do Zabbix ficará disponível na porta 81.
 
 ---
-## 5. Integração com Zabbix e Netbox
+## :material-relation-one-to-one: 5. Integração com Zabbix e Netbox
 Neste passo é preciso que você crie um token de API tanto no Zabbix quanto no Netbox para adicionar o token no arquivo .env
 
-### 5.1 Importação dos Roteadores para o Zabbix
+### :material-import: 5.1 Importação dos Roteadores para o Zabbix
 
 1. Acesse a pasta de scripts:
 ```bash
@@ -165,7 +152,7 @@ DEVICE_PASSWORD=admin@123                     # Senha Default de acesso aos rote
 python3 import_zabbix.py
 ```
 
-### 5.2 Gerando Tokens de API
+### :octicons-key-16: 5.2 Gerando Tokens de API
 Criando Token de API no Zabbix.
 
 1. Acesse a interface do Zabbix.
@@ -180,7 +167,7 @@ Criando Token de API no Netbox.
 3. Clique em **Add**, associe a um usuário e copie o token.
 4. Atualize o campo `NETBOX_TOKEN` no `.env`.
 
-### 5.3 Importação dos Roteadores para o Netbox
+### :material-import: 5.3 Importação dos Roteadores para o Netbox
 Agora com o ambiente totalmente configurado, você pode importar os roteadores ao Netbox com o comando:
 ```bash
 python3 import_netbox.py
@@ -189,24 +176,24 @@ python3 import_netbox.py
 Com o script bem sucessido, você pode visualizar os roteadores dentro do Netbox com as suas respectivas informações!
 ___
 
-## 6. Acesso
+## :material-access-point: 6. Acesso
 
 Após o laboratório ser iniciado, você poderá acessar os dispositivos e serviços configurados na rede.
 
-### 6.1 Tabela de IPs e Portas de Serviço
+### :material-table: 6.1 Tabela de IPs e Portas de Serviço
 
-Aqui está um exemplo de tabela de dispositivos, IPs e portas de serviço disponíveis no laboratório.
+Aqui está a tabela de dispositivos, IPs e portas de serviço disponíveis no laboratório.
 
 | Dispositivo | IP de Acesso | Porta | Serviço |
 | --- | --- | --- | --- |
 | **RO** | 172.10.10.101 | 22 | SSH |
 | **AC** | 172.10.10.102 | 22 | SSH |
-| **Servidor de Monitoramento** | localhost | 8080 | Web (Graphite) |
+| **Servidor de Monitoramento** | 172.20.20.1 | 8080 | Web (Graphite) |
 | **Servidor Zabbix** | 172.10.10.115 | 81 | Zabbix |
 
-### 6.2 Senhas de Acesso
+### :material-key-link: 6.2 Senhas de Acesso
 
-Aqui está um exemplo de tabela com as senhas de acesso dos serviços configurados no laboratório.
+Aqui está a tabela com as senhas de acesso dos serviços configurados no laboratório.
 
 | Serviço | Usuário | Senha |
 | --- | --- | --- |
@@ -228,6 +215,6 @@ Com o laboratório finalizado, você pode seguir algum passos abaixo como **extr
 - Consultar o guia de OSPF para validar a comunicação dinâmica entre roteadores.
 ---
 
-### Conclusão
+### :fontawesome-solid-paintbrush: 8. Conclusão
 
 ✅ Pronto! Seu ambiente agora está configurado, monitorado e documentado no Netbox. Sinta-se à vontade para personalizar ou expandir a topologia conforme os objetivos do seu estudo ou projeto.
