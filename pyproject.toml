@@ -24,4 +24,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.taskipy.tasks]
 docs = "mkdocs serve -a 0.0.0.0:9990"
 commit = "cz commit -a"
-translate = "python3 automations/generate_translation.py"
+translate = "poetry run python automations/generate_translation.py"
