@@ -1,6 +1,6 @@
-# NetReplica - Container Setup and Execution Guide
+# NetReplica - Container Configuration and Execution Guide
 
-This guide describes the steps required to set up and run NetReplica in a Docker container, using Docker Compose. NetReplica is a tool dedicated to network lab automation through software.
+This guide outlines the steps required to configure and run NetReplica in a Docker container, using Docker Compose. NetReplica is a tool dedicated to automating network laboratories through software.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ cd netreplica-docker
 
 ## Step 2: Container Initialization
 
-1. To build the Docker image and start the NetReplica container, run:
+1. To build the Docker image and start the NetReplica container, execute:
 
 ```bash
 docker compose up -d
@@ -35,9 +35,9 @@ This command will create and start the container in the background.
 
 After the container is initialized, you can interact with NetReplica using the commands below.
 
-### Executing NetReplica
+### NetReplica Execution
 
-1. Place any necessary configuration files (`.conf` files) in the `conf` folder located inside the `nrx` directory where the repository was cloned.
+1. Place any required configuration files (`.conf` files) in the `conf` folder inside the `nrx` directory where the repository was cloned.
 
 2. To execute NetReplica with the `.conf` file, use the following command:
 
@@ -46,7 +46,7 @@ docker exec -it nrx nrx -c conf/<arquivo.conf>
 ```
 
 - Replace `<arquivo.conf>` with the name of the configuration file you want to use.
-- The output directory for the execution results is already specified within the `.conf` file, so it is not necessary to specify it in the command.
+- The output directory for the execution results is already specified within the `.conf` file, so there is no need to specify it in the command.
 
 ### Alias for Agility
 
@@ -74,18 +74,18 @@ nrx -c conf/<arquivo.conf>
 
 ### Monitoring Execution
 
-- During execution, NetReplica will use the settings in the `.conf` file to access NetBox, start network replication and analysis. Monitor the terminal output to track progress and view any relevant messages.
-- After the execution is complete, the replication and analysis results will be available in the output directory specified within the `.conf` file.
+- During execution, NetReplica will use the settings in the `.conf` file to access NetBox and start network replication and analysis. Monitor the terminal output to track progress and view any relevant messages.
+- After completion of the execution, the replication and analysis results will be available in the output directory specified within the `.conf` file.
 
-### Shutting Down the Container
+### Stopping the Container
 
-To shut down the NetReplica container and release resources, run:
+To stop the NetReplica container and release resources, execute:
 
 ```bash
 docker compose down
 ```
 
-## Next Steps: `.conf` File Configuration
+## Next Steps: Configuring the `.conf` File
 
 Now that you know how to configure and run NetReplica,
 the next step is to understand how to correctly configure the `.conf` file to meet the needs of your network environment.

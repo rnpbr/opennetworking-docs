@@ -6,14 +6,14 @@ This lab simulates a network with 3 routers in a ring topology, configured using
 
 ## :material-lan: **1. Topology and Configurations**
 
-The topology consists of three routers (PB, PE, JPA) connected in a ring. Each router is configured with network interfaces and IP addresses, as well as OSPF protocols for routing and SNMP for monitoring, as we can see in the image below.
+The topology consists of three routers (PB, PE, JPA) connected in a ring. Each router is configured with network interfaces and IP addresses, as well as OSPF protocols for routing and SNMP for monitoring, as we can see in the following image.
 
 ![Topology.png](../../../img/labs_imgs/Topologia_ospf_lab.png)
 
 The routers are configured with the following technologies:
 
 - **OSPF (Open Shortest Path First)**: Used for dynamic routing in the network, allowing routers to exchange information about routes and topology updates.
-- **SNMP (Simple Network Management Protocol)**: Used for monitoring and management of the network, allowing access to telemetry information from the devices.
+- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to telemetry information from devices.
 
 ## :material-tools: **2. Installation**
 ### :material-alert: 2.1 Prerequisites:
@@ -24,11 +24,11 @@ To start the lab, it is necessary to install and configure the following compone
 - Netreplica
 - Containerlab
 
-If your environment is not configured, follow the steps [Configuration Guide](/Getting Started)
+If your environment is not configured, follow the steps in [Configuration Guide](/Getting Started)
 
    
 ### :material-application-import: 2.2 Importing Template into Netbox:
-Containerlab uses [startup-config](https://containerlab.dev/manual/nodes/#remote-startup-config ) to import configurations to the equipment, these are defined in templates within Netbox.
+Containerlab uses [startup-config](https://containerlab.dev/manual/nodes/#remote-startup-config ) to import configurations to devices, these defined in templates within Netbox.
 
 1. :material-git: **In Netbox, create a Data source and add the git repository below:** 
 ```bash
@@ -37,7 +37,7 @@ https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/config-templates-data-so
 How to add: [Render Templates #Remote Templates](/Guias/Netbox/Render_Templates/#11-templates-remotos)
 
 2. **Import the OSPF lab template:**
-     1. Access your Netbox and go to **Provisioning** > **Configuration Models**.
+     1. Access your Netbox and go to **Provisioning** > **Configuration Templates**.
      2. Create a template and define a name of your choice.
      3. In **Data Source** choose the name of the data source created in step **1**.
      4. In **File** Select: ```Juniper/<image>/OSPF.jinja2```]
@@ -46,9 +46,9 @@ How to add: [Render Templates #Remote Templates](/Guias/Netbox/Render_Templates/
         Pay attention to the device image, as the configuration templates are created in different ways for each type of image
 
 3. :material-link-variant: **Associating Templates to Devices:**
-      1. In your Netbox, access **Devices > Devices**.
+      1. In your Netbox, go to **Devices > Devices**.
       2. Select the device you want to associate with the template and click **edit**. 
-      3. In the Management category, in **Configuration Model** select the name of the template defined in step **2.2**.
+      3. In the Management category, in **Configuration Template** select the name of the template defined in step **2.2**.
       4. Save the changes.
 
 
@@ -65,18 +65,18 @@ nrx -c conf/<file>.conf -n ospf-lab
 sudo -E clab dep -t conf/lab/ospf-lab.clab.yaml
 ```
 !!! warning "Attention"
-    The devices need some time to be initialized and configured, it may be that the lab (graphite) is already available and you cannot access the devices. </br>
+    The devices need time to be initialized and configured, it may be that the lab (graphite) is already available and you cannot access the devices. </br>
 !!! info "Tip"
-    To view the container logs and check if it has already been configured, you can use:
+    To view the container logs and verify that it has already been configured, you can use:
     ```bash
     docker logs <container_name> -f
     ```
 
 ## **3. Access**
 
-There are two ways to access the devices on the network:
+There are two ways to access devices on the network:
 
-- **Access via SSH to the routers**: Use an SSH client to connect to the routers using the IP address of each device or the name assigned by Containerlab, along with the login credentials provided. The management IP address of each router is displayed after the lab is executed by Containerlab.
+- **SSH access to routers**: Use an SSH client to connect to the routers using the IP address of each device or the name assigned by Containerlab, along with the login credentials provided. The management IP address of each router is displayed after the lab is executed by Containerlab.
 
     Example:
 
@@ -98,7 +98,7 @@ There are two ways to access the devices on the network:
 
     Credentials:
 
-  - User: admin
+  - Username: admin
   - Password: admin@123
 
 ## **4. Monitoring**

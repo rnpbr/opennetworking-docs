@@ -2,31 +2,31 @@
 
 ## :octicons-book-24: 1. Introduction
 
-This guide outlines the installation of **Telegraf**, a metrics collection tool that will be used in the **br-lab** laboratory. Telegraf provides support for various protocols and plugins for metrics collection, allowing its integration with different systems and devices. The installation utilizes Docker Compose to automatically provision the necessary services, ensuring a practical and efficient implementation within the laboratory environment.
+This guide presents the installation of **Telegraf**, a metric collection tool that will be used in the **br-lab** laboratory. Telegraf provides support for various protocols and plugins for collecting metrics, allowing its integration with different systems and devices. The installation uses Docker Compose to automatically provision the necessary services, ensuring a practical and efficient implementation in the laboratory environment.
 
 ---
 
 ## :material-network: 2. What is Telegraf?
 
-Telegraf is a highly configurable metrics collection agent developed by **InfluxData**. It is compatible with a wide range of protocols and plugins, making it possible to capture and process metrics from systems, devices, applications, and services in real-time.
+Telegraf is a highly configurable metric collection agent developed by **InfluxData**. It is compatible with a wide variety of protocols and plugins, which makes it possible to capture and process metrics from systems, devices, applications, and services in real time.
 
-### Key Components:
+### Main Components:
 
 1. **Telegraf**: Configurable data collection agent.
 2. **InfluxDB**: Time-series database where Telegraf data will be stored.
-3. **Grafana**: Tool for visualization and analysis of collected data.
+3. **Grafana**: Tool for visualizing and analyzing collected data.
 4. **Chronograf**: Additional graphical interface for querying and analyzing data in InfluxDB.
 
-This architecture integrates the capture, storage, and visualization of metrics, ensuring flexibility and efficiency in environment monitoring.
+This architecture integrates metric capture, storage, and visualization, ensuring flexibility and efficiency in environment monitoring.
 
 ---
 
 ## :octicons-checklist-24: 3. Prerequisites
 
-Ensure you meet the following prerequisites before installation:
+Make sure you meet the following prerequisites before installation:
 
-1. **br-lab Network Configured**:
-    - The **br-lab** network is required to isolate services in the environment. For more details on this configuration, refer to the [**Getting Started: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md) guide.
+1. **br-lab network configured**:
+    - The **br-lab** network is mandatory to isolate services in the environment. For more details on this configuration, see the [**Getting Started: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md) guide.
 
 2. **Required Packages**:
     - `docker`, `docker-compose`, `curl`.
@@ -55,7 +55,7 @@ This command will:
 
 ---
 
-## :octicons-container-24: 5. Starting the Containers
+## :octicons-container-24: 5. Spinning Up the Containers
 
 To start the Telegraf services and its components, execute:
 
@@ -128,7 +128,7 @@ Use the credentials configured in InfluxDB to access and configure queries.
 
 ## :octicons-rocket-24: 8. Next Steps
 
-- **Create custom dashboards in Grafana**: Explore the metrics to create specific visualizations for your needs.
-- **Add Data Sources to Telegraf**: Expand usage by configuring Telegraf to collect metrics from other sources of interest in the lab.
+- **Create Custom Dashboards in Grafana**: Explore the metrics to create specific visualizations for your needs.
+- **Add Data Sources to Telegraf**: Expand usage by configuring Telegraf to collect metrics from other sources of interest in the laboratory.
 
-For more information about Telegraf, consult the [official Telegraf documentation](https://github.com/influxdata/telegraf).
+For more information about Telegraf, see the [official Telegraf documentation](https://github.com/influxdata/telegraf).

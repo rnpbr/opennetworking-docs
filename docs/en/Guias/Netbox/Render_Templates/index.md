@@ -10,7 +10,7 @@ Remote templates are available online in a Git repository. To add our template r
 
 #### :material-git: Adding the Repository
 
-1. Access NetBox and go to **Customization > Data Source > Add**.
+1. Access NetBox and go to **Customization > Data Sources > Add**.
 2. Define a name of your choice and select the type as **Git**.
 3. In the URL, add the following link to use the template:
 
@@ -22,7 +22,7 @@ Remote templates are available online in a Git repository. To add our template r
     If the repository is private, add your authentication method in the backend parameters.
 
 4. Click **Create**.
-5. Click on the data source that was created, and then click **Sync** to perform the repository analysis.
+5. Click on the data source that was created and then click **Sync** to perform the repository analysis.
 
    If the synchronization is successful, a "Completed" message will appear in the Status section.
 
@@ -33,7 +33,7 @@ Remote templates are available online in a Git repository. To add our template r
 To add local templates, follow these steps:
 
 1. Access NetBox and go to **Provisioning > Configuration Templates > Add**.
-2. Add a name, a description, and in **Data**, enter the Jinja2 code of the template you want to add. Fill in the other assignments as needed.
+2. Add a name, a description, and in **Data**, enter the Jinja2 code of the template you want to add. Fill in the other attributes as needed.
 
 Here is an example of a generic Jinja2 template:
 
@@ -87,7 +87,7 @@ To associate a template to a specific device:
 2. Click **Edit** or the pencil icon in the upper right corner.
 3. Look for the **Management > Configuration Template** section.
 
-   In this tab, you will see all available settings.
+   In this tab, you will see all the available configurations.
 
 !!! info "Observation"
     Pay attention to the device system, as configuration templates are created differently for different systems.
@@ -95,6 +95,6 @@ To associate a template to a specific device:
 4. After selecting the desired template, click **Save**.
 5. To view the template, access the device and click **Render Config**. This will render the specific configuration for the device dynamically.
 
-## :material-skip-next: Next Steps
+## :material-skip-next: Next steps
 
 If you want to create other templates and learn more about how the template base works, click [here](Criando um Template.md).

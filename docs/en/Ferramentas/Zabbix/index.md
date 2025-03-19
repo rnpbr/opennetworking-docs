@@ -2,17 +2,17 @@
 
 ## :octicons-book-24: 1. Introduction
 
-This guide outlines the installation of **Zabbix**, an open-source monitoring tool that will be used for collecting and analyzing metrics in the **br-lab** laboratory. Zabbix provides real-time monitoring of devices, servers, and applications, helping to identify and resolve problems. The installation uses Docker Compose to provision services quickly and pre-configured, ensuring a practical and efficient implementation in the laboratory environment.
+This guide outlines the installation of **Zabbix**, an open-source monitoring tool that will be used for collecting and analyzing metrics in the **br-lab** laboratory. Zabbix provides real-time monitoring of devices, servers, and applications, assisting in the identification and resolution of problems. The installation uses Docker Compose to provision services in an agile and pre-configured manner, ensuring a practical and efficient implementation in the laboratory environment.
 
 ---
 
 ## :material-network-pos: 2. What is Zabbix?
 
-**Zabbix** is an open-source monitoring platform that collects, processes, and displays performance metrics for servers, applications, and network devices. It offers an intuitive graphical interface, alert notifications, and reports to identify problems and help administrators proactively manage their infrastructures.
+**Zabbix** is an open-source monitoring platform that collects, processes, and displays performance metrics from servers, applications, and network devices. It offers an intuitive graphical interface, alert notifications, and reports to identify problems and assist administrators in the proactive management of their infrastructures.
 
-### Main Components:
+### Main components:
 - **Zabbix Server**: Processes monitoring data, stores it in the database, and sends alerts.
-- **Web Interface (Frontend)**: Allows viewing, configuration, and analysis of metrics.
+- **Web Interface (Frontend)**: Allows visualization, configuration, and analysis of metrics.
 - **Zabbix Agent**: Collects metrics from the host where it is installed.
 - **Database**: Stores historical data, configurations, and performance statistics.
 
@@ -32,11 +32,11 @@ Make sure you meet the following prerequisites before installation:
 
 ## :octicons-tools-24: 4. Preparing the Environment
 
-To quickly initialize the Zabbix environment in the **br-lab** network, we will use Docker Compose with an automated script.
+To quickly initialize the Zabbix environment on the **br-lab** network, we will use Docker Compose with an automated script.
 
 ## :fontawesome-brands-docker: 5. Downloading Docker Compose
 
-To download Docker Compose, execute the following command:
+To download Docker Compose, run the following command:
 
 === "Linux/ Mac"
 
@@ -54,7 +54,7 @@ This command downloads the installation script and then navigates to the **Zabbi
 
 ---
 
-## :octicons-container-24: 5. Starting the containers
+## :octicons-container-24: 5. Starting the Containers
 
 To start the Zabbix services, use the command below:
 

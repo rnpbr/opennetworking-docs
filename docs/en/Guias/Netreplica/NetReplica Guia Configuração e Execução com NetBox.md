@@ -1,15 +1,15 @@
 # :material-content-duplicate: NetReplica Guide: Configuration and Execution with NetBox
 
-This guide outlines the configurations required to integrate NetReplica with NetBox. NetReplica is a tool used for replicating and analyzing networks, while NetBox is a network asset management platform.
+This guide describes the necessary configurations to integrate NetReplica with NetBox. NetReplica is a tool used for replicating and analyzing networks, while NetBox is a network asset management platform.
 
 ## :octicons-tools-24: Step 1: Direct Execution with NRX
 
 ---
 
 !!! tip "Note"
-    Before proceeding, verify that NetReplica and NetBox are installed. You can find more information here: [Netreplica Installation](index.md)
+    Before proceeding, verify that NetReplica and NetBox are installed. You can find more information here: [NetReplica Installation](index.md)
 
-`nrx` is the NetReplica command-line interface that allows you to configure and execute tasks directly without creating a configuration file. The following are the main commands you can use:
+`nrx` is the command-line interface of NetReplica that allows you to configure and execute tasks directly without needing to create a configuration file. The following are the main commands you can use:
 
 ### :octicons-command-palette-24: Basic Commands
 
@@ -56,7 +56,7 @@ This command disables TLS certificate verification.
 
 ### :material-text-box-search-outline: Common `nrx` Arguments
 
-- `-c, --config CONFIG`: Defines the configuration file to be used.
+- `-c, --config CONFIG`: Defines the configuration file to use.
 - `-a, --api API`: Defines the NetBox API URL.
 - `-s, --site SITE`: Specifies the NetBox site to be exported.
 - `-t, --tags TAGS`: Defines the NetBox tags to be exported.
@@ -70,9 +70,9 @@ This command disables TLS certificate verification.
 
 ---
 
-The `.conf` configuration file provides a structured way to define the variables needed for topology export. It is especially useful when you want to reuse the same configurations or when there are many options to define.
+The `.conf` configuration file provides a structured means of defining the variables needed for topology export. It is particularly useful when you want to reuse the same settings or when there are many options to be defined.
 
-Sure, here is the configuration file with a detailed explanation for each field:
+Of course, here is the configuration file with a detailed explanation for each field:
 
 ---
 
@@ -112,7 +112,7 @@ EXPORT_TAGS          = []
 # Export device configurations, when available
 EXPORT_CONFIGS       = true
 
-# Levels of device roles for visualization
+# Device role levels for visualization
 [DEVICE_ROLE_LEVELS]
 unknown =              0
 server =               0
@@ -133,7 +133,7 @@ router =               4
 1. **NB_API_URL**
     - **Description**: NetBox API URL.
     - **Example**: `'https://demo.netbox.dev'`
-    - **Usage**: Defines the URL to which NetReplica should send API requests. If you are using a local NetBox instance, change to `'http://localhost:8000'`.
+    - **Usage**: Defines the URL to which NetReplica should send API requests. If you are using a local instance of NetBox, change to `'http://localhost:8000'`.
 
 2. **NB_API_TOKEN**
     - **Description**: NetBox API authentication token.
@@ -143,12 +143,12 @@ router =               4
 3. **TLS_VALIDATE**
     - **Description**: Whether to perform TLS certificate validation.
     - **Example**: `true`
-    - **Usage**: `true` enables TLS certificate validation to ensure secure communication. `false` disables validation, which can be useful in test environments but is not recommended for production.
+    - **Usage**: `true` enables TLS certificate validation to ensure communication security. `false` disables validation, which can be useful in test environments but is not recommended for production.
 
 4. **API_TIMEOUT**
     - **Description**: Timeout for API requests, in seconds.
     - **Example**: `10`
-    - **Usage**: Defines the maximum time NetReplica should wait for an API response before considering the request as failed.
+    - **Usage**: Defines the maximum time NetReplica should wait for an API response before considering the request failed.
 
 ### API Optimization Settings
 
@@ -159,24 +159,24 @@ router =               4
       interfaces_block_size = 4
       cables_block_size = 64
       ```
-    - **Usage**: Controls the number of interfaces and cables processed in each bulk query. Adjusting these values ​​can improve performance depending on the size of your database.
+    - **Usage**: Controls the number of interfaces and cables processed in each bulk query. Adjusting these values can improve performance depending on the size of your database.
 
 ### Export Settings
 
 6. **TOPOLOGY_NAME**
-    - **Description**: Topology name for export.
+    - **Description**: Name of the topology for export.
     - **Example**: `'DemoSite'`
     - **Usage**: Defines the name used to identify the exported topology. It is useful for organizing and identifying exported files.
 
 7. **OUTPUT_FORMAT**
-    - **Description**: Output format for data export.
+    - **Description**: Output format for exporting data.
     - **Example**: `'clab'`
-    - **Usage**: Defines the format of the exported data. It can be `'gml'`, `'cyjs'`, `'clab'`, among other compatible formats.
+    - **Usage**: Defines the format of the exported data. Can be `'gml'`, `'cyjs'`, `'clab'`, among other compatible formats.
 
 8. **OUTPUT_DIR**
-    - **Description**: Directory where the exported files will be saved.
+    - **Description**: Directory where exported files will be saved.
     - **Example**: `'$HOME/nrx'`
-    - **Usage**: Defines the path where the exported files will be stored. Can replace the default directory if specified.
+    - **Usage**: Defines the path where exported files will be stored. Can replace the default directory if specified.
 
 9. **TEMPLATES_PATH**
     - **Description**: Path to the templates used during export.
@@ -191,17 +191,17 @@ router =               4
 ### Device Export Settings
 
 11. **EXPORT_DEVICE_ROLES**
-    - **Description**: List of NetBox Device Roles to be exported.
+    - **Description**: List of NetBox device roles to be exported.
     - **Example**: `['router', 'core-switch']`
     - **Usage**: Defines which types of devices (e.g., routers, switches) should be included in the export.
 
 12. **EXPORT_SITES**
-    - **Description**: List of NetBox Sites to be exported.
+    - **Description**: List of NetBox sites to be exported.
     - **Example**: `['DM-Akron']`
     - **Usage**: Defines which specific sites should be exported. Can include multiple sites.
 
 13. **EXPORT_TAGS**
-    - **Description**: List of NetBox Tags to be exported.
+    - **Description**: List of NetBox tags to be exported.
     - **Example**: `['production', 'datacenter']`
     - **Usage**: Defines which tags should be used to filter devices during export.
 
@@ -227,16 +227,16 @@ router =               4
       super-spine =          3
       router =               4
       ```
-    - **Usage**: Defines the display order of devices in the export. Devices with higher levels are displayed more prominently.
+    - **Usage**: Defines the order of device visualization in the export. Devices with higher levels are displayed more prominently.
 
 ---
 
-This configuration file allows detailed customization of how NetReplica interacts with NetBox and exports data,
-helping to meet specific visualization and export needs.
+This configuration file allows detailed customization of how NetReplica interacts with NetBox and exports data, helping to meet specific visualization and export needs.
+
 
 ### :fontawesome-solid-arrow-right-to-bracket: **Next Steps**
 
-Now to delve deeper, you can check out the next guide that shows how to create and configure new Templates and add new images to NetReplica. check here [NetReplica Creating Templates](NetReplica%20Criando%20Templates.md).
+Now to delve deeper you can check out the next guide that shows how to create and configure new Templates and add new images to netreplica. check it out here [NetReplica Creating Templates](NetReplica%20Criando%20Templates.md).
 
 ### :fontawesome-solid-link: References
 

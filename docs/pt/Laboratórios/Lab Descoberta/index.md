@@ -1,4 +1,4 @@
-# Discovery Lab
+# Lab Descoberta
 
 ## :material-bookmark: **Introdução**
 

@@ -29,6 +29,11 @@ Aqui está um exemplo de laboratório configurado para simular OSPF utilizando J
 - Simulação de OSPF com Junos, uma das tecnologias de roteamento mais utilizadas.
 - **Link**: [OSPF (Junos) Lab](ospf-lab/index.md).
 
+### Discovery (Junos)
+
+- Importação de roteadores com scripts, utilizando Zabbix e Netbox.
+- **Link**: [Discovery (Junos) Lab](discovery-lab/index.md).
+
 ---
 
 ## Ferramentas de Análise Recomendadas
