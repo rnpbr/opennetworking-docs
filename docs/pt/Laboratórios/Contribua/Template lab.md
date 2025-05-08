@@ -23,22 +23,23 @@ Aqui, inclua o diagrama ou uma descrição textual detalhada da topologia, menci
 
 ---
 
-## 2. Exemplos de Uso
+Claro! Abaixo está um **template geral da seção "Exemplo de Aplicação"**, com uma **descrição orientativa** para o usuário entender o que incluir nessa parte do guia, seguida por um **exemplo prático** que pode ser adaptado em qualquer laboratório semelhante:
+
+---
 
 ### **Exemplo de Aplicação**
 
-Aqui, forneça um exemplo básico da aplicação ou funcionalidade do laboratório, com etapas claras e comandos de exemplo. Utilize um cenário simples para que o usuário consiga replicar a configuração.
+**Descrição:**
+Utilize esta seção para apresentar cenários práticos e objetivos nos quais o laboratório pode ser aplicado. O foco deve estar nas possíveis finalidades de uso, como treinamento, testes de desempenho, validação de configurações ou estudo de protocolos. Evite detalhes técnicos da implementação e concentre-se em **para que** o laboratório pode ser usado em ambientes reais ou acadêmicos.
 
 **Exemplo de Aplicação:**
 
-1. **Configuração do OSPF**:
-    - No Roteador 1: Ative o OSPF e adicione a rede `192.168.1.0/24` à área OSPF.
-    - No Roteador 2: Configure o OSPF para incluir a rede `192.168.2.0/24` na mesma área.
-2. **Resultado Esperado**:
-    - Após a configuração, os roteadores devem formar uma vizinhança OSPF e o tráfego de rede entre as duas redes deve ser roteado corretamente.
+Este laboratório é ideal para cenários de simulação de redes reais, especialmente no contexto de roteamento dinâmico e monitoramento. Ele pode ser aplicado em:
 
-!!! tip "Dica" 
-    Verifique se as redes estão sendo anunciadas corretamente entre os roteadores após a configuração.
+* **Capacitação técnica**: Treinamento de profissionais em protocolos de roteamento (como OSPF) e monitoramento com SNMP, utilizando ferramentas como o Zabbix.
+* **Testes de ambientes monitorados**: Avaliação de como roteadores se comportam sob monitoramento contínuo e descoberta automática de dispositivos.
+* **Ensino em disciplinas de redes**: Ambiente de apoio a aulas práticas de redes de computadores, com foco em topologias ponto a ponto e integração com sistemas de gestão de rede.
+* **Validação de integração de ferramentas**: Utilizado para validar a comunicação entre roteadores e plataformas de monitoramento em ambientes virtualizados.
 
 ---
 
@@ -78,17 +79,17 @@ Para baixar o laboratório, execute o comando correspondente ao seu sistema oper
 
 === "Linux/Mac"
 
-```bash
-curl -L -o get.sh "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><nome-do-lab>/get.sh?inline=false" && sh get.sh && cd <nome-do-lab>
-
-```
+    ```bash
+    curl -L -o get.sh "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><nome-do-lab>/get.sh?inline=false" && sh get.sh && cd <nome-do-lab>
+    
+    ```
 
 === "Windows"
 
-```bash
-curl -L -o get.bat "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><nome-do-lab>/get.bat?inline=false" && call get.bat && cd <nome-do-lab>
-
-```
+    ```bash
+    curl -L -o get.bat "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><nome-do-lab>/get.bat?inline=false" && call get.bat && cd <nome-do-lab>
+    
+    ```
 
 Este comando fará o download do script de instalação e o direcionará para o diretório do laboratório.
 
