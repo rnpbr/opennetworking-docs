@@ -35,7 +35,7 @@ To start the lab, the following components must be installed and configured:
 - Docker
 - Python
 
-If your environment is not configured, follow the steps in the [Configuration Guide](/Getting Started)
+If your environment is not configured, follow the steps in the [Configuration Guide](../../Getting%20Started.md)
 
 ### :material-alert: 2.2 Computational Requirements Table
 

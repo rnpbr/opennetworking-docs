@@ -26,7 +26,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-    
+
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -51,10 +51,13 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
-      
+
 plugins:
   - termynal
-  - search
+  - search:
+      lang:
+        - en
+        - pt
   - i18n:
       docs_structure: folder
       reconfigure_search: true
@@ -66,3 +69,4 @@ plugins:
         - locale: en
           name: English (WIP)
           build: true
+

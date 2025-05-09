@@ -13,7 +13,7 @@ Neste guia, você aprenderá a configurar uma regra de descoberta no Zabbix para
 Antes de iniciar, verifique os seguintes pré-requisitos:
 
 1. **Zabbix devidamente instalado** na rede `br-lab`.
-   Caso ainda não tenha feito a instalação, siga o [Guia de Instalação do Zabbix](../../../en/Ferramentas/Zabbix/index.md).
+   Caso ainda não tenha feito a instalação, siga o [Guia de Instalação do Zabbix](../../../pt/Ferramentas/Zabbix/index.md).
 
 2. A rede `br-lab` deve estar funcional e com dispositivos configurados para responder a requisições SNMPv2.
 

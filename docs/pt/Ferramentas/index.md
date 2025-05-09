@@ -6,7 +6,7 @@ Antes de começar a usar as ferramentas de monitoramento, é fundamental configu
 
 ### :octicons-gear-24: **Passo 1: Configuração da Rede Docker br-lab**
 
-Acesse o [Guia de Configuração da Rede br-lab](Primeiros passos: preparando o ambiente.md) para configurar sua rede Docker. Essa rede será responsável por conectar seus laboratórios ao sistema de monitoramento de forma eficiente, permitindo que múltiplas ferramentas funcionem de maneira integrada.
+Acesse o [Guia de Configuração da Rede br-lab](Primeiros passos - preparando o ambiente.md) para configurar sua rede Docker. Essa rede será responsável por conectar seus laboratórios ao sistema de monitoramento de forma eficiente, permitindo que múltiplas ferramentas funcionem de maneira integrada.
 
 ---
 

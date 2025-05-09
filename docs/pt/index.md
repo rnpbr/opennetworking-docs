@@ -81,8 +81,7 @@ Projeto em andamento.
 ---
 
 ## Getting Started
-
-Para começar, leia o [Guia de Configuração](Getting [Started.md](getting started.md)) para aprender como utilizar as ferramentas Netbox, Containerlab e Netreplica em conjunto.
+Para começar, leia o [Guia de Configuração](./Getting%20Started.md) para aprender como utilizar as ferramentas Netbox, Containerlab e Netreplica em conjunto.
 
 ---
 

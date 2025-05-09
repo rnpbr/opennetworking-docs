@@ -24,7 +24,7 @@ Para iniciar o laboratório, é necessário a instalação e configuração dos 
 - Netreplica
 - Containerlab
 
-Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](/Getting Started)
+Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](../../Getting%20Started.md)
 
    
 ### :material-application-import: 2.2 Importando Template no Netbox:
@@ -34,7 +34,7 @@ O Containerlab utiliza [startup-config](https://containerlab.dev/manual/nodes/#r
 ```bash
 https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/config-templates-data-source
 ```
-Como adicionar: [Render Templates #Templates remotos](/Guias/Netbox/Render_Templates/#11-templates-remotos)
+Como adicionar: [Render Templates - #Templates remotos](../../Guias/Netbox/Render_Templates/index.md/#11-templates-remotos)
 
 2. **Importe o template do laboratório de OSPF:**
      1. Acesse seu Netbox e vá em **Provisionamento** > **Modelos de Configuração**.

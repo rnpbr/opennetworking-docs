@@ -31,7 +31,7 @@ This flow ensures that network data is collected in a unified manner, stored opt
 
 ## :octicons-checklist-24: 4. Prerequisites
 
-Before proceeding with the ELK configuration, it is necessary to configure the **br-lab** network. For details on this configuration, consult the guide [**First Steps: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md).
+Before proceeding with the ELK configuration, it is necessary to configure the **br-lab** network. For details on this configuration, consult the guide [**First Steps: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md).
 
 ---
 

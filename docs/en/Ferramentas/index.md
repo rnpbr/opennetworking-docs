@@ -6,7 +6,7 @@ Before you begin using the monitoring tools, it's crucial to set up the communic
 
 ### :octicons-gear-24: **Step 1: Configuring the br-lab Docker Network**
 
-Access the [br-lab Network Configuration Guide](Primeiros passos: preparando o ambiente.md) to configure your Docker network. This network will be responsible for efficiently connecting your labs to the monitoring system, allowing multiple tools to work in an integrated manner.
+Access the [br-lab Network Configuration Guide](Primeiros passos - preparando o ambiente.md) to configure your Docker network. This network will be responsible for efficiently connecting your labs to the monitoring system, allowing multiple tools to work in an integrated manner.
 
 ---
 

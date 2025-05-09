@@ -26,7 +26,7 @@ Essa arquitetura integra captura, armazenamento e visualização de métricas, g
 Certifique-se de atender aos seguintes pré-requisitos antes da instalação:
 
 1. **Rede br-lab configurada**:
-    - A rede **br-lab** é obrigatória para isolar os serviços no ambiente. Para mais detalhes sobre essa configuração, consulte o guia [**Primeiros Passos: Preparando o Ambiente**](../Primeiros passos: preparando o ambiente.md).
+    - A rede **br-lab** é obrigatória para isolar os serviços no ambiente. Para mais detalhes sobre essa configuração, consulte o guia [**Primeiros Passos: Preparando o Ambiente**](../Primeiros passos - preparando o ambiente.md).
 
 2. **Pacotes Necessários**:
     - `docker`, `docker-compose`, `curl`.

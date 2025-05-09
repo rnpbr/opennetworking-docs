@@ -82,7 +82,7 @@ Project in progress.
 
 ## Getting Started
 
-To get started, read the [Configuration Guide](Getting [Started.md](getting started.md)) to learn how to use the Netbox, Containerlab, and Netreplica tools together.
+To get started, read the [Configuration Guide](./Getting%20Started.md) to learn how to use the Netbox, Containerlab, and Netreplica tools together.
 
 ---
 
@@ -105,4 +105,4 @@ To get started, read the [Configuration Guide](Getting [Started.md](getting star
 
 ## Contribute
 
-Contribute to the project by clicking [here](Contribua.md).
+Contribute to the project by clicking [here](./Contribua.md).

@@ -26,7 +26,7 @@ This architecture integrates metric capture, storage, and visualization, ensurin
 Make sure you meet the following prerequisites before installation:
 
 1. **br-lab network configured**:
-    - The **br-lab** network is mandatory to isolate services in the environment. For more details on this configuration, see the [**Getting Started: Preparing the Environment**](../Primeiros passos: preparando o ambiente.md) guide.
+    - The **br-lab** network is mandatory to isolate services in the environment. For more details on this configuration, see the [**Getting Started: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md) guide.
 
 2. **Required Packages**:
     - `docker`, `docker-compose`, `curl`.

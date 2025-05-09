@@ -34,7 +34,7 @@ Esse fluxo garante que os dados da rede sejam coletados de forma unificada, arma
 
 ## :octicons-checklist-24: 4. Pré-requisitos
 
-Antes de prosseguir com a configuração do ELK, é necessário configurar a rede **br-lab**. Para detalhes sobre essa configuração, consulte o guia [**Primeiros Passos: Preparando o Ambiente**](../Primeiros passos: preparando o ambiente.md).
+Antes de prosseguir com a configuração do ELK, é necessário configurar a rede **br-lab**. Para detalhes sobre essa configuração, consulte o guia [**Primeiros Passos: Preparando o Ambiente**](../Primeiros passos - preparando o ambiente.md).
 
 ---
 

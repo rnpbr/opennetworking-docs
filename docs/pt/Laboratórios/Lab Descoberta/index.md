@@ -34,7 +34,7 @@ Para iniciar o laboratório, é necessário a instalação e configuração dos 
 - Docker
 - Python
 
-Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](/Getting Started)
+Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](../../Getting%20Started.md)
 
 
 ### :material-alert: 2.2 Tabela de Requisitos Computacionais

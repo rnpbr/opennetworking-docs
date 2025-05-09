@@ -11,7 +11,7 @@ Este template serve como um **exemplo** para a criação de guias de implementa�
 Descreva o objetivo do laboratório de forma clara, explicando o que será demonstrado ou testado. Seja breve, mas inclua as funcionalidades principais que o usuário irá explorar.
 
 Nesta parte deve conter uma imagem contendo a topologia do lab
-[Topologia do Lab](../../../img/labs_imgs/<Topologia.svg>)
+[Topologia do Lab](../../../img/labs_imgs/Topologia_ospf_lab.png)
 
 **Exemplo:O laboratório "ospf-lab" demonstra a configuração e teste de roteamento OSPF (Open Shortest Path First) em uma rede composta por múltiplos roteadores. O foco principal é verificar o estabelecimento da vizinhança OSPF e o roteamento entre os dispositivos da rede.**
 
