@@ -8,7 +8,7 @@ This lab simulates, via Containerlab, the interconnection between three routers 
 
 ### Lab Objective
 
-The `telegraf-lab` lab aims to simulate traffic monitoring of a topology with three interconnected routers (GO, MS, and MT), using dynamic routing protocols (OSPF), flow export (IPFIX), and monitoring with SNMP. The collection and visualization of network metrics are performed with modern observability tools: **Telegraf**, **InfluxDB**, **Chronograf**, and **Grafana**.
+The main objective of the `telegraf-lab` is to simulate traffic monitoring of a topology with three interconnected routers (GO, MS, and MT), using dynamic routing protocols (OSPF), flow export (IPFIX), and monitoring with SNMP. The collection and visualization of network metrics are performed with modern observability tools: **Telegraf**, **InfluxDB**, **Chronograf**, and **Grafana**.
 
 **Lab Topology**
 [Lab Topology](../../../img/labs_imgs/Topologia_Telegraf.svg)
@@ -16,8 +16,8 @@ The `telegraf-lab` lab aims to simulate traffic monitoring of a topology with th
 **Topology Description**
 
 * Three routers (GO, MS, MT) interconnected in a linear topology with point-to-point /31 links.
-* Dynamic routing via OSPF between routers.
-* Collection of traffic metrics via IPFIX and SNMP.
+* Dynamic routing via OSPF between the routers.
+* Traffic metrics collection via IPFIX and SNMP.
 * Observability with the TICK stack (Telegraf, InfluxDB, Chronograf) and Grafana.
 * External network `br-lab` connects the nodes to the monitoring infrastructure.
 
@@ -27,49 +27,49 @@ The `telegraf-lab` lab aims to simulate traffic monitoring of a topology with th
 
 ### Application Examples
 
-This lab can be explored in various academic and applied research scenarios, serving as a basis for experimenting with monitoring and visualizing traffic in networks with multiple routers.
+This lab can be explored in various academic and applied research scenarios, serving as a basis for experimentation with monitoring and traffic visualization in networks with multiple routers.
 
 #### Possible Applications:
 
-* **Training network and NOC teams**: Simulates real operations with OSPF, IPFIX, and SNMP, facilitating the analysis of traffic behavior.
+* **Training network and NOC teams**: Simulates real operations with OSPF, IPFIX, and SNMP, facilitating traffic behavior analysis.
 * **Traffic analysis with IPFIX**: Allows exporting flows and studying traffic patterns between domains.
-* **Metrics visualization with Grafana**: Supports performance studies, bottlenecks, and network utilization peaks.
-* **Distributed monitoring with Telegraf**: Evaluates the simultaneous collection of data from multiple routers with different protocols.
+* **Metrics visualization with Grafana**: Supports performance studies, bottlenecks, and peak network usage.
+* **Distributed monitoring with Telegraf**: Evaluates the simultaneous data collection from multiple routers with different protocols.
 * **Teaching routing and telemetry protocols**: Ideal environment for advanced network practical classes.
 
 ---
 
 ## 3. Requirements
 
-Below are listed the minimum hardware and software requirements to run the lab. Make sure to include essential tools such as **Containerlab** and **Docker**, in addition to the `br-lab` network.
-To learn more about these items, access: [First Steps - preparing the environment](../../Ferramentas/Primeiros passos - preparando o ambiente.md).
+Below are listed the minimum hardware and software requirements to run the lab. Make sure to include the essential tools such as **Containerlab** and **Docker**, in addition to the `br-lab` network.
+To learn more about these items, access: [Getting Started - Preparing the environment](../../Ferramentas/Primeiros passos - preparando o ambiente.md).
 
-And have the telegraf stack previously installed, to learn more about zabbix installation access: [Telegraf Installation](../../Ferramentas/Telegraf/index.md)
+And have the telegraf stack previously installed. To learn more about installing Zabbix, access: [Telegraf Installation](../../Ferramentas/Telegraf/index.md)
 
 ### 🖥️ Requirements Table
 
 | Requirement           | Details              |
 | ------------------- |-----------------------|
 | **CPUs**            | 6 vCPUs               |
-| **RAM**     | 12 GB                 |
+| **RAM Memory**     | 12 GB                 |
 | **Disk Space** | 10 GB (recommended)   |
 | **Containerlab**    | 0.45.0 or higher    |
 | **Docker Engine**   | 23.0.3 or higher    |
 | **Images**         | `vr-vjunos:23.2R1.14` |
 | **Docker Network**     | `br-lab`              |
 
-!!! warning "Attention"
-    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.
-    - On **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
-    - On **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
+!!! warning "Attention" 
+    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.  
+    - On **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).  
+    - On **AMD** processors, it is known as **AMD-V** (AMD Virtualization).  
 
-    Without this feature enabled, images like **vJunos-router** will not work correctly, as they require execution in containers in `--privileged` mode with extended permissions (such as `SYS_ADMIN`) and hardware emulation support.
+    Without this feature enabled, images like the **vJunos-router** will not work correctly, as they require execution in containers in `--privileged` mode with extended permissions (such as `SYS_ADMIN`) and hardware emulation support.
 
 ---
 
 ## 4. Deploying the Lab
 
-You can perform the deployment through a ready-made script or manually configure the lab files.
+You can perform the deployment using a ready-made script or manually configure the lab files.
 
 ### 4.1 Ready Deployment
 
@@ -88,7 +88,7 @@ Run the script below to download and configure the lab automatically:
     ```
 
 !!! tip "Tip"
-    On Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execute permission.
+    On Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execution permission.
 
 ---
 
@@ -109,15 +109,15 @@ This command will create the router containers, configure the links, and start t
 
 ## 6. Accessing the Devices
 
-### 6.1 IPs and Ports of Services
+### 6.1 Service IPs and Ports
 
 | Device     | Access IP  | Port(s) | Service            |
 | --------------- | ------------- |-----| ------------------ |
 | **Router GO** | 172.10.10.6   | 22  | SSH                |
 | **Router MS** | 172.10.10.7   | 22  | SSH                |
 | **Router MT** | 172.10.10.8   | 22  | SSH                |
-| **Telegraf**    | 172.10.10.114 | 161 | Metrics collection |
-| **InfluxDB**    | 172.10.10.112 | 8086 | Time series database    |
+| **Telegraf**    | 172.10.10.114 | 161 | Metrics Collection |
+| **InfluxDB**    | 172.10.10.112 | 8086 | Time Series Database    |
 | **Chronograf**  | 172.10.10.113 | 8888 | Analysis UI      |
 | **Grafana**     | 172.10.10.111 | 3000 | Web Dashboard      |
 | **Graphite** | 172.10.10.119 | 8080    | Web UI (Graphite) |
@@ -143,11 +143,11 @@ Telegraf is configured to collect metrics via:
 
 * **SNMP**: periodic reading of the routers.
 * **IPFIX**: export of traffic flows.
-* **Docker and system**: collection of local container metrics.
+* **Docker and system**: local container metrics collection.
 
 ### 7.2 InfluxDB
 
-Time series database where Telegraf metrics are stored. It can be accessed through port 8086.
+Time series database where Telegraf metrics are stored. Accessible on port 8086.
 
 ### 7.3 Chronograf
 
@@ -155,4 +155,4 @@ Web interface for analyzing metrics stored in InfluxDB. Accessible at `http://17
 
 ### 7.4 Grafana
 
-Interactive visualization platform where data is presented in custom dashboards.
+Interactive visualization platform where data is presented in customized dashboards.
