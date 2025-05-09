@@ -1,5 +1,3 @@
-Okay, here's the translation of the provided Portuguese documentation into English:
-
 # Discovery Lab
 
 ## :material-bookmark: **Introduction**
