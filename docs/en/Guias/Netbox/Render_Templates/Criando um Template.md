@@ -2,23 +2,23 @@
 
 ## How Does Render Template Work in NetBox?
 
-"Render Template" in NetBox is a powerful feature that allows network administrators to automate the generation of network device configurations based on predefined configuration templates. It simplifies the device deployment and maintenance process, making it more efficient and less prone to human error. Here's how it works:
+The "Render Template" in NetBox is a powerful feature that allows network administrators to automate the generation of network device configurations based on predefined configuration templates. It simplifies the device deployment and maintenance process, making it more efficient and less prone to human error. Here's how it works:
 
 1. **Configuration Template Creation:** First, administrators create configuration templates using the Jinja2 template language. These templates serve as structures for the desired device configurations.
 2. **Variable Incorporation:** Configuration templates can incorporate J2 variables, which are placeholders for dynamic information. These variables are replaced with device-specific data when the template is rendered.
 3. **Association with Devices:** Each configuration template is associated with a specific device type. This allows NetBox to know which configuration templates to use for each device based on its type.
-4. **Automated Rendering:** When an administrator creates or updates a device in NetBox, "Render Template" comes into action. NetBox identifies the device type and the corresponding configuration template.
-5. **Filling with Real Data:** The J2 variables in the configuration template are filled with real device data, such as its name, location, IP address, among others.
+4. **Automated Rendering:** When an administrator creates or updates a device in NetBox, the "Render Template" comes into action. NetBox identifies the device type and the corresponding configuration template.
+5. **Filling with Real Data:** The J2 variables in the configuration template are filled with real data from the device, such as its name, location, IP address, among others.
 6. **Configuration Generation:** NetBox automatically generates a complete configuration for the device, applying the values of the J2 variables to the configuration template. This creates a customized and ready-to-use configuration.
 7. **Configuration Application:** The generated configuration can be deployed to the device through traditional methods, such as SSH/SCP file transfer, or integrated with configuration management tools for further automation.
 
-In summary, "Render Template" in NetBox simplifies the network device configuration process, allowing the creation of flexible templates and automating the generation of configurations based on device information. This saves time, reduces errors, and facilitates network infrastructure maintenance.
+In summary, the "Render Template" in NetBox simplifies the network device configuration process by allowing the creation of flexible templates and automating the generation of configurations based on device information. This saves time, reduces errors, and facilitates the maintenance of the network infrastructure.
 
-- **{{ }} - J2 Variables:** Expressions between double curly braces, such as `{{ device.name }}`, are J2 variables. They are replaced with the actual values of the devices during template rendering. For example, `{{ device.name }}` will be replaced with the name of the specific device.
-- **Control Blocks:** Control blocks, such as `{% if condition %} ... {% endif %}`, allow conditional logic and loops. They are used to check if a condition is true (`if`) or to iterate over a list of items (`for`). This is useful for handling cases where information may or may not be available.
+- **{{ }} - J2 Variables:** Expressions enclosed in double curly braces, such as `{{ device.name }}`, are J2 variables. They are replaced with the actual values of the devices during template rendering. For example, `{{ device.name }}` will be replaced by the specific device's name.
+- **Control Blocks:** Control blocks, such as `{% if condition %} ... {% endif %}`, allow for conditional logic and loops. They are used to check if a condition is true (`if`) or to iterate over a list of items (`for`). This is useful for handling cases where information may or may not be available.
 - **Python Underneath:** J2 templates use the Jinja2 template language, which is based on Python. Therefore, you can use Python syntax to create custom logic within your templates. This includes the use of conditionals, loops, and custom functions.
 
-Now that we have explained how it works, here are the available variables for devices registered in NetBox:
+Now that we have explained how it works, here are the available variables from the devices registered in netbox
 
 ## Variables and Usage
 
@@ -44,7 +44,7 @@ Now that we have explained how it works, here are the available variables for de
 
 ## Example
 
-This rendering template is designed to generate interface configurations in the format suitable for a Juniper router. It iterates through all device interfaces in NetBox that have associated IP addresses and generates configurations for those interfaces.
+This rendering template is designed to generate interface configurations in the appropriate format for a Juniper router. It loops through all the device's interfaces in NetBox that have associated IP addresses and generates configurations for those interfaces.
 
 Here's how the template works:
 
@@ -65,7 +65,7 @@ Here's how the template works:
 
 ```
 
-The generated output after rendering this template will be something like the following:
+The generated output after rendering this template will be something similar to the following:
 
 ```
 ge-0/0/0 {
@@ -88,9 +88,9 @@ ge-0/0/1 {
 
 In this example:
 
-- The loop `{%- for interface in device.interfaces.all() -%}` iterates through all device interfaces in NetBox.
+- The loop `{%- for interface in device.interfaces.all() -%}` iterates over all the device's interfaces in NetBox.
 - The condition `{%- if interface.ip_addresses.all() %}` checks if the interface has IP addresses associated with it.
 - `{{ interface.name.split('.')[0].split(':')[0] }}` is used to extract the interface name in the desired format. For example, if the interface name is "ge-0/0/0.0:1", it will be converted to "ge-0/0/0".
-- The template then generates the configurations for each interface, including the IP address (obtained from the loop `{%- for ip in interface.ip_addresses.all() %}`).
+- The template then generates the configurations for each interface, including the IP address (obtained from the loop `{%- for ip in interface.ip_addresses.all() %} -%}`).
 
 The resulting output is a series of interface configurations formatted correctly for a Juniper device. Each interface has its own configuration, including its name and IP address, if applicable.

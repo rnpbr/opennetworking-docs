@@ -1,6 +1,6 @@
 # Documenting the Labs
 
-Contributing to the documentation of labs in **Containerlab** is a simple process, but it's important to follow certain steps to ensure all links and functionalities work correctly. This page provides the necessary instructions for documenting a lab, as well as configuring the essential scripts for the proper functioning of the deployment process.
+Contributing to the documentation of labs in **Containerlab** is a straightforward process, but it is important to follow a few steps to ensure that all links and functionalities work correctly. This page provides the necessary instructions for documenting a lab, as well as configuring the essential scripts for the proper functioning of the deployment process.
 
 ---
 
@@ -8,7 +8,7 @@ Contributing to the documentation of labs in **Containerlab** is a simple proces
 
 ### Creating Images to Represent Labs
 
-It's important that the lab documentation includes images representing the lab's network topology. To do this, follow the [Guide: Creating Images to Represent Labs](Guia Criando Imagens para Representar Laboratórios.md).
+In the documentation, it is important that the labs have images representing the network topology of the lab. To do this, follow the [Guide to Creating Images to Represent Labs](Guide to Creating Images to Represent Labs.md).
 
 ### Steps to Document the Lab
 
@@ -17,20 +17,20 @@ Here are the main steps for documenting your lab:
 1. **Create Lab Description and Objective**:
     - Describe what the lab does and which protocol or functionality is being demonstrated.
 2. **Document the Lab Topology**:
-    - Use the created images to illustrate the lab's network topology. If necessary, insert additional diagrams explaining how the devices are interconnected.
+    - Use the created images to illustrate the network topology of the lab. If necessary, insert additional diagrams explaining how the devices are interconnected.
 3. **Include Usage Examples**:
     - Provide examples of commands and actions that users can execute within the lab to test the functionality.
 4. **List Requirements**:
     - Clearly define the hardware and software requirements, such as the Docker version, Containerlab, and network configurations.
 5. **Deployment Instructions**:
-    - Document the lab deployment, whether it's the ready-made or custom version. Be sure to follow the deployment guides with appropriate links.
+    - Document the lab's deployment, whether it's the ready-made or customized version. Make sure to follow the deployment guides with appropriate links.
 6. **Access and Credentials**:
     - Create a table detailing the IPs of each device in the lab and their respective access credentials.
 
 !!! tip "Tip"
-    To follow a consistent documentation standard, you can use the [template](Template lab.md) that comes pre-structured with tips. It will serve as a basis for you to adapt the content of your lab, ensuring that all sections are correctly addressed.
+    To follow a consistent documentation standard, you can use the [template](Template lab.md) that is already structured with tips. It will serve as a basis for you to adapt the content of your lab, ensuring that all sections are properly addressed.
 
-To use the documentation template, simply access **docs/pt/Laboratórios/Contribua/Template lab.md**, create a copy in the labs folder, name it after your lab, and fill in the information.
+To use the documentation template, just go to **docs/pt/Laboratórios/Contribua/Template lab.md**, create a copy for the labs folder, name it after your lab, and fill in the information.
 
 ---
 
@@ -40,9 +40,9 @@ To ensure that the lab download and deployment process works correctly, it is ne
 
 ### 2.1 `get.sh` Script
 
-The `get.sh` script is used on Linux/Mac systems to automatically download and decompress the lab. It checks if the `tar` command is installed and, if not, installs the necessary package before downloading the file.
+The `get.sh` script is used on Linux/Mac systems to automatically download and decompress the lab. It checks if the `tar` command is installed, and if it is not, installs the necessary package before downloading the file.
 
-### How It Works:
+### How it Works:
 
 1. **Dependency Verification**: The script checks if the `tar` package is installed. If not, it attempts to install it using the system's package manager (`apt-get`, `dnf`, `yum`, or `pacman`).
 2. **Download and Decompression**: The script downloads the `.tar` file containing the lab and decompresses it into the destination directory.
@@ -85,14 +85,14 @@ URL="<https://git.rnp.br/redes-abertas/lab/-/archive/main/labs-main.tar?path=<la
 # Name of the file to save
 FILENAME="lab-main.tar"
 
-# Directory to decompress the files to
+# Directory where to decompress the files
 DEST_DIR="./"
 
 # Download the file
 echo "Downloading $FILENAME..."
 curl -L -o $FILENAME "$URL"
 
-# Check if the download was successful
+# Verify if the download was successful
 if [ $? -ne 0 ]; then
     echo "Error downloading the file."
     exit 1
@@ -102,7 +102,7 @@ fi
 echo "Decompressing $FILENAME..."
 tar -xf $FILENAME -C $DEST_DIR --strip-components=1
 
-# Check if the decompression was successful
+# Verify if the decompression was successful
 if [ $? -ne 0 ]; then
     echo "Error decompressing the file."
     exit 1
@@ -112,12 +112,11 @@ fi
 rm $FILENAME
 
 echo "Download and decompression completed successfully."
-
 ```
 
 ### Variables to Modify:
 
-- **`URL`**: Change the URL to match the repository and the path to the lab within GitLab.
+- **`URL`**: Change the URL to match the repository and the path of the lab within GitLab.
 
 ---
 
@@ -137,13 +136,13 @@ set "URL=https://git.rnp.br/redes-abertas/docker-composes/-/archive/main/docker-
 REM Name of the file to save
 set "FILENAME=lab-main.tar"
 
-REM Directory to decompress the files to
+REM Directory where to decompress the files
 set "DEST_DIR=."
 
 echo Downloading %FILENAME%...
 curl -L -o %FILENAME% %URL%
 
-REM Check if the download was successful
+REM Verify if the download was successful
 if not exist %FILENAME% (
     echo Error downloading the file.
     exit /b 1
@@ -152,7 +151,7 @@ if not exist %FILENAME% (
 echo Decompressing %FILENAME%...
 tar -xf %FILENAME% -C %DEST_DIR% --strip-components=1
 
-REM Check if the decompression was successful
+REM Verify if the decompression was successful
 if %errorlevel% neq 0 (
     echo Error decompressing the file.
     exit /b 1
@@ -165,7 +164,6 @@ echo Download and decompression completed successfully.
 
 endlocal
 pause
-
 ```
 
 ### Variables to Modify:
@@ -176,11 +174,11 @@ pause
 
 ## 3. Ensuring the Scripts are Correct
 
-To ensure that the quick download process works correctly, **both scripts (get.sh and get.bat) must be included in the lab folder in question within the lab repository**. This ensures that, when using the download links, users can download and decompress the lab efficiently, without problems.
+To ensure that the quick download process works correctly, **both scripts (get.sh and get.bat) must be included in the lab's folder within the lab repository**. This ensures that, when using the download links, users can download and decompress the lab efficiently, without issues.
 
 !!! tip "Tip"
     When including the scripts in GitLab, verify that the URLs are configured correctly with the names corresponding to the repository folder and the lab name.
 
 ---
 
-With these steps, you can effectively contribute to the lab documentation and ensure that all download links and scripts are working correctly. without changing the structure of the documentation or adding anything extra.
+With these steps, you can effectively contribute to the lab documentation and ensure that all download links and scripts are functioning correctly. without altering the structure of the documentation, or adding anything.

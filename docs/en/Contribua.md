@@ -1,6 +1,6 @@
 # Contribute
 
-Contribution Text
+Contribution text
 
 ## :material-tools: Tools
 
@@ -10,9 +10,9 @@ This project was developed with the following tools:
 * [taskpy](https://github.com/taskipy/taskipy) for task automation
 * [mkdocs](https://www.mkdocs.org/) for documentation
 * [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) for documentation theme
-* [commitizen](https://commitizen-tools.github.io/commitizen/) for commit message standardization
+* [commitizen](https://commitizen-tools.github.io/commitizen/) for standardizing commit messages
 
-## :fontawesome-solid-user-gear: How to Contribute
+## :fontawesome-solid-user-gear: How to contribute
 
 First of all, thank you for being part of this project! Your help is very welcome.
 
@@ -26,7 +26,7 @@ git clone https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/docs.git
 
 2. Install the project dependencies:
 
-First, install pipx to install poetry documentation [here](https://pypa.github.io/pipx/)
+First, install pipx to install poetry, documentation [here](https://pypa.github.io/pipx/)
 
 Now, install poetry, which is the project's dependency manager:
 
@@ -59,14 +59,14 @@ flowchart TD
     C --> J[Templates]
 ```
 
-where each folder has the following function:
+Where each folder has the following function:
 
 - `docs`: contains the project documentation, written in Markdown.
 - `pt`: contains the documentation in Portuguese.
 - `en`: contains the documentation in English.
 - `img`: contains the images used in the documentation.
 - `Ferramentas`: contains the tools that have been tested and documented in the laboratories.
-- `Guias`: contains the configuration guides for the laboratories and more specific uses of the laboratories.
+- `Guias`: contains the configuration guides for the laboratories and more specific uses of the laboratories
 - `inventarios`: contains the inventories of the laboratories in the netbox import format.
 - `Laboratórios`: contains the laboratories that have been tested and documented for network topologies.
 - `Templates`: contains the netreplica templates for vendors not yet supported by default.
@@ -74,8 +74,8 @@ where each folder has the following function:
 ### :simple-googledocs: docs
 
 The project documentation is written in Markdown and is located in the docs folder. To contribute,
-edit existing Markdown files or create new ones, following the established folder and file structure.
-Each file should include a title and a description, making it a page of the documentation.
+edit existing Markdown files or create new ones, following the already established folder and file structure.
+Each file should include a title and a description, making it a documentation page.
 
 The folder structure should follow the pattern of the corresponding section name,
 with an index.md file for the section's home page. The other necessary pages should also be in Markdown.
@@ -85,20 +85,20 @@ Example:
 
 ``` bash
 docs/
-    ├── Seção/
+    ├── Section/
     │   ├── index.md
 ```
 
-## Get Started
+## Get your hands dirty
 
 Now that you have the dependencies installed and understand how it works, you can start contributing to the code,
-below are some tips for contributing to the project as well as using the project's automation and standardization tools.
+here are some tips for contributing to the project as well as using the project's automation and standardization tools.
 
 !!! info "Tip"
-    Before you start editing the code, it is important to enter the poetry virtual environment, to do this, execute the following command:
+    Before you start editing the code, it is important to enter the poetry virtual environment, to do so, run the following command:
 
 !!! warning "Attention"
-    After the poetry update from 2025, the `poetry shell` command was moved to a plugin, to work, run the following command:
+    After the poetry update of 2025, the `poetry shell` command was transferred to a plugin, to work, execute the following command:
     ```bash
     poetry self add poetry-plugin-shell
     ```
@@ -109,28 +109,28 @@ poetry shell
 
 ### :material-tools: Tools
 
-the project has some automation and standardization tools, such as `taskpy` and `black`, which are used to automate tasks and standardize the code, respectively.
+The project has some automation and standardization tools, such as `taskpy` and `black`, which are used to automate tasks and standardize the code, respectively.
 #### :material-translate: Automatic Translation
 
-The `task translate` command is responsible for translating the Markdown files located in the `docs/pt` folder to **English** and saving the translations in `docs/en` using the **Gemini 2.0 Flash** model to perform the translation. It ensures that the content is translated accurately without changing the structure of the documentation and keeping all references and links intact.
+The `task translate` command is responsible for translating the Markdown files located in the `docs/pt` folder to **English** and saving the translations in `docs/en` using the **Gemini 2.0 Flash** model to perform the translation. It ensures that the content is translated accurately without altering the documentation structure and keeping all references and links intact.
 
 #### :material-code-tags-check: How to configure and use file translation
 
-The following are instructions for correctly configuring the environment and performing the translations.
+The following are the instructions to correctly configure the environment and perform the translations.
 
 ---
 
-#### **Step 1: Obtain the Gemini API key**
+#### **Step 1: Get the Gemini API Key**
 
-To use the **Gemini** translation model, you must obtain a free API key. Follow the steps below:
+To use the **Gemini** translation model, you need to obtain a free API key. Follow the steps below:
 
-1. Access <a target="_blank" href="https://aistudio.google.com/apikey">Google AI Studio</a>.
+1. Go to <a target="_blank" href="https://aistudio.google.com/apikey">Google AI Studio</a>.
 2. Log in to a valid Google account.
 3. Click on **Create API key**.
 4. Copy the generated key to use in the project.
 
 !!! info "Info"
-    More about the Google Gemini API implementation can be found in the <a target="_blank" href="https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python">Official Documentation</a>.
+    More about the google gemini API implementation access the <a target="_blank" href="https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python">Official Documentation</a>.
 
 ---
 
@@ -156,7 +156,7 @@ Replace `your-key-here` with the key obtained in Step 1.
 
 #### **Step 3: Run the translation**
 
-After configuring the API key in the `.env` file, simply run the command below to start the translation:
+After configuring the API key in the `.env` file, just run the command below to start the translation:
 
 ```bash
 task translate
@@ -172,21 +172,21 @@ This command will:
 ---
 
 !!! info "Attention"
-    - The command **does not currently translate folder names**. Only the content of the files will be translated.
+    - The command **does not translate folder names currently**. Only the content of the files will be translated.
     - All links and internal references in the documentation will be maintained correctly, without unwanted changes.
 
 ---
 
-#### **Additional functionality: Change detection**
+#### **Additional Feature: Change Detection**
 
-The script checks if there have been modifications to the original files before performing a new translation. This ensures that:
+The script checks if there have been any changes to the original files before performing a new translation. This ensures that:
 
 * Only files that **have not been translated** or that **have been changed** will have the translation updated.
 * Already translated files will remain unchanged if there is no need for translation.
 
 ---
 
-!!! info "About the translation"
+!!! info "About translation"
     The translation uses the **Gemini 2.0 Flash** model, which performs highly accurate and reliable translation. However, as automatic models are subject to error depending on the context, a final review of the translated content is always recommended.
 
 ---
@@ -200,24 +200,24 @@ With this, the translation of your documentation will always be synchronized wit
 
 #### :material-code-tags-check: Documentation
 
-The project documentation is written in Markdown and is located in the docs folder, following the existing folder, subfolder and file structure.
-where all the standardization is recommended by [mkdocs](https://www.mkdocs.org/) and [mkdocs-material](https://squidfunk.github.io/mkdocs-material/), so to view the documentation locally, run the following command:
+The project documentation is written in Markdown and is located in the docs folder, following the structure of existing folders, subfolders and files.
+where all standardization and recommended by [mkdocs](https://www.mkdocs.org/) and [mkdocs-material](https://squidfunk.github.io/mkdocs-material/), so to view the documentation locally, run the following command:
 
 ```bash
 task docs
 ```
 
 !!! info "Tip"
-    To contribute to the documentation, you can edit the Markdown files directly or create new files as needed, following the existing folder, subfolder and file structure.
+    To contribute to the documentation, you can edit the Markdown files directly or create new files as needed, following the structure of existing folders, subfolders and files.
 
 !!! info "Tip"
-    You can use any feature available in mkdocs for customizations, to learn more, access the documentation below:
+    You can use any feature available in mkdocs for customizations, to learn more access the documentation below:
 
 Useful links:
 
-- <a taget="_blank" href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/">mkdocs-admonitions</a>: documentation for the admonitions (documentation annotations)
-- <a taget="_blank" href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search">mkdocs-emojis</a> : documentation for the emojis
-- <a taget="_blank" href="https://mermaid.js.org/syntax/flowchart.html">mermaid</a> : documentation for the mermaid (flow diagram in markdown)
+- <a taget="_blank" href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/">mkdocs-admonitions</a>: documentation for admonitions (documentation annotations)
+- <a taget="_blank" href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search">mkdocs-emojis</a> : documentation for emojis
+- <a taget="_blank" href="https://mermaid.js.org/syntax/flowchart.html">mermaid</a> : documentation for mermaid (markdown flowchart)
 
 #### Commits :material-code-tags-check:
 
@@ -233,12 +233,12 @@ The project uses `commitizen` to standardize commit messages. To create a commit
 task commit
 ```
 
-Now just fill in the requested information and the commit will be made in a standardized way. After the commit, you can push to the remote repository.
+Now just fill in the requested information and the commit will be made in a standardized way. After the commit, you can push it to the remote repository.
 
 ## I didn't find what I need here
 
 If you haven't found what you need, you can open an [issue in the project](https://git.rnp.br/redes-abertas/docs/-/issues) reporting what you can't do or what needs to be better documented
 
-## Continuous improvement
+## Continuous Improvement
 
-This document can be improved by anyone who has an interest in improving it. So, feel free to provide more tips to people who also want to contribute :heart:
+This document can be improved by anyone who is interested in improving it. So, feel free to provide more tips to people who also want to contribute :heart:

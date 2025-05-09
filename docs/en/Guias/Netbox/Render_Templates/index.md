@@ -1,7 +1,8 @@
 # :octicons-rocket-24: Render Templates
 
-Render Templates in NetBox are a powerful tool that allows you to generate network configurations dynamically and customized for each device.
+Render Templates in NetBox are a powerful tool that allows you to dynamically generate network configurations customized for each device.
 These templates use the Jinja2 markup language to process variables and render configuration files based on the information stored in the NetBox database.
+
 ## :material-folder-cog: 1. Adding Templates
 
 ### :material-remote-desktop: 1.1 Remote Templates
@@ -22,18 +23,18 @@ Remote templates are available online in a Git repository. To add our template r
     If the repository is private, add your authentication method in the backend parameters.
 
 4. Click **Create**.
-5. Click on the data source that was created and then click **Sync** to perform the repository analysis.
+5. Click on the data source that was created, and then click **Sync** to perform the repository analysis.
 
    If the synchronization is successful, a "Completed" message will appear in the Status section.
 
-6. Now you can view the templates in the **Provisioning > Configuration Templates** tab.
+6. Now, you can view the templates in the **Provisioning > Configuration Templates** tab.
 
 ### :material-monitor: 1.2 Local Templates
 
 To add local templates, follow these steps:
 
 1. Access NetBox and go to **Provisioning > Configuration Templates > Add**.
-2. Add a name, a description, and in **Data**, enter the Jinja2 code of the template you want to add. Fill in the other attributes as needed.
+2. Add a name, a description, and in **Data**, enter the Jinja2 code of the template you want to add. Fill in the other assignments as needed.
 
 Here is an example of a generic Jinja2 template:
 
@@ -81,20 +82,20 @@ VLANs: {% for vlan in interface.untagged_vlan.all() %}
 
 ## :octicons-link-24: 2. Associating Templates to Devices
 
-To associate a template to a specific device:
+To associate a template with a specific device:
 
 1. Select the device in **Devices > Devices**.
 2. Click **Edit** or the pencil icon in the upper right corner.
 3. Look for the **Management > Configuration Template** section.
 
-   In this tab, you will see all the available configurations.
+   In this tab, you will see all available configurations.
 
 !!! info "Observation"
-    Pay attention to the device system, as configuration templates are created differently for different systems.
+    Pay attention to the device's system, as configuration templates are created differently for different systems.
 
 4. After selecting the desired template, click **Save**.
 5. To view the template, access the device and click **Render Config**. This will render the specific configuration for the device dynamically.
 
-## :material-skip-next: Next steps
+## :material-skip-next: Next Steps
 
 If you want to create other templates and learn more about how the template base works, click [here](Criando um Template.md).

@@ -2,19 +2,19 @@
 
 ## :octicons-book-24: 1. Introduction
 
-This guide presents the installation of **Telegraf**, a metric collection tool that will be used in the **br-lab** laboratory. Telegraf provides support for various protocols and plugins for collecting metrics, allowing its integration with different systems and devices. The installation uses Docker Compose to automatically provision the necessary services, ensuring a practical and efficient implementation in the laboratory environment.
+This guide details the installation of **Telegraf**, a metric collection tool to be used in the **br-lab** laboratory. Telegraf supports various protocols and plugins for metric collection, allowing its integration with different systems and devices. The installation uses Docker Compose to automatically provision the necessary services, ensuring a practical and efficient implementation in the laboratory environment.
 
 ---
 
 ## :material-network: 2. What is Telegraf?
 
-Telegraf is a highly configurable metric collection agent developed by **InfluxData**. It is compatible with a wide variety of protocols and plugins, which makes it possible to capture and process metrics from systems, devices, applications, and services in real time.
+Telegraf is a highly configurable metric collection agent developed by **InfluxData**. It is compatible with a wide variety of protocols and plugins, which makes it possible to capture and process metrics from systems, devices, applications, and services in real-time.
 
 ### Main Components:
 
 1. **Telegraf**: Configurable data collection agent.
-2. **InfluxDB**: Time-series database where Telegraf data will be stored.
-3. **Grafana**: Tool for visualizing and analyzing collected data.
+2. **InfluxDB**: Time series database where Telegraf data will be stored.
+3. **Grafana**: Tool for visualizing and analyzing the collected data.
 4. **Chronograf**: Additional graphical interface for querying and analyzing data in InfluxDB.
 
 This architecture integrates metric capture, storage, and visualization, ensuring flexibility and efficiency in environment monitoring.
@@ -25,18 +25,17 @@ This architecture integrates metric capture, storage, and visualization, ensurin
 
 Make sure you meet the following prerequisites before installation:
 
-1. **br-lab network configured**:
-    - The **br-lab** network is mandatory to isolate services in the environment. For more details on this configuration, see the [**Getting Started: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md) guide.
+1. **br-lab Network Configured**:
+    - The **br-lab** network is required to isolate services in the environment. For more details on this configuration, see the [**Getting Started: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md) guide.
 
 2. **Required Packages**:
     - `docker`, `docker-compose`, `curl`.
-
 
 ## :fontawesome-brands-docker: 4. Preparing the Environment
 
 ### 4.1. Downloading the Installation Script
 
-Execute the command below to download and configure the necessary services:
+Run the command below to download and configure the necessary services:
 === "Linux/ Mac"
 
     ```bash
@@ -50,14 +49,14 @@ Execute the command below to download and configure the necessary services:
 
 This command will:
 
-- Download the Docker Compose file containing the service configuration.
+- Download the Docker Compose file containing the services configuration.
 - Create the **Telegraf** directory, where the necessary files will be stored.
 
 ---
 
-## :octicons-container-24: 5. Spinning Up the Containers
+## :octicons-container-24: 5. Starting the Containers
 
-To start the Telegraf services and its components, execute:
+To start the Telegraf services and its components, run:
 
 ```bash
 docker compose up -d
@@ -103,7 +102,7 @@ docker compose ps
 
 ## :fontawesome-solid-chart-line: 6. Accessing the Components
 
-### 6.1. Accessing Grafana
+### 6.1. Grafana Access
 
 After initializing the services, Grafana will be accessible at:
 
@@ -116,7 +115,7 @@ Log in using the default credentials below:
 - **Username**: `admin`
 - **Password**: `admin`
 
-### 6.2. Accessing Chronograf
+### 6.2. Chronograf Access
 
 Chronograf can be accessed at:
 

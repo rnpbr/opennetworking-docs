@@ -28,13 +28,13 @@ If your environment is not configured, follow the steps in [Configuration Guide]
 
    
 ### :material-application-import: 2.2 Importing Template into Netbox:
-Containerlab uses [startup-config](https://containerlab.dev/manual/nodes/#remote-startup-config ) to import configurations to devices, these defined in templates within Netbox.
+Containerlab uses [startup-config](https://containerlab.dev/manual/nodes/#remote-startup-config ) to import configurations to the equipment, these defined in templates within Netbox.
 
 1. :material-git: **In Netbox, create a Data source and add the git repository below:** 
 ```bash
 https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/config-templates-data-source
 ```
-How to add: [Render Templates - #Remote Templates](../../Guias/Netbox/Render_Templates/index.md/#11-remote-templates)
+How to add: [Render Templates - #Remote Templates](../../Guias/Netbox/Render_Templates/index.md/#11-templates-remotos)
 
 2. **Import the OSPF lab template:**
      1. Access your Netbox and go to **Provisioning** > **Configuration Templates**.
@@ -43,10 +43,10 @@ How to add: [Render Templates - #Remote Templates](../../Guias/Netbox/Render_Tem
      4. In **File** Select: ```Juniper/<image>/OSPF.jinja2```]
    
     !!! warning "Attention"
-        Pay attention to the device image, as the configuration templates are created in different ways for each type of image
+        Pay attention to the device image, as configuration templates are created differently for each type of image.
 
 3. :material-link-variant: **Associating Templates to Devices:**
-      1. In your Netbox, go to **Devices > Devices**.
+      1. In your Netbox, access **Devices > Devices**.
       2. Select the device you want to associate with the template and click **edit**. 
       3. In the Management category, in **Configuration Template** select the name of the template defined in step **2.2**.
       4. Save the changes.
@@ -65,18 +65,18 @@ nrx -c conf/<file>.conf -n ospf-lab
 sudo -E clab dep -t conf/lab/ospf-lab.clab.yaml
 ```
 !!! warning "Attention"
-    The devices need time to be initialized and configured, it may be that the lab (graphite) is already available and you cannot access the devices. </br>
+    Devices need time to be initialized and configured, it may be that the lab (graphite) is already available and you cannot access the devices. </br>
 !!! info "Tip"
-    To view the container logs and verify that it has already been configured, you can use:
+    To view the container logs and check if it has been configured, you can use:
     ```bash
     docker logs <container_name> -f
     ```
 
 ## **3. Access**
 
-There are two ways to access devices on the network:
+There are two ways to access the devices on the network:
 
-- **SSH access to routers**: Use an SSH client to connect to the routers using the IP address of each device or the name assigned by Containerlab, along with the login credentials provided. The management IP address of each router is displayed after the lab is executed by Containerlab.
+- **Access via SSH to the routers**: Use an SSH client to connect to the routers using the IP address of each device or the name assigned by Containerlab, along with the login credentials provided. The management IP address of each router is displayed after the execution of the lab by Containerlab.
 
     Example:
 
@@ -103,7 +103,7 @@ There are two ways to access devices on the network:
 
 ## **4. Monitoring**
 
-To monitor the network and devices, you can use tools like edgeshark for packet analysis or SNMP monitoring tools.
+To monitor the network and devices, you can use tools such as edgeshark for packet analysis or SNMP monitoring tools.
 
 - **edgeshark**: Capture and analyze network traffic for troubleshooting and performance monitoring.
 - **SNMP Monitoring**: Use SNMP-compatible tools to monitor network performance and health metrics.

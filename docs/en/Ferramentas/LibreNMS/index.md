@@ -1,1 +1,1 @@
-# in Development without changing the structure of the documentation or adding anything.
+# in Development without altering the document structure or adding anything.

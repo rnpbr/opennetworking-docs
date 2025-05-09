@@ -1,31 +1,31 @@
-# Getting Started
+# Getting started
 
-This comprehensive guide will walk you through setting up a network simulation environment using the tools Netbox, Containerlab, and Netreplica.
+This comprehensive guide will walk you through setting up a network simulation environment using Netbox, Containerlab, and Netreplica.
 
 ## Prerequisites:
 
 - **Basic knowledge in:**
-    - Linux and SSH (Recommended Course: <a href="https://www.youtube.com/watch?v=aW4Owxgcvq4&list=PLnDvRpP8BnezDTtL8lm6C-UOJZn-xzALH" target="_blanck">Introduction to Linux</a>)
-    - Basic Docker (Recommended Course: <a href="https://www.youtube.com/watch?v=c2y_yz9B6_M&list=PLg7nVxv7fa6dxsV1ftKI8FAm4YD6iZuI4&index=1" target="_blanck">Docker for Beginners</a>)
+    - Linux and SSH (Course Recommendation: <a href="https://www.youtube.com/watch?v=aW4Owxgcvq4&list=PLnDvRpP8BnezDTtL8lm6C-UOJZn-xzALH" target="_blanck">Introduction to Linux</a>)
+    - Basic Docker (Course Recommendation: <a href="https://www.youtube.com/watch?v=c2y_yz9B6_M&list=PLg7nVxv7fa6dxsV1ftKI8FAm4YD6iZuI4&index=1" target="_blanck">Docker for Beginners</a>)
 
 
 ## Steps:
 
 ### 1. Installing Netbox:
 
-Netbox is a centralized network infrastructure management platform, providing detailed documentation of devices, IP addresses, and physical connections. It allows the creation of configuration templates using Jinja2, facilitating automation and standardization in the configuration of devices such as routers and switches. This capability is essential for maintaining organized network simulation environments that are ready to scale as needed.
+Netbox is a centralized platform for network infrastructure management, providing detailed documentation of devices, IP addresses, and physical connections. It allows the creation of configuration templates using Jinja2, facilitating automation and standardization in configuring devices such as routers and switches. This capability is essential for maintaining organized network simulation environments ready to scale as needed.
 
 - **Official Documentation:** <a href="http://netboxlabs.com/docs/netbox/en/stable/installation/" target="_blanck">NetboxLabs</a>
 - **Installation Guide:** [NetBox Installation and Imports](Guias/Netbox/index.md)
 - **Summary:**
-    - Make sure you have Docker installed on your machine
-    - Download the official Netbox repository to your machine
-    - Configure Netbox by accessing the .env file
-    - Bring up the compose
+    - Make sure you have Docker installed on your machine.
+    - Download the official Netbox repository to your machine.
+    - Configure Netbox by accessing the .env file.
+    - Bring up the compose.
 
 ### 2. Installing Containerlab:
 
-Containerlab is responsible for simplifying the creation and management of complex network topologies using Docker containers. It allows you to efficiently define and interconnect virtualized network devices, facilitating the configuration of simulation environments and network testing. This Docker-based approach simplifies the replication of real environments in virtual labs, providing flexibility and scalability in network infrastructure configuration.
+Containerlab is responsible for simplifying the creation and management of complex network topologies using Docker containers. It allows you to define and interconnect virtualized network devices efficiently, facilitating the configuration of simulation and network testing environments. This Docker-based approach simplifies the replication of real environments in virtual labs, providing flexibility and scalability in configuring network infrastructures.
 
 - **Official Documentation:** <a href="https://containerlab.dev/install/" target="_blanck">Containerlab</a>
 - **Summary:**
@@ -34,7 +34,7 @@ Containerlab is responsible for simplifying the creation and management of compl
 
 ### 3. Installing Netreplica:
 
-Netreplica synchronizes data from Netbox in simulation environments using Docker containers. It allows you to test configurations without affecting the production environment, ensuring consistency in data and configurations between different network scenarios.
+Netreplica synchronizes data from Netbox into simulation environments using Docker containers. It allows you to test configurations without affecting the production environment, ensuring consistency in data and configurations between different network scenarios.
 
 - **Official Documentation:** <a href="https://github.com/netreplica/nrx?tab=readme-ov-file#how-to-install" target="_blanck">Netreplica</a>
 - **Installation Guide:** [NetReplica Installation via Docker](Guias/Netreplica/index.md)
@@ -44,7 +44,7 @@ Netreplica synchronizes data from Netbox in simulation environments using Docker
 
 ### 4. Configuring and Running NetReplica with Netbox:
 
-Now let's detail the configuration process to integrate Netreplica with Netbox. This step is crucial to ensure that Netbox data and configurations are correctly replicated in simulation or test environments using Netreplica.
+Now let's detail the configuration process to integrate Netreplica with Netbox. This step is crucial to ensure that Netbox data and configurations are correctly replicated in simulation or testing environments using Netreplica.
 
 - **Official Documentation:** <a href="https://github.com/netreplica/nrx?tab=readme-ov-file#how-to-use" target="_blanck">Netreplica how to use</a>
 - **Configuration Guide:** [NetReplica Configuration Guide](Guias/Netreplica/NetReplica Guia Configuração e Execução com NetBox.md)
@@ -55,10 +55,10 @@ Now let's detail the configuration process to integrate Netreplica with Netbox. 
 
 ### 5. Creating and Configuring Templates in Netbox:
 
-Device configuration templates are essential to provide the necessary configurations to Netreplica, which will later be applied in network simulations.
+Device configuration templates are essential for providing the necessary configurations to Netreplica, which will later be applied in network simulations.
 
 - **Official Documentation:** <a href="http://netboxlabs.com/docs/netbox/en/stable/features/configuration-rendering/" target="_blanck">Netbox Configuration Rendering</a>
 - **Configuration Guide:** [Creating Configuration Templates](Guias/Netbox/Render_Templates/index.md)
 - **Summary:**
-    - Create configuration templates for network devices, such as routers and switches.
+    - Create configuration templates for network devices such as routers and switches.
     - Use Jinja2 to create dynamic templates that adapt to your topologies.

@@ -1,46 +1,46 @@
-# Zabbix Auto Discovery
+# Auto Discovery no Zabbix
 
-## :octicons-book-24: 1. Introduction
+## :octicons-book-24: 1. Introdução
 
-Zabbix **Auto Discovery** is an advanced feature that allows you to dynamically detect hosts and services on a network, eliminating the need to manually register devices. This functionality is especially useful in dynamic environments, such as the **br-lab** laboratory, where new devices may be added frequently.
+O **Auto Discovery** (descoberta automática) do Zabbix é um recurso avançado que permite detectar dinamicamente hosts e serviços em uma rede, eliminando a necessidade de cadastrar dispositivos manualmente. Essa funcionalidade é especialmente útil em ambientes dinâmicos, como o laboratório **br-lab**, onde novos dispositivos podem ser adicionados frequentemente.
 
-In this guide, you will learn how to configure a discovery rule in Zabbix to automatically identify network assets using the **SNMPv2** protocol, as well as create an **auto-registration action** to add discovered devices to monitoring.
-
----
-
-## :octicons-tools-24: 2. Prerequisites
-
-Before starting, verify the following prerequisites:
-
-1.  **Zabbix properly installed** on the `br-lab` network.
-    If you have not yet installed it, follow the [Zabbix Installation Guide](../../../en/Ferramentas/Zabbix/index.md).
-
-2.  The `br-lab` network must be functional and have devices configured to respond to SNMPv2 requests.
-
-3.  The user used must have administrative permissions in the Zabbix frontend.
+Neste guia, você aprenderá a configurar uma regra de descoberta no Zabbix para identificar automaticamente ativos da rede utilizando o protocolo **SNMPv2**, além de criar uma **ação de cadastro automático** para adicionar os dispositivos descobertos ao monitoramento.
 
 ---
 
-## :octicons-checklist-24: 3. Configuring Auto Discovery
+## :octicons-tools-24: 2. Pré-requisitos
 
-Auto discovery in Zabbix works based on two entities:
+Antes de iniciar, verifique os seguintes pré-requisitos:
 
-*   **Discovery Rule**: Defines the IP range to be scanned, the type of check (e.g., SNMP, ICMP), and how to extract the hostname.
-*   **Discovery Action**: Applies rules after detection (e.g., add to monitoring, apply template, move to group).
+1. **Zabbix devidamente instalado** na rede `br-lab`.
+   Caso ainda não tenha feito a instalação, siga o [Guia de Instalação do Zabbix](../../../pt/Ferramentas/Zabbix/index.md).
+
+2. A rede `br-lab` deve estar funcional e com dispositivos configurados para responder a requisições SNMPv2.
+
+3. O usuário utilizado deve ter permissões administrativas no frontend do Zabbix.
 
 ---
 
-## :octicons-tools-24: 3.1 Creating the Discovery Rule
+## :octicons-checklist-24: 3. Configurando a Descoberta Automática
 
-To create a new rule:
+A descoberta automática no Zabbix funciona com base em duas entidades:
 
-1.  Access the **Zabbix Frontend** and go to:
-    `Data Collection → Discovery`
-    Click on **Create discovery rule**.
+* **Regra de Descoberta** (*Discovery Rule*): Define a faixa de IPs a ser escaneada, o tipo de verificação (ex: SNMP, ICMP), e como extrair o nome do host.
+* **Ação de Cadastro** (*Discovery Action*): Aplica regras após a detecção (ex: adicionar ao monitoramento, aplicar template, mover para grupo).
 
-2.  Configure the following parameters:
+---
 
-| Field                          | Value                               |
+## :octicons-tools-24: 3.1 Criando a Regra de Descoberta
+
+Para criar uma nova regra:
+
+1. Acesse o **Zabbix Frontend** e vá para:
+   `Data Collection → Discovery`
+   Clique em **Create discovery rule**.
+
+2. Configure os seguintes parâmetros:
+
+| Campo                          | Valor                               |
 | ------------------------------ | ----------------------------------- |
 | **Name**                       | `br-lab`                            |
 | **Discovery by proxy**         | `Zabbix server`                     |
@@ -50,94 +50,60 @@ To create a new rule:
 | **Host name**                  | `SNMPv2 agent ".1.3.6.1.2.1.1.5.0"` |
 | **Visible name**               | `SNMPv2 agent ".1.3.6.1.2.1.1.5.0"` |
 
-3.  Add a **Check** with the following parameters:
+3. Adicione um **Check** com os seguintes parâmetros:
 
-| Field          | Value                                        |
+| Campo          | Valor                                        |
 | -------------- | -------------------------------------------- |
 | **Check type** | `SNMPv2 agent`                               |
 | **Community**  | `public`                                     |
 | **Port**       | `161`                                        |
-| **SNMP OID**   | `.1.3.6.1.2.1.1.5.0` (Hostname via SNMP) |
+| **SNMP OID**   | `.1.3.6.1.2.1.1.5.0` (Nome do host via SNMP) |
 
-4.  Save the rule after configuration.
+4. Salve a regra após a configuração.
 
-> ✅ When configured correctly, the rule will scan the entire `172.10.10.0/24` subnet every minute, looking for devices that respond to SNMP on port 161 with the `public` community.
+> ✅ Ao configurar corretamente, a regra varrerá toda a sub-rede `172.10.10.0/24` a cada minuto, buscando dispositivos que respondem a SNMP na porta 161 com a comunity `public`.
 
 ---
 
-### :material-image: Reference Images (example)
+### :material-image: Imagens de Referência (exemplo)
 
-#### 📸 General Rule Configuration:
+#### 📸 Configuração Geral da Regra:
 ---
 ![Discovery Rule](../../../img/tools_imgs/zabbix_discovery_rule.png)
 
-#### 📸 SNMP Check Configuration:
+#### 📸 Configuração dos Checks SNMP:
 ---
   ![Discovery Check](../../../img/tools_imgs/zabbix_discovery_check.png)
 ---
 
-## :octicons-gear-24: 3.2 Creating the Auto-Registration Action
+## :octicons-gear-24: 3.2 Criando a Ação de Cadastro Automático
 
-### 🧠 What is a *Discovery Action*?
-
-A **discovery action** in Zabbix is a set of instructions that define **what should be done automatically after a host is detected** by a *Discovery Rule*. This mechanism allows for infrastructure management automation, avoiding manual device registration.
-
-With a configured discovery action, you can:
-
-* Automatically insert the detected host into the monitoring database;
-* Associate the host with one or more **host groups**;
-* **Apply monitoring templates** (e.g., ICMP, SNMP, operating systems);
-* Mark inventory fields and activate the host for immediate monitoring.
-
----
-
-### 🔧 Steps to Create the Action
-
-1. In the **Zabbix Frontend**, navigate to:
+1. No **Zabbix Frontend**, navegue até:
    `Alerts → Actions → Discovery actions`.
 
-2. Click on **Create action** and configure as below:
+2. Clique em **Create action** e configure conforme abaixo:
 
----
+#### Action tab
 
-#### 🧩 "Action" Tab
+| Field          | Value                                                                               |
+| -------------- | ----------------------------------------------------------------------------------- |
+| **Name**       | `Auto Discovery: Network Devices`                                                   |
+| **Conditions** | `Discovery rule equals br-lab` AND `Discovery status equals Discovered` |
 
-| Field          | Value                                                                                         |
-| -------------- |-----------------------------------------------------------------------------------------------|
-| **Name**       | `Auto Discovery: Network Devices`                                                             |
-| **Conditions** | <ul><li>`Discovery rule equals br-lab`</li><li>`Discovery status equals Discovered`</li></ul> |
+#### Operations tab
 
-> 💡 These conditions ensure that the action will only be executed for hosts successfully discovered by the `br-lab` rule.
-
----
-
-#### ⚙️ "Operations" Tab
-
-Add the following operations:
-
-| Operation Type             | Parameters                                                    |
-| ---------------------------- | ------------------------------------------------------------- |
-| **Add host**                 | Automatically adds the discovered host to the Zabbix database |
-| **Add to host groups**       | `Discovered hosts`                                            |
-| **Link to templates**        | `Juniper MX by SNMP`                                          |
-
-
-!!! info "Info"
-    The `Juniper MX by SNMP` template is located within the `Templates/Network Devices` group. It is ideal for monitoring Juniper MX line equipment via SNMP.
-    If you use other network devices (Cisco, Mikrotik, Dell, etc.), choose an appropriate template or create a custom one according to your needs.
-
----
+| Operation type       | Parameters                                                                 |
+| ---------------------- | -------------------------------------------------------------------------- |
+| **Add host**           |                                                                            |
+| **Add to host groups** | `Discovered hosts`                                                         |
+| **Link to templates**  | `Template Module ICMP Ping`, `Template Module Interfaces SNMPv2`, `Template OS Linux by SNMPv2` |
 
 ### :material-image: Example Images
 
-#### 📸 "Action" Tab Screen
+#### 📸 "Action" tab screenshot
 
 ![Discovery Action - Action Tab](../../../img/tools_imgs/zabbix_actions.png)
 
-#### 📸 "Operations" Tab Screen
+#### 📸 "Operations" tab screenshot
 
 ![Discovery Action - Operations Tab](../../../img/tools_imgs/zabbix_actions_operations.png)
-
----
-
-With this action configured, every device detected on the `br-lab` network with SNMP support will be automatically added to Zabbix, with defined template and monitoring group, enabling scalability and agility in infrastructure management.

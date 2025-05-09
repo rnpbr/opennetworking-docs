@@ -10,40 +10,40 @@ This lab simulates a network with 2 routers configured with OSPF and SNMP, integ
 
 ### :octicons-goal-16: 1.1 **Lab Objective**
 
-The objective of this lab is to import network devices and their configurations into Netbox from Zabbix, as well as to demonstrate the basic operation of OSPF routing between two routers connected in a ring and monitored via SNMP.
+The objective of this lab is to import network devices and their configurations into Netbox from Zabbix, as well as demonstrate the basic operation of OSPF routing between two routers connected in a ring and monitored via SNMP.
 
 ### :material-lan: 1.2 **Lab Topology**
 Below is the topology in image format, representing the routers, servers, and their connections.
 
-![Topologia.svg](../../../img/labs_imgs/Topologia_discovery_lab.svg)
+![Topology.svg](../../../img/labs_imgs/Topologia_discovery_lab.svg)
 
 The routers are configured with the following technologies:
 
 - **OSPF (Open Shortest Path First)**: Used for dynamic routing in the network, allowing routers to exchange information about routes and topology updates.
-- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to device telemetry information.
+- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to telemetry information from devices.
 ---
 
 ## :material-tools: **2. Requirements**
 ### :material-alert: 2.1 Prerequisites
 
-To start the lab, the following components must be installed and configured:
+To start the lab, the following components need to be installed and configured:
 
 - Netbox
 - Containerlab
 - Docker
 - Python
 
-If your environment is not configured, follow the steps in [Configuration Guide](../../Getting%20Started.md)
+If your environment is not configured, follow the steps in the [Configuration Guide](../../Getting%20Started.md)
 
 ### :material-alert: 2.2 Computational Requirements Table
 
 | Requirement           | Details |
 |---------------------| --- |
 | **CPUs**            | 4 vCPUs (minimum recommended) |
-| **RAM**             | 12 GB |
-| **Disk Space**      | 10 GB |
+| **Memory RAM**     | 12 GB |
+| **Disk Space** | 10 GB |
 | **Containerlab**    | 0.64.0 |
-| **Created Network** | br-lab |
+| **Created Network**     | br-lab |
 
 !!! tip "Tip"
     Check if the Docker and Containerlab versions are compatible to avoid errors during deployment.
@@ -79,7 +79,7 @@ cd discovery-lab/
 
 ## :fontawesome-solid-house-chimney: 4. Environment Deployment
 
-### :material-router-wireless: 4.1 Spinning up the Routers with Containerlab
+### :material-router-wireless: 4.1 Starting the Routers with Containerlab
 
 Start the topology with the command:
 
@@ -89,13 +89,13 @@ sudo clab deploy -t clab/discovery-lab.clab.yaml
 
 !!! warning "Debug"
     The devices may take about 10 minutes to become fully operational.
-    If any error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
+    If an error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
 
-### :material-server: 4.2 Starting Zabbix
+### :material-server: 4.2 Launching Zabbix
 !!! tip "Tip"
     If you already have a configured Zabbix environment, just skip this step.
 
-To bring up the container with Zabbix:
+To launch the container with Zabbix:
 
 ```bash
 docker compose -f zabbix-docker/docker-compose.yml up -d
@@ -117,7 +117,7 @@ cd scripts/
 python3 -m venv venv
 source venv/bin/activate
 ```
-3. Install the Python dependencies:
+3. Install the python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -133,7 +133,7 @@ ZABBIX_TOKEN=zabbix_token                     # API Token
 ZABBIX_URL=http://yourdomain/api_jsonrpc.php  # API Access URL
 ZABBIX_USER=Admin                             # Default User
 ZABBIX_PASSWORD=zabbix                        # Default Password
-ZABBIX_GROUP=Juniper                          # Group to add routers to
+ZABBIX_GROUP=Juniper                          # Group to add the routers
 ZABBIX_TEMPLATE="Juniper by SNMP"             # Monitoring template for Juniper routers
 
 # Netbox
@@ -141,36 +141,36 @@ NETBOX_URL=http://yourdomain/api              # API Access URL
 NETBOX_TOKEN=netbox_token                     # API Token
 
 # Devices
-DEVICE_USERNAME=admin                         # Default username to access the routers
-DEVICE_PASSWORD=admin@123                     # Default password to access the routers
+DEVICE_USERNAME=admin                         # Default router access username
+DEVICE_PASSWORD=admin@123                     # Default router access password
 ```
-5. Now, to import the routers to Zabbix, run the command:
+5. Now to import the routers to Zabbix, execute the command:
 ```bash
 python3 import_zabbix.py
 ```
 
 ### :octicons-key-16: 5.2 Generating API Tokens
-Creating API Token in Zabbix.
+Creating an API Token in Zabbix.
 
 1. Access the Zabbix interface.
 2. Go to **Users** > **API tokens**.
-3. Click on **Create**, fill in the fields, and copy the generated token.
-4. Update the `ZABBIX_TOKEN` field in the `.env`.
+3. Click **Create**, fill in the details and copy the generated token.
+4. Update the `ZABBIX_TOKEN` field in `.env`.
 
-Creating API Token in Netbox.
+Creating an API Token in Netbox.
 
 1. Access the Netbox interface.
 2. Navigate to **Admin** > **API Tokens**.
-3. Click on **Add**, associate it with a user, and copy the token.
-4. Update the `NETBOX_TOKEN` field in the `.env`.
+3. Click **Add**, associate it with a user and copy the token.
+4. Update the `NETBOX_TOKEN` field in `.env`.
 
 ### :material-import: 5.3 Importing Routers to Netbox
-Now that the environment is fully configured, you can import the routers to Netbox with the command:
+Now with the environment fully configured, you can import the routers to Netbox with the command:
 ```bash
 python3 import_netbox.py
 ```
 
-With the script successful, you can view the routers within Netbox with their respective information!
+With the script successful, you can view the routers inside Netbox with their respective information!
 ___
 
 ## :material-access-point: 6. Access
@@ -204,9 +204,9 @@ Here is the table with the access passwords for the services configured in the l
 ---
 
 ## :octicons-rocket-24: 7. Next Steps
-With the lab completed, you can follow some of the steps below as **extra**.
+With the lab finished, you can follow some of the steps below as **extra**.
 
-- Monitor the routers via SNMP in the Zabbix interface.
+- Monitor the routers via SNMP on the Zabbix interface.
 - Explore Netbox to view and manage the network inventory.
 - Modify the topology as needed (in future custom versions).
 - Consult the OSPF guide to validate dynamic communication between routers.
@@ -214,4 +214,4 @@ With the lab completed, you can follow some of the steps below as **extra**.
 
 ### :fontawesome-solid-paintbrush: 8. Conclusion
 
-✅ Done! Your environment is now configured, monitored, and documented in Netbox. Feel free to customize or expand the topology according to the objectives of your study or project. without changing the structure of the documentation or adding anything.
+✅ Done! Your environment is now configured, monitored, and documented in Netbox. Feel free to customize or expand the topology according to the objectives of your study or project, without changing the structure of the documentation or adding anything.

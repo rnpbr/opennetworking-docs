@@ -2,22 +2,22 @@
 
 ## 1. Introduction
 
-**Edgeshark** is an innovative solution designed to facilitate the capture and analysis of network traffic in containerized environments. It consists of two main containerized services, [Ghostwire](https://github.com/siemens/ghostwire) and [Packetflix](https://github.com/siemens/packetflix), which work together to monitor network traffic within Docker containers. Furthermore, it offers an optional plugin for Wireshark, called [csharg external capture plugin](https://github.com/siemens/cshargextcap), that enables live remote captures of network traffic.
+**Edgeshark** is an innovative solution designed to facilitate network traffic capture and analysis in containerized environments. It consists of two main containerized services, [Ghostwire](https://github.com/siemens/ghostwire) and [Packetflix](https://github.com/siemens/packetflix), which work together to monitor network traffic within Docker containers. Additionally, it offers an optional plugin for Wireshark, called [csharg external capture plugin](https://github.com/siemens/cshargextcap), which allows for remote live capture of network traffic.
 
 ## 2. Installing Edgeshark
 
-Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `linux/arm64` architectures.
+Edgeshark provides multi-architecture Docker images for the `linux/amd64` and `linux/arm64` architectures.
 
 !!! warning "WARNING"
-    Ensure that you have a Linux kernel of at least version 4.11 installed. However, we strongly recommend using version 5.6 or higher.
+    Make sure you have a Linux kernel of at least version 4.11 installed. However, we strongly recommend using version 5.6 or higher.
 
 === "Using Docker Compose v2"
 
     1. **Install Docker Compose v2:**
 
-    Ensure that the Docker Compose v2 plugin is installed. Verify by running `docker compose version`, which should display the plugin version without errors. For Debian users, we recommend installing the `docker-ce` packages instead of `docker.io`, as they are updated more frequently.
+    Make sure the Docker Compose v2 plugin is installed. Verify by running `docker compose version`, which should display the plugin version without errors. For Debian users, we recommend installing the `docker-ce` packages instead of `docker.io`, as they are updated more frequently.
 
-    2. **Deploying the Edgeshark services:**
+    2. **Deploy Edgeshark Services:**
     
        Copy and paste the command below into a terminal to deploy the services:
     
@@ -33,11 +33,11 @@ Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `lin
     
     
     !!! note "NOTE"
-        Using DOCKER_DEFAULT_PLATFORM= ensures the correct deployment of multi-architecture images and avoids issues, especially with Apple's Rosetta, which may have difficulties with read-only image deployments.
+        Using DOCKER_DEFAULT_PLATFORM= ensures proper deployment of multi-architecture images and avoids issues, especially with Apple's Rosetta, which may have difficulties with read-only image deployments.
     
     
     !!! warning "WARNING"
-        The following quick deployments will expose TCP port 5001 (or 5500) to clients external to your host. Ensure that your network is properly secured.
+        The following quick deployments will expose TCP port 5001 (or 5500) to clients external to your host. Ensure your network is properly secured.
     
 
 === "Using Bash"
@@ -46,7 +46,7 @@ Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `lin
 
     1. **Deployment via Bash:**
     
-       Execute the command below to deploy the services using a Bash script:
+       Run the command below to deploy the services using a Bash script:
 
         wget -q --no-cache -O - \\
           <https://github.com/siemens/edgeshark/raw/main/deployments/nocomposer/edgeshark.sh> \\
@@ -58,18 +58,18 @@ Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `lin
     
     
     !!! warning "WARNING"
-        The following quick deployment will expose TCP port 5001 to clients external to your host. Ensure that your network is properly secured.
+        This quick deployment will expose TCP port 5001 to clients external to your host. Ensure your network is properly secured.
     
 
 === "Using Industrial Edge"
 
     1. **Download the Edgeshark application:**
     
-        Download the <a href="https://github.com/siemens/edgeshark/releases/latest" target="_blank">latest `.zip` file</a> from the releases section of the project.
+        Download the <a href="https://github.com/siemens/edgeshark/releases/latest" target="_blank">latest `.zip` file</a> from the project's releases section.
 
     2. **Extract the file:**   
 
-        Unzip the `edgeshark.app` file contained within the `.zip` file.
+        Unzip the `edgeshark.app` file contained in the `.zip` file.
 
     3. **Import into the IEM:**
 
@@ -79,8 +79,8 @@ Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `lin
 
          In your IEM catalog, deploy the Edgeshark application to your Industrial Edge Devices (IEDs).
 
-        !!! warning "WARNING"
-            The Edgeshark interface and services are exposed on port 5001 on your IED hosts without any user authorization. This is required to support remote packet capture from the user interface.
+        !!! warning "WARNING" 
+            The Edgeshark interface and services are exposed on port 5001 on your IED hosts without any user authorization. This is necessary to support remote packet capture from the user interface.
     
 
     5. **Access the interface:**
@@ -89,15 +89,15 @@ Edgeshark offers multi-architecture Docker images for the `linux/amd64` and `lin
 
 ### 2.1 Optional Plugin for Packet Capture
 
-If you need to capture live network traffic within containers, you must install the [cshargextcap](https://github.com/siemens/cshargextcap) external plugin for Wireshark.
+If you need to capture live network traffic within the containers, you need to install the [cshargextcap](https://github.com/siemens/cshargextcap) external plugin for Wireshark.
 
 === "Windows 64bit"
 
     1. **Check Wireshark:**  
-       Ensure you have a recent version of [Wireshark (64-bit)](https://wireshark.org) installed. The minimum recommended version is 3.0.2.
+       Make sure you have a recent version of [Wireshark (64 bit)](https://wireshark.org) installed. The minimum recommended version is 3.0.2.
     
     2. **Install the plugin:**  
-        Download and execute the latest plugin installer, available [here](https://github.com/siemens/cshargextcap/releases/latest).
+        Download and run the latest plugin installer, available [here](https://github.com/siemens/cshargextcap/releases/latest).
     
     3. **Start capturing:**  
         In the Edgeshark web interface, click one of the Wireshark buttons to start a capture session.
@@ -108,12 +108,12 @@ If you need to capture live network traffic within containers, you must install 
        Install Wireshark from your distribution's repositories and allow it to be used by non-root users.
     
     2. **Add your user to the wireshark group:**  
-        Execute the command below:
+        Run the command below:
 
             sudo gpasswd -a $USER wireshark
 
     3. **Install the plugin:**  
-       Download and install the plugin package appropriate for your distribution.
+       Download and install the appropriate plugin package for your distribution.
     
     4. **Start capturing:**  
         In the Edgeshark web interface, click one of the Wireshark buttons to start a capture session.
@@ -136,4 +136,4 @@ Now that Edgeshark is installed, the next step is to learn how to use it effecti
 
 ## References
 
-For more information and additional resources on Edgeshark, visit the <a href="https://edgeshark.siemens.io/#/getting-started" target="_blank">Official Documentation</a>.
+For more information and additional resources about Edgeshark, visit the <a href="https://edgeshark.siemens.io/#/getting-started" target="_blank">Official Documentation</a>.

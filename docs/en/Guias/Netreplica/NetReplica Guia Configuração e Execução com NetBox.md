@@ -7,9 +7,9 @@ This guide describes the necessary configurations to integrate NetReplica with N
 ---
 
 !!! tip "Note"
-    Before proceeding, verify that NetReplica and NetBox are installed. You can find more information here: [NetReplica Installation](index.md)
+    Before proceeding, verify that NetReplica is installed and that NetBox is installed. You can find more information here: [Netreplica Installation](index.md)
 
-`nrx` is the command-line interface of NetReplica that allows you to configure and execute tasks directly without needing to create a configuration file. The following are the main commands you can use:
+`nrx` is the command-line interface for NetReplica that allows you to configure and execute tasks directly without needing to create a configuration file. The following are the main commands you can use:
 
 ### :octicons-command-palette-24: Basic Commands
 
@@ -29,7 +29,7 @@ This command uses the `.conf` configuration file to export the specified topolog
 
 This command allows exporting using parameters directly on the command line, such as the NetBox API URL, tags, site, and output format.
 
-3 **Use Authentication Tokens**:
+3 **Using Authentication Tokens**:
 
 To pass the authentication token without using a configuration file:
 
@@ -38,7 +38,7 @@ To pass the authentication token without using a configuration file:
    nrx -a http://<netbox_ip>:<port> -t '<tags>' -s '<site>' -o clab
    ```
 
-4 **Specify the Output Directory**:
+4 **Specify Output Directory**:
 
    ```bash
    nrx -c conf/<Topology_Name>.conf -D /path/to/output
@@ -56,7 +56,7 @@ This command disables TLS certificate verification.
 
 ### :material-text-box-search-outline: Common `nrx` Arguments
 
-- `-c, --config CONFIG`: Defines the configuration file to use.
+- `-c, --config CONFIG`: Defines the configuration file to be used.
 - `-a, --api API`: Defines the NetBox API URL.
 - `-s, --site SITE`: Specifies the NetBox site to be exported.
 - `-t, --tags TAGS`: Defines the NetBox tags to be exported.
@@ -70,7 +70,7 @@ This command disables TLS certificate verification.
 
 ---
 
-The `.conf` configuration file provides a structured means of defining the variables needed for topology export. It is particularly useful when you want to reuse the same settings or when there are many options to be defined.
+The `.conf` configuration file provides a structured way to define the variables needed for topology export. It is particularly useful when you want to reuse the same settings or when there are many options to be defined.
 
 Of course, here is the configuration file with a detailed explanation for each field:
 
@@ -87,18 +87,18 @@ NB_API_TOKEN         = ''
 TLS_VALIDATE         = true
 # Timeout for API requests, in seconds
 API_TIMEOUT          = 10
-# Optimization of bulk queries from the NetBox API
+# Optimization of bulk queries to the NetBox API
 [NB_API_PARAMS]
 interfaces_block_size = 4
 cables_block_size =     64
 
 # Topology name, optional. Alternatively, use the --name argument
 TOPOLOGY_NAME        = 'DemoSite'
-# Output format to be used for export: 'gml' | 'cyjs' | 'clab'. Alternatively, use the --output argument
+# Output format to use for export: 'gml' | 'cyjs' | 'clab'. Alternatively, use the --output argument
 OUTPUT_FORMAT        = 'clab'
-# Override output directory. By default, a subdirectory corresponding to the topology name will be created. Alternatively, use the --dir argument. Environment variables are supported
+# Overwrite output directory. By default, a subdirectory corresponding to the topology name will be created. Alternatively, use the --dir argument. Environment variables are supported
 OUTPUT_DIR           = '$HOME/nrx'
-# Search path for templates. The default path is ['./templates','$HOME/.nr/templates']. Environment variables are supported
+# Path for template searching. The default path is ['./templates','$HOME/.nr/templates']. Environment variables are supported
 TEMPLATES_PATH       = ['./templates','$HOME/.nr/custom','$HOME/.nr/templates']
 # Path to the platform map. If not provided, 'platform_map.yaml' in the current directory is checked first, and then in the TEMPLATES_PATH folders. Environment variables are supported
 PLATFORM_MAP         = '$HOME/.nr/platform_map.yaml'
@@ -112,7 +112,7 @@ EXPORT_TAGS          = []
 # Export device configurations, when available
 EXPORT_CONFIGS       = true
 
-# Device role levels for visualization
+# Levels of device roles for visualization
 [DEVICE_ROLE_LEVELS]
 unknown =              0
 server =               0
@@ -126,14 +126,14 @@ super-spine =          3
 router =               4
 ```
 
-## Explanation of Fields
+## Field Explanation
 
 ### NetBox API Settings
 
 1. **NB_API_URL**
     - **Description**: NetBox API URL.
     - **Example**: `'https://demo.netbox.dev'`
-    - **Usage**: Defines the URL to which NetReplica should send API requests. If you are using a local instance of NetBox, change to `'http://localhost:8000'`.
+    - **Usage**: Defines the URL to which NetReplica should send API requests. If you are using a local NetBox instance, change to `'http://localhost:8000'`.
 
 2. **NB_API_TOKEN**
     - **Description**: NetBox API authentication token.
@@ -174,9 +174,9 @@ router =               4
     - **Usage**: Defines the format of the exported data. Can be `'gml'`, `'cyjs'`, `'clab'`, among other compatible formats.
 
 8. **OUTPUT_DIR**
-    - **Description**: Directory where exported files will be saved.
+    - **Description**: Directory where the exported files will be saved.
     - **Example**: `'$HOME/nrx'`
-    - **Usage**: Defines the path where exported files will be stored. Can replace the default directory if specified.
+    - **Usage**: Defines the path where the exported files will be stored. Can override the default directory if specified.
 
 9. **TEMPLATES_PATH**
     - **Description**: Path to the templates used during export.
@@ -186,7 +186,7 @@ router =               4
 10. **PLATFORM_MAP**
     - **Description**: Path to the platform mapping file.
     - **Example**: `'$HOME/.nr/platform_map.yaml'`
-    - **Usage**: File that defines how platforms are mapped to node parameters. It is used to customize the display of devices in the export.
+    - **Usage**: File that defines how platforms are mapped to node parameters. It is used to customize the visualization of devices in the export.
 
 ### Device Export Settings
 
@@ -227,16 +227,15 @@ router =               4
       super-spine =          3
       router =               4
       ```
-    - **Usage**: Defines the order of device visualization in the export. Devices with higher levels are displayed more prominently.
+    - **Usage**: Defines the order of visualization of devices in the export. Devices with higher levels are displayed more prominently.
 
 ---
 
 This configuration file allows detailed customization of how NetReplica interacts with NetBox and exports data, helping to meet specific visualization and export needs.
 
-
 ### :fontawesome-solid-arrow-right-to-bracket: **Next Steps**
 
-Now to delve deeper you can check out the next guide that shows how to create and configure new Templates and add new images to netreplica. check it out here [NetReplica Creating Templates](NetReplica%20Criando%20Templates.md).
+Now, to delve deeper, you can check out the next guide that shows how to create and configure new Templates and add new images to netreplica. Check it out here [NetReplica Creating Templates](NetReplica%20Creating%20Templates.md).
 
 ### :fontawesome-solid-link: References
 
