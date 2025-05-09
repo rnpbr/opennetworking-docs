@@ -1,0 +1,1 @@
+Por favor, forneça a documentação em português que você gostaria que eu traduzisse para o inglês. Eu manterei a estrutura original e não adicionarei nada.
