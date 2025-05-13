@@ -4,12 +4,12 @@
 
 This project aims to provide a solid foundation for configuring and simulating networks using modern and efficient tools: **Netbox**, **Containerlab**, and **Netreplica**.
 
-The **Redes Abertas** project was developed for networking professionals and enthusiasts who want to:
+The **Redes Abertas** project was developed for network professionals and enthusiasts who want to:
 
 - **Explore**: Test different network configurations in a controlled environment.
 - **Automate**: Use templates to standardize and automate network device configurations.
 - **Replicate**: Reproduce real network environments in virtual labs for testing and validation.
-- **Manage**: Centralize the documentation and management of network infrastructures efficiently.
+- **Manage**: Centralize documentation and management of network infrastructures efficiently.
 
 With these tools, the project aims to simplify the creation, management, and documentation of complex network topologies, providing flexibility and scalability.
 
@@ -25,9 +25,9 @@ Below is a list of the main vendors supported by Containerlab:
 
 ## Lab Flowchart
 
-The flowchart illustrates the workflow of **Netreplica** in the context of a network simulation environment, integrated with **Containerlab**:
+The flowchart illustrates the workflow of **Netreplica** in the context of a network simulation environment, in integration with **Containerlab**:
 
-![../img/tools_imgs/workflow-netreplica.png](../img/tools_imgs/workflow-netreplica.png)
+![Workflow Netreplica](../img/tools_imgs/workflow-netreplica.gif)
 
 ---
 
@@ -55,11 +55,11 @@ The topology is documented and managed in **Netbox**, a centralized platform for
 
 ### 6. **Laboratory (Docker Stack)**
 
-The simulation is executed in a lab environment using a Docker stack. The defined topology is reproduced, allowing for testing and validation.
+The simulation is run in a lab environment using a Docker stack. The defined topology is reproduced, allowing tests and validations.
 
 ### 7. **Graphite**
 
-To monitor and visualize metrics and performance of the simulation, **Graphite** is integrated into the lab. It collects and displays relevant data for analysis.
+To monitor and visualize metrics and simulation performance, **Graphite** is integrated into the lab. It collects and displays relevant data for analysis.
 
 ---
 
@@ -87,8 +87,11 @@ To get started, read the [Configuration Guide](./Getting%20Started.md) to learn 
 
 ## Available Labs
 
-- [OSPF Lab](Laborat%C3%B3rios/ospf-lab/index.md) - OSPF Configuration Laboratory based on the Juniper MX platform in a ring topology.
-
+- [OSPF Routing](Laboratórios/Roteamento-OSPF/index.md) - OSPF Configuration lab based on the Juniper MX platform in a ring topology.
+- [Discovery](Laboratórios/Descoberta/index.md) - Network device discovery lab using OSPF and SNMP, integrating Zabbix and Netbox.
+- [ELK Monitoring](Laboratórios/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
+- [Telegraf Monitoring](Laboratórios/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.
+- [Zabbix Monitoring](Laboratórios/Monitoramento-Zabbix/index.md) - Router monitoring lab via SNMP with centralized collection by Zabbix Server.
 ---
 
 ## Tools
@@ -96,9 +99,10 @@ To get started, read the [Configuration Guide](./Getting%20Started.md) to learn 
 - [Netbox](Getting Started.md): Tool for network infrastructure management
 - [Containerlab](Getting Started.md): Tool for simulating complex network topologies
 - [Netreplica](Getting Started.md): Tool for replicating network environments from Netbox to Containerlab
-- [ELK](Ferramentas/Elasticsearch/index.md): Stack for monitoring logs and data flows in real-time
+- [ELK](Ferramentas/Elasticsearch/index.md): Stack for monitoring logs and data flows in real time
 - [Edgeshark](Ferramentas/Edgeshark/index.md): Tool for capturing and visualizing network traffic
 - [LibreNMS](Ferramentas/LibreNMS/index.md): Tool for monitoring network devices
+
 
 ---
 
