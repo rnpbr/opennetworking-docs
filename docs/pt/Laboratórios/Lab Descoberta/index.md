@@ -24,8 +24,29 @@ Os roteadores estão configurados com as seguintes tecnologias:
 - **SNMP (Simple Network Management Protocol)**: Utilizado para monitoramento e gerenciamento da rede, permitindo o acesso a informações de telemetria dos dispositivos.
 ---
 
-## :material-tools: **2. Requisitos**
-### :material-alert: 2.1 Pré requisitos
+## :octicons-search-16: **2. Aplicações**
+
+### Exemplos de Aplicações
+
+Este laboratório é voltado à experimentação prática com descoberta automática de dispositivos em redes IP, integrando ferramentas de monitoramento (Zabbix) e documentação (Netbox). Ele é ideal para estudos e treinamentos que envolvem automação de inventário, descoberta de topologia e integração de dados de rede.
+
+#### Possíveis Aplicações:
+
+- **Automação da descoberta de rede:** Demonstra como identificar automaticamente dispositivos ativos em uma rede usando Zabbix e como importar esses dados para o Netbox, reduzindo o esforço manual no mapeamento de ativos.
+
+- **Capacitação em NetDevOps e gestão de inventário:** Excelente para treinar profissionais em práticas modernas de operações de rede, com foco em integração de ferramentas via API e automação da documentação de infraestrutura.
+
+- **Criação de repositório centralizado de dispositivos:** Possibilita construir uma base confiável de dados sobre a rede em tempo real, a partir de informações descobertas via SNMP e documentadas no Netbox.
+
+- **Estudo da integração Zabbix + Netbox via API:** Permite explorar o uso de APIs RESTful para sincronizar informações entre ferramentas de monitoramento e gestão de ativos de rede.
+
+- **Ensino de descoberta SNMP e gerenciamento centralizado:** Proporciona uma experiência prática para alunos e profissionais entenderem como ocorre a coleta de dados de rede (interfaces, IPs, fabricantes etc.) e como esses dados são tratados por ferramentas de gerenciamento.
+
+---
+
+
+## :material-tools: **3. Requisitos**
+### :material-alert: 3.1 Pré requisitos
 
 Para iniciar o laboratório, é necessário a instalação e configuração dos seguintes componentes:
 
@@ -37,7 +58,7 @@ Para iniciar o laboratório, é necessário a instalação e configuração dos 
 Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](../../Getting%20Started.md)
 
 
-### :material-alert: 2.2 Tabela de Requisitos Computacionais
+### :material-alert: 3.2 Tabela de Requisitos Computacionais
 
 | Requisito           | Detalhes |
 |---------------------| --- |
@@ -49,11 +70,18 @@ Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuraç
 
 !!! tip "Dica" 
     Verifique se a versão do Docker e do Containerlab são compatíveis para evitar erros durante a implantação.
+
+!!! warning "Atenção" 
+    Verifique se o seu processador possui **suporte à virtualização por hardware** e se essa funcionalidade está **ativada na BIOS/UEFI**.  
+    - Em processadores **Intel**, essa tecnologia é chamada de **VT-x** (Intel Virtualization Technology).  
+    - Em processadores **AMD**, é conhecida como **AMD-V** (AMD Virtualization).  
+
+    Sem essa funcionalidade ativada, as imagens como o **vJunos-router** não funcionarão corretamente.
 ---
 
-## :octicons-tools-16: 3. Instalação
+## :octicons-tools-16: 4. Instalação
 
-### :material-network-strength-4-cog: 3.1 Configurando a Rede Docker
+### :material-network-strength-4-cog: 4.1 Configurando a Rede Docker
 
 Antes de iniciar os containers, crie a rede bridge que interligará os dispositivos:
 
@@ -65,23 +93,31 @@ docker network create \
   br-lab
 ```
 
-### :material-git: 3.2 Clonando o Repositório do Lab
+### :material-git: 4.2 Clonando o Repositório do Lab
 
-Clone o repositório do laboratório:
-```bash
-git clone https://git.rnp.br/redes-abertas/labs/-/tree/main/discovery-lab
-```
+Execute o script abaixo para baixar e configurar o laboratório automaticamente:
 
-Entre no repositório:
-```bash
-cd discovery-lab/
-```
+=== "Linux/Mac"
+
+    ```bash
+    curl -L -o get.sh "https://git.rnp.br/redes-abertas/labs/-/raw/main/discovery-lab/get.sh?ref_type=heads&inline=false" && sh get.sh && cd discovery-lab
+    ```
+
+=== "Windows"
+
+    ```bat
+    curl -L -o get.bat "https://git.rnp.br/redes-abertas/labs/-/raw/main/discovery-lab/get.bat?ref_type=heads&inline=false" && call get.bat && cd discovery-lab
+    ```
+
+!!! tip "Dica"
+    No Linux/Mac, use `chmod +x get.sh` antes de executar o script, caso ele não esteja com permissão de execução.
+
 
 ---
 
-## :fontawesome-solid-house-chimney: 4. Implantação do Ambiente
+## :fontawesome-solid-house-chimney: 5. Implantação do Ambiente
 
-### :material-router-wireless: 4.1 Subindo os Roteadores com Containerlab
+### :material-router-wireless: 5.1 Subindo os Roteadores com Containerlab
 
 Inicie a topologia com o comando:
 
@@ -94,7 +130,7 @@ sudo clab deploy -t clab/discovery-lab.clab.yaml
     Caso ocorra algum erro, verifique a saída do comando para possíveis mensagens de erro. Use `docker logs <container_name>` para depurar.
 
 
-### :material-server: 4.2 Levantando o Zabbix
+### :material-server: 5.2 Levantando o Zabbix
 !!! tip "Dica" 
     Caso você já possua um ambiente Zabbix configurado, basta pular esse passo.
 
@@ -106,10 +142,10 @@ docker compose -f zabbix-docker/docker-compose.yml up -d
 A interface web do Zabbix ficará disponível na porta 81.
 
 ---
-## :material-relation-one-to-one: 5. Integração com Zabbix e Netbox
+## :material-relation-one-to-one: 6. Integração com Zabbix e Netbox
 Neste passo é preciso que você crie um token de API tanto no Zabbix quanto no Netbox para adicionar o token no arquivo .env
 
-### :material-import: 5.1 Importação dos Roteadores para o Zabbix
+### :material-import: 6.1 Importação dos Roteadores para o Zabbix
 
 1. Acesse a pasta de scripts:
 ```bash
@@ -152,7 +188,7 @@ DEVICE_PASSWORD=admin@123                     # Senha Default de acesso aos rote
 python3 import_zabbix.py
 ```
 
-### :octicons-key-16: 5.2 Gerando Tokens de API
+### :octicons-key-16: 6.2 Gerando Tokens de API
 Criando Token de API no Zabbix.
 
 1. Acesse a interface do Zabbix.
@@ -167,7 +203,7 @@ Criando Token de API no Netbox.
 3. Clique em **Add**, associe a um usuário e copie o token.
 4. Atualize o campo `NETBOX_TOKEN` no `.env`.
 
-### :material-import: 5.3 Importação dos Roteadores para o Netbox
+### :material-import: 6.3 Importação dos Roteadores para o Netbox
 Agora com o ambiente totalmente configurado, você pode importar os roteadores ao Netbox com o comando:
 ```bash
 python3 import_netbox.py
@@ -176,11 +212,11 @@ python3 import_netbox.py
 Com o script bem sucessido, você pode visualizar os roteadores dentro do Netbox com as suas respectivas informações!
 ___
 
-## :material-access-point: 6. Acesso
+## :material-access-point: 7. Acesso
 
 Após o laboratório ser iniciado, você poderá acessar os dispositivos e serviços configurados na rede.
 
-### :material-table: 6.1 Tabela de IPs e Portas de Serviço
+### :material-table: 7.1 Tabela de IPs e Portas de Serviço
 
 Aqui está a tabela de dispositivos, IPs e portas de serviço disponíveis no laboratório.
 
@@ -191,7 +227,7 @@ Aqui está a tabela de dispositivos, IPs e portas de serviço disponíveis no la
 | **Servidor de Monitoramento** | 172.20.20.1 | 8080 | Web (Graphite) |
 | **Servidor Zabbix** | 172.10.10.115 | 81 | Zabbix |
 
-### :material-key-link: 6.2 Senhas de Acesso
+### :material-key-link: 7.2 Senhas de Acesso
 
 Aqui está a tabela com as senhas de acesso dos serviços configurados no laboratório.
 
@@ -206,7 +242,7 @@ Aqui está a tabela com as senhas de acesso dos serviços configurados no labora
     antes de acessar acesse o log de um dispositivo para verificar se ele foi iniciado e configurado corretamente.
 ---
 
-## :octicons-rocket-24: 7. Próximos Passos
+## :octicons-rocket-24: 8. Próximos Passos
 Com o laboratório finalizado, você pode seguir algum passos abaixo como **extra**.
 
 - Monitorar os roteadores via SNMP na interface do Zabbix.
@@ -215,6 +251,6 @@ Com o laboratório finalizado, você pode seguir algum passos abaixo como **extr
 - Consultar o guia de OSPF para validar a comunicação dinâmica entre roteadores.
 ---
 
-### :fontawesome-solid-paintbrush: 8. Conclusão
+### :fontawesome-solid-paintbrush: 9. Conclusão
 
 ✅ Pronto! Seu ambiente agora está configurado, monitorado e documentado no Netbox. Sinta-se à vontade para personalizar ou expandir a topologia conforme os objetivos do seu estudo ou projeto.

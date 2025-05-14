@@ -1,13 +1,15 @@
 # :material-power-plug-outline: Napalm Plugin
 
-Aqui fica um resumo do plugin
+O plugin Napalm para o NetBox permite integrar funcionalidades de coleta em tempo real diretamente dos dispositivos de rede configurados no sistema. Com ele, é possível obter informações atualizadas como status operacional, vizinhanças (LLDP/CDP) e configurações dos equipamentos, enriquecendo a visualização e gestão dos ativos no NetBox. Essa integração torna a ferramenta mais dinâmica, aproximando a documentação da realidade atual da rede.
 
 ## :simple-git: Repositório do Plugin
-Copie o link abaixo ou clique no link a seguir para acessar o [Repositório do Github](https://github.com/netbox-community/netbox-napalm-plugin)
+Copie o link abaixo ou clique a seguir para acessar o [Repositório do Github](https://github.com/netbox-community/netbox-napalm-plugin)
 
 ```
 https://github.com/netbox-community/netbox-napalm-plugin
 ```
+
+---
 
 ## :material-scale-balance: 1. Requisitos para instalação
 Esta documentação utilizou os seguintes componentes com suas respectivas versões:
@@ -24,6 +26,8 @@ Na documentação foram testadas as seguintes funcionalidades:
 | **Status Page**         | ✅ |
 | **LLDP Neighbors Page** | ✅ |
 | **Config Page**         | ✅ |
+
+---
 
 ## :material-file-document-arrow-right: 2. Instalando e Configurando o Plugin no Netbox
 Para instalarmos o plugin no Netbox, precisamos alterar e adicionar alguns arquivos 
@@ -165,6 +169,8 @@ PLUGINS_CONFIG = {
 }
 ```
 
+---
+
 ## :simple-docker: 3. Build e Deploy!
 Agora seu Netbox está configurado e pronto para o deploy, siga os comandos abaixo e construa a nova instancia do Netbox!
 
@@ -189,6 +195,8 @@ docker compose exec -it --user root netbox chmod -R a+w /opt/netbox/netbox/stati
 ```bash
 docker compose exec netbox python3 manage.py collectstatic --noinput
 ```
+
+---
 
 ## :fontawesome-solid-gear: 4. Configurando o Napalm
 Agora, com o Netbxo já configurado e funcionando, vamos configurar e entender melhor como o Napalm funciona.
@@ -310,6 +318,8 @@ Adicionando IPv4 Primário no Dispositivo
 1. Vá em **Dispositivos**
 2. Clique no **JPA** e depois em **Editar**
 3. Em **Gestão** → **IPv4 primário**: Selecione `172.10.10.101/32 (ge-0/0/2)`
+
+---
 
 ## :material-eye: 5. Visualizando o Plugin
 Após o cadastro, na aba de dispositivos, acesse **JPA**.

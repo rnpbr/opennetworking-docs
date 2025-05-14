@@ -34,13 +34,13 @@ Containerlab uses [startup-config](https://containerlab.dev/manual/nodes/#remote
 ```bash
 https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/config-templates-data-source
 ```
-How to add: [Render Templates - #Remote Templates](../../Guias/Netbox/Render_Templates/index.md/#11-templates-remotos)
+How to add: [Render Templates - #Remote Templates](../../Guias/Netbox/Render_Templates/index.md/#11-remote-templates)
 
 2. **Import the OSPF lab template:**
      1. Access your Netbox and go to **Provisioning** > **Configuration Templates**.
      2. Create a template and define a name of your choice.
      3. In **Data Source** choose the name of the data source created in step **1**.
-     4. In **File** Select: ```Juniper/<image>/OSPF.jinja2```]
+     4. In **File** Select: ```Juniper/<image>/OSPF.jinja2```
    
     !!! warning "Attention"
         Pay attention to the device image, as configuration templates are created differently for each type of image.
