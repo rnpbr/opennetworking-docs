@@ -27,7 +27,7 @@ Abaixo uma lista dos principais venrores suportados pelo Containerlab:
 
 O fluxograma ilustra o fluxo de trabalho do **Netreplica** no contexto de um ambiente de simulação de rede, em integração com o **Containerlab**:
 
-![../img/tools_imgs/workflow-netreplica.png](../img/tools_imgs/workflow-netreplica.png)
+![Workflow Netreplica](../img/tools_imgs/workflow-netreplica.gif)
 
 ---
 
@@ -87,8 +87,11 @@ Para começar, leia o [Guia de Configuração](./Getting%20Started.md) para apre
 
 ## Laboratórios Disponíveis
 
-- [OSPF Lab](Laborat%C3%B3rios/ospf-lab/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da Juniper em uma topologia em anel.
-
+- [Roteamento OSPF](Laboratórios/Roteamento-OSPF/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da Juniper em uma topologia em anel.
+- [Descoberta](Laboratórios/Descoberta/index.md) - Laboratório de descoberta de dispositivos de rede utilizando OSPF e SNMP, integrando Zabbix e Netbox.
+- [Monitoramento ELK](Laboratórios/Monitoramento-ELK/index.md) - Laboratório de monitoramento de fluxos IPFIX utilizando o Elastic Stack (Elasticsearch, Kibana, Fleet Server e Elastic Agent).
+- [Monitoramento Telegraf](Laboratórios/Monitoramento-Telegraf/index.md) - Laboratório de monitoramento de fluxos de tráfego via Telegraf/IPFIX para InfluxDB.
+- [Monitoramento Zabbix](Laboratórios/Monitoramento-Zabbix/index.md) - Laboratório de monitoramento de roteadores via SNMP com coleta centralizada pelo Zabbix Server.
 ---
 
 ## Ferramentas
