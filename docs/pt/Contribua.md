@@ -23,7 +23,7 @@ Para contribuir com o projeto, siga as etapas abaixo:
 
 
 ```bash
-git clone https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/docs.git
+git clone https://git.rnp.br/redes-abertas/docs.git
 ```
 
 2. Instale as dependências do projeto:
@@ -95,14 +95,14 @@ docs/
 
 ## Mão na massa
 
-Agora que você já tem as dependecias instaladas e entendeu como ele funciona, você pode começar a contribuir com o código,
+Agora que você já tem as dependências instaladas e entendeu como o poetry funciona, você pode começar a contribuir com o código,
 a seguir algumas dicas para contribuir com o projeto assim como ultilizar as ferramentas de automação e padronização do projeto.
 
 !!! info "Dica"
     antes de começar a editar o código, é importante entrar no ambiente virtual do poetry, para isso, execute o seguinte comando:
 
 !!! warning "Atenção"
-    Após a atualização do poetry de 2025, o comando `poetry shell` foi transferido para um pluguin, para funcionar, execute o seguinte comando:
+    Após a atualização do poetry de 2025, o comando `poetry shell` foi transferido para um plugin, para funcionar, execute o seguinte comando:
     ```bash
     poetry self add poetry-plugin-shell
     ```
