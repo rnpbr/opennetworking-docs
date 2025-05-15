@@ -21,7 +21,7 @@ To contribute to the project, follow the steps below:
 1. Clone the repository to your local machine:
 
 ```bash
-git clone https://git.rnp.br/gci/dev/inovacao-ciberinfraestrutura/docs.git
+git clone https://git.rnp.br/redes-abertas/docs.git
 ```
 
 2. Install the project dependencies:
@@ -91,8 +91,8 @@ docs/
 
 ## Get your hands dirty
 
-Now that you have the dependencies installed and understand how it works, you can start contributing to the code,
-here are some tips for contributing to the project as well as using the project's automation and standardization tools.
+Now that you have the dependencies installed and understand how poetry works, you can start contributing to the code.
+Below are some tips for contributing to the project, as well as using the project's automation and standardization tools.
 
 !!! info "Tip"
     Before you start editing the code, it is important to enter the poetry virtual environment, to do so, run the following command:

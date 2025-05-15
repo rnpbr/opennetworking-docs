@@ -92,6 +92,7 @@ To get started, read the [Configuration Guide](./Getting%20Started.md) to learn 
 - [ELK Monitoring](Laboratórios/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
 - [Telegraf Monitoring](Laboratórios/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.
 - [Zabbix Monitoring](Laboratórios/Monitoramento-Zabbix/index.md) - Router monitoring lab via SNMP with centralized collection by Zabbix Server.
+- [NETCONF Configuration](Laboratórios/Configuração-NETCONF/index.md) - Configure network devices using NETCONF.
 ---
 
 ## Tools
