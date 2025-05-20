@@ -6,6 +6,10 @@ repo_url: https://git.rnp.br/redes-abertas/docs
 theme:
   name: material
   language: pt-BR
+  extra:
+    analytics:
+      provider: google
+      property: G-NEEXQ81RDP
   features:
     - content.tabs.link
     - search.suggest
@@ -69,4 +73,3 @@ plugins:
         - locale: en
           name: English (WIP)
           build: true
-
