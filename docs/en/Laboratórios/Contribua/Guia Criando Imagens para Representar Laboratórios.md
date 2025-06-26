@@ -1,12 +1,12 @@
 # Guide: Creating Images to Represent Labs
 
-This guide teaches you how to create images representing network topologies for labs, using the [Draw.io](http://draw.io/) template provided in the repository. The images must follow the project's visual identity and be saved in **SVG** format within the correct folder.
+This guide teaches how to create images representing network topologies for labs, using the [Draw.io](http://draw.io/) template provided in the repository. The images should follow the project's visual identity and be saved in **SVG** format inside the correct folder.
 
 ---
 
 ### 1. **Opening the Template**
 
-In the root of the `docs/Templates` repository, you will find a [**Draw.io**](http://draw.io/) template, which you can see below. Open the file and you will see that it already contains all the necessary components to create network topologies, including:
+In the repository's root `docs/Templates`, you will find a [**Draw.io**](http://draw.io/) template. You can see it below. Open the file and you will see that it already contains all the necessary components to create network topologies, including:
 
 ![Draw.io Template](../../img/Template_redes_abertas.svg)
 
@@ -17,21 +17,21 @@ In the root of the `docs/Templates` repository, you will find a [**Draw.io**](ht
 
 ### 2. **Assembling the Topology**
 
-1. **Add Network Components**: Copy and paste the icons of **routers**, **switches**, and **servers** from the component area of the template.
+1. **Add Network Components**: Copy and paste the icons of **routers**, **switches**, and **servers** from the template's component area.
 2. **Add Application Cards**: Position the cards that represent the assets/protocols in the topology.
 3. **Connect the Components**: Use **lines** (for interconnections) and **arrows** (to point to IPs) to connect the components and create the network structure.
 
 ### Style Specifications for the Topology
 
 | Element | Specification |
-| --- | --- |
+|---|---|
 | **Title Font** | **Font**: Times New Roman, **Size**: 28px |
 | **Subtitle Font** | **Font**: Times New Roman, **Size**: 25px |
 | **Connection Lines** | **Thickness**: 11px, **Type**: Straight lines (for interconnections) |
 | **Arrows for IPs** | **Thickness**: 11px, **Type**: Arrows (to point to IPs) |
 | **Interface Boxes** | **Font Size**: 11px |
 
-With these specifications, you ensure that the topologies follow the project's visual standard and remain consistent with the rest of the documentation.
+With these specifications, you ensure that the topologies follow the project's visual standard and are consistent with the rest of the documentation.
 
 ---
 
@@ -41,7 +41,7 @@ With these specifications, you ensure that the topologies follow the project's v
 2. **Add IP Property**:
     - Select the square.
     - Right-click and choose **Add/Edit Data**.
-    - Click on **Add Property**, set the name as **ip** and add the interface's IP address.
+    - Click on **Add Property**, set the name as **ip**, and add the interface's IP address.
 
 When the mouse hovers over the square, the IP will be displayed as a tooltip.
 
@@ -52,10 +52,10 @@ When the mouse hovers over the square, the IP will be displayed as a tooltip.
 After finalizing the topology, save the image in **SVG** format:
 
 1. **Save as SVG**: In [**Draw.io**](http://draw.io/), go to **File > Export As > svg**.
-2. **Destination Folder**: Save the image to the `docs/img/labs_imgs/` folder.
+2. **Destination Folder**: Save the image in the `docs/img/labs_imgs/` folder.
 
 !!! warning "Attention"
-    Make sure to select **Appearance:** as Light when exporting.
+    Make sure to select the **Appearance:** option as Light when exporting.
 
 ---
 
@@ -65,4 +65,3 @@ After saving the image, update the documentation's Markdown file, including the 
 
 ```markdown
 ![Network Topology Diagram](../../labs_imgs/lab-name/image-name.svg)
-```

@@ -1,8 +1,6 @@
-Okay, here's the translation of the provided documentation into English:
-
 # Lab Template (Lab Name)
 
-This template serves as an **example** for creating implementation guides for Containerlab labs. It is structured to serve as a model for all project labs, with information that should be followed consistently in each documentation. Each lab may have its specificities, but the general structure and the following sections remain the same for all labs.
+This template serves as an **example** for creating implementation guides for Containerlab laboratories. It is structured to serve as a model for all the project's labs, with information that should be followed consistently in each documentation. Each lab may have its specificities, but the general structure and the following sections remain the same for all labs.
 
 ---
 
@@ -12,10 +10,10 @@ This template serves as an **example** for creating implementation guides for Co
 
 Describe the objective of the lab clearly, explaining what will be demonstrated or tested. Be brief, but include the main functionalities that the user will explore.
 
-This section should contain an image containing the lab topology.
+This part should contain an image containing the lab topology.
 [Lab Topology](../../../img/labs_imgs/Topologia_ospf_lab.png)
 
-**Example: The "ospf-lab" lab demonstrates the configuration and testing of OSPF (Open Shortest Path First) routing in a network composed of multiple routers. The main focus is to verify the establishment of OSPF adjacency and routing between the network devices.**
+**Example: The "ospf-lab" laboratory demonstrates the configuration and testing of OSPF (Open Shortest Path First) routing in a network composed of multiple routers. The main focus is to verify the establishment of OSPF adjacency and routing between network devices.**
 
 !!! tip "Tip"
     Keep the description clear and concise, highlighting what is essential for the user to quickly understand what the lab will provide.
@@ -25,76 +23,78 @@ Here, include the diagram or a detailed textual description of the topology, men
 
 ---
 
-Sure! Below is a **general template of the "Application Example" section**, with **guidance description** for the user to understand what to include in this part of the guide, followed by a **practical example** that can be adapted in any similar laboratory:
+Sure! Below is a **general template for the "Application Example" section**, with an **orientation description** for the user to understand what to include in this part of the guide, followed by a **practical example** that can be adapted in any similar laboratory:
 
 ---
 
 ### **Application Example**
 
 **Description:**
-Use this section to present practical and objective scenarios in which the lab can be applied. The focus should be on the possible purposes of use, such as training, performance testing, configuration validation, or protocol study. Avoid technical implementation details and focus on **what** the lab can be used for in real or academic environments.
+Use this section to present practical and objective scenarios in which the laboratory can be applied. The focus should be on possible uses, such as training, performance testing, configuration validation, or protocol study. Avoid technical details of the implementation and focus on **what** the laboratory can be used for in real or academic environments.
 
 **Application Example:**
 
-This lab is ideal for real network simulation scenarios, especially in the context of dynamic routing and monitoring. It can be applied in:
+This lab is ideal for simulating real network scenarios, especially in the context of dynamic routing and monitoring. It can be applied in:
 
-*   **Technical training**: Training professionals in routing protocols (such as OSPF) and monitoring with SNMP, using tools such as Zabbix.
-*   **Monitored environment testing**: Evaluating how routers behave under continuous monitoring and automatic device discovery.
-*   **Teaching in networking courses**: Support environment for practical computer networking classes, focusing on point-to-point topologies and integration with network management systems.
-*   **Tool integration validation**: Used to validate communication between routers and monitoring platforms in virtualized environments.
+* **Technical training**: Training professionals in routing protocols (such as OSPF) and monitoring with SNMP, using tools like Zabbix.
+* **Testing monitored environments**: Evaluation of how routers behave under continuous monitoring and automatic device discovery.
+* **Teaching in networking disciplines**: Support environment for practical computer network classes, focusing on point-to-point topologies and integration with network management systems.
+* **Tool integration validation**: Used to validate communication between routers and monitoring platforms in virtualized environments.
 
 ---
 
 ## 3. Requirements
 
-This topic should list **the minimum hardware and software requirements** needed to run the lab. Be sure to include essential tools like **Containerlab** and **Docker**, as well as the `br-lab` network.
+This topic should list **the minimum hardware and software requirements** needed to run the lab. Be sure to include essential tools such as **Containerlab** and **Docker**, as well as the `br-lab` network.
 
 ### Example Requirements Table:
 
-| Requirement          | Details                     |
-|----------------------|-----------------------------|
-| **CPUs**             | [x] CPUs (specify)           |
-| **RAM Memory**       | [x] GB                     |
-| **Disk Space**       | [x] GB                     |
-| **Containerlab**     | [Containerlab Version]       |
-| **Created Network**  | [ br-lab]                   |
+| Requirement           | Details |
+|---------------------| --- |
+| **CPUs**            | [x] CPUs (specify) |
+| **RAM Memory**     | [x] GB |
+| **Disk Space** | [x] GB |
+| **Containerlab**    | [Containerlab Version] |
+| **Created Network**     | [ br-lab] |
 
 !!! tip "Tip"
-    Check that the Docker and Containerlab versions are compatible to avoid errors during deployment.
+    Check if the Docker and Containerlab versions are compatible to avoid errors during deployment.
 
 ---
 
 ## 4. Deploying the Lab
 
-This topic describes the **lab deployment process**, with detailed instructions for the user to download and start the environment.
+This topic describes the process of **deploying the laboratory**, with detailed instructions for the user to download and start the environment.
 
 ### 4.1 Ready Deployment
 
-This method allows the user to **download a pre-assembled version** of the lab, with the topology and configurations already defined. Just download the repository and proceed to the start of execution.
+This method allows the user to **download a pre-assembled version** of the lab, with the topology and configurations already defined. Simply download the repository and proceed to the start of execution.
 
 !!! tip "Tip"
-    Ready deployment is useful for those who want to start quickly with a configured environment, but does not allow modifications to the initial topology.
+    Ready deployment is useful for those who want to get started quickly with a configured environment, but does not allow modifications to the initial topology.
 
 ### Downloading the Lab
 
-To download the lab, execute the command corresponding to your operating system.
+To download the lab, run the command corresponding to your operating system.
 
 === "Linux/Mac"
 
     ```bash
     curl -L -o get.sh "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><lab-name>/get.sh?inline=false" && sh get.sh && cd <lab-name>
+
     ```
 
 === "Windows"
 
     ```bash
     curl -L -o get.bat "<https://git.rnp.br/redes-abertas/labs/-/raw/main/><lab-name>/get.bat?inline=false" && call get.bat && cd <lab-name>
+
     ```
 
-This command will download the installation script and direct you to the lab directory.
+This command will download the installation script and redirect you to the lab directory.
 
 !!! tip "Tip"
-    Before running the scripts, check that the execution permissions are correct (use `chmod +x get.sh` on Linux/Mac).
+    Before running the scripts, check if the execution permissions are correct (use `chmod +x get.sh` on Linux/Mac).
 
 ---
 
@@ -111,12 +111,13 @@ If you want a **customized version** of the lab, you can start the modification 
 
 After downloading or customizing, follow the steps below to **start the lab**.
 
-### 5.1 Launching the Lab
+### 5.1 Bringing up the Lab
 
-Execute the command below within the directory where the lab was downloaded or customized:
+Run the command below inside the directory where the lab was downloaded or customized:
 
 ```bash
 sudo containerlab deploy
+
 ```
 
 This command will start the topology defined in the lab and create all necessary containers.
@@ -134,35 +135,34 @@ After the lab is started, you can access the devices and services configured on 
 
 Here is an example table of devices, IPs, and service ports available in the lab.
 
-| Device                   | Access IP      | Port | Service     |
-|--------------------------|----------------|------|-------------|
-| **Router 1**             | 192.168.1.1    | 22   | SSH         |
-| **Router 2**             | 192.168.1.2    | 22   | SSH         |
-| **Monitoring Server**   | 192.168.1.3    | 8080 | Web (Graphite) |
-| **DB Server**            | 192.168.1.4    | 3306 | MySQL       |
+| Device | Access IP | Port | Service |
+| --- | --- | --- | --- |
+| **Router 1** | 192.168.1.1 | 22 | SSH |
+| **Router 2** | 192.168.1.2 | 22 | SSH |
+| **Monitoring Server** | 192.168.1.3 | 8080 | Web (Graphite) |
+| **DB Server** | 192.168.1.4 | 3306 | MySQL |
 
 ### 6.2 Access Passwords
 
-Here is an example table with the access passwords of the services configured in the lab.
+Here is an example table with the access passwords for the services configured in the lab.
 
-| Service                | User  | Password     |
-|------------------------|-------|--------------|
-| **Router 1 (SSH)**     | admin | admin@123    |
-| **Router 2 (SSH)**     | admin | admin@123    |
-| **Graphite (Web)**      | admin | admin@123    |
-| **MySQL Database**      | root  | mysql@123    |
+| Service | User | Password |
+| --- | --- | --- |
+| **Router 1 (SSH)** | admin | admin@123 |
+| **Router 2 (SSH)** | admin | admin@123 |
+| **Graphite (Web)** | admin | admin@123 |
+| **MySQL Database** | root | mysql@123 |
 
 !!! warning "Attention"
-    before accessing, access the log of a device to verify that it has been started and configured correctly.
-
+    Before accessing, check the log of a device to verify that it has been started and configured correctly.
 ---
 
 ## 7. :octicons-rocket-24: Next Steps
 
-This part is intended for what to do after you have started the laboratory. you can add other guides here such as
-use of a tool or operation of the laboratory
+This part is intended for what to do after starting the laboratory. you can add other guides here, such as the
+use of some tool or operation of the laboratory
 ---
 
 ### Conclusion (Delete later)
 
-This template was designed to serve as a **standard structure** for documenting all project labs. It should be followed consistently to ensure clarity and standardization in the creation of new labs. The sections described are essential and applicable to any lab within Containerlab, with the goal of providing a fluid experience for both developers and users. without changing the structure of the documentation. and do not add anything.
+This template is designed to serve as a **standard structure** for documenting all the project's laboratories. It should be followed consistently to ensure clarity and standardization in the creation of new laboratories. The described sections are essential and applicable to any lab within Containerlab, with the aim of providing a smooth experience for both developers and users, without changing the structure of the documentation, adding anything, or changing the links or references.

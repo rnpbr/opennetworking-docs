@@ -1,7 +1,5 @@
 # Contribua
 
-Texto de contribuição
-
 ## :material-tools: Ferramentas
 
 Este projeto foi desenvolvido com as seguintes ferramentas:

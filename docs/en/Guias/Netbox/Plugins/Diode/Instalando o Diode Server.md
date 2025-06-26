@@ -1,6 +1,6 @@
 # :material-power-plug-outline: Installing the Diode Server
 
-The Diode Server is the central component of the Diode architecture. It is responsible for receiving, processing, and reconciling data sent by clients (scripts or agents) and integrating it into NetBox. Utilizing modern protocols such as gRPC and efficient formats such as Protobuf, the Diode Server validates the received information and executes automated inventory updates in NetBox via the API exposed by the plugin.
+The Diode Server is the central component of the Diode architecture. It is responsible for receiving, processing, and reconciling data sent by clients (scripts or agents) and integrating it with NetBox. Utilizing modern protocols such as gRPC and efficient formats like Protobuf, the Diode Server validates the received information and executes the automated inventory update in NetBox through the API exposed by the plugin.
 
 This server acts as an intelligent intermediary, ensuring that the entered data is correct, complete, and synchronized with existing records.
 
@@ -42,7 +42,7 @@ ___
 Let's modify the `.env` variables file and create a new `docker-compose.override.yml` file to overwrite the docker-compose configurations.
 
 ### `.env`
-Here we need to change some variables to connect the Diode server to our environment:
+Here we will need to change some variables to connect the Diode server to our environment:
 
 ```bash
 # Default, no need to change
@@ -64,24 +64,24 @@ NETBOX_DIODE_PLUGIN_API_BASE_URL=http://172.10.10.5:8080/api/plugins/diode
 
 NETBOX_DIODE_PLUGIN_SKIP_TLS_VERIFY=true # If you are using Https, you can leave it as false
 
-# API Key generated during Diode plugin installation -> diode-to-netbox
+# API Key generated during the Diode plugin installation -> diode-to-netbox
 DIODE_TO_NETBOX_API_KEY=
 
-# API Key generated during Diode plugin installation -> netbox-to-diode
+# API Key generated during the Diode plugin installation -> netbox-to-diode
 NETBOX_TO_DIODE_API_KEY=
 
-# API Key generated during Diode plugin installation -> diode-ingestion
+# API Key generated during the Diode plugin installation -> diode-ingestion
 DIODE_API_KEY=
 
 # API Key to authorize RPC calls between the Ingester and the Reconciler.
-# Shell command example for generation: openssl rand -base64 40 | head -c 40
+# Example shell command for generation: openssl rand -base64 40 | head -c 40
 INGESTER_TO_RECONCILER_API_KEY=sXjJZe6BBzVuovrVyyH4Q3vbceqvDwh2kC3DRpML
 ```
 !!! tip "Tip"
-    The API keys `DIODE_TO_NETBOX_API_KEY`, `NETBOX_TO_DIODE_API_KEY`, and `DIODE_API_KEY` can be viewed in Netbox under: Side Menu > Diode > Configurations
+    The API keys `DIODE_TO_NETBOX_API_KEY`, `NETBOX_TO_DIODE_API_KEY` and `DIODE_API_KEY` can be viewed in Netbox under: Side Menu > Diode > Configurations
 
 ### `docker-compose.override.yml`
-This file is responsible for changing the `docker-compose` configurations, overwriting the same configurations.
+This file is responsible for changing the configurations of `docker-compose` by overwriting its configurations.
 
 1. First, let's create the file with the following command:
 ```bash
@@ -111,30 +111,30 @@ networks:
 ___
 
 ## :simple-docker: **4. Deploy!**
-With the Diode server properly configured, now it's time to put it into operation.
+With the Diode server properly configured, it's now time to put it into operation.
 
 - Run the command below to start all services defined in docker-compose.yml:
 ```bash
 docker compose up -d
 ```
 
-- Check if all services are with UP status
+- Verify that all services have the UP status
 ```bash
 docker compose ps
 ```
 ```bash
 NAME                       IMAGE                                STATUS
-diode-diode-ingester-1     netboxlabs/diode-ingester:0.6.0      Up 
-diode-diode-reconciler-1   netboxlabs/diode-reconciler:0.6.0    Up 
-diode-diode-redis-1        redis/redis-stack-server:latest      Up 
-diode-ingress-nginx-1      nginx:latest                         Up 
+diode-diode-ingester-1     netboxlabs/diode-ingester:0.6.0      Up
+diode-diode-reconciler-1   netboxlabs/diode-reconciler:0.6.0    Up
+diode-diode-redis-1        redis/redis-stack-server:latest      Up
+diode-ingress-nginx-1      nginx:latest                         Up
 ```
 
 ---
 
 ## :octicons-rocket-24: **5. Next Steps**
-With the Diode server up and running, we are almost done automating the discovery and import of network devices into NetBox.
+With the Diode server running, we are almost finished automating the discovery and import of network devices into NetBox.
 
-The next step is to configure the Diode Client, a component responsible for collecting information directly from devices and sending it to the Diode server for processing.
+The next step is to configure the Diode Client, the component responsible for collecting information directly from the devices and sending it to the Diode server for processing.
 
 Next: [Installing the Diode Client](./Installing%20o%20Diode%20Client.md)

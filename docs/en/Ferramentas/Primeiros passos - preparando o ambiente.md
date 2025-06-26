@@ -2,28 +2,28 @@
 
 ## :octicons-book-24: **1. Introduction**
 
-In this guide, we will cover the first steps to prepare the monitoring environment using the Docker network br-lab.
+In this guide, we will cover the first steps to prepare the monitoring environment using the Docker br-lab network.
 This network was created to facilitate the access, monitoring, and use of analysis tools in laboratories managed by Containerlab.
 Configuring the br-lab network is a necessary step for using most of the tools that will be shown in this guide.
 After configuring the monitoring tools on the br-lab network, they can be used in any laboratory,
-eliminating the need for reconfiguration with each new environment. This simplifies testing multiple configurations
+eliminating the need for reconfiguration with each new environment. This simplifies the testing of multiple configurations
 and allows the use of various analysis tools with greater efficiency.
 
 ### :material-checkbox-marked-outline: **Advantages:**
 
 - **Single configuration**: Monitoring tools only need to be configured once, regardless of the laboratory in use.
 - **Ease of testing**: Enables the creation and testing of various laboratory configurations without the need for continuous adjustments to the tools.
-- **Flexible integration**: Easily add new laboratories and devices to the network without impacting the already configured infrastructure.
+- **Flexible integration**: Allows you to easily add new laboratories and devices to the network without impacting the already configured infrastructure.
 
 ---
 
-### :octicons-graph-24: **Examples of Laboratories Using the br-lab Network**
+### :octicons-graph-24: **Examples of Laboratories that Use the br-lab Network**
 
 ---
 
 ### :fontawesome-solid-diagram-project: **Monitoring Network Diagram**
 
-Below is a visual example showing how the `br-lab` monitoring network is configured, connecting different laboratories and devices for a unified and efficient testing environment.
+Below is a visual example that shows how the `br-lab` monitoring network is configured, connecting different laboratories and devices for a unified and efficient testing environment.
 ![br-lab_diagram.svg](../../img/tools_imgs/br-lab_diagram.svg)
 ---
 
@@ -40,7 +40,7 @@ docker network create \
 
 ```
 
-### :gear: **Explanation of Parameters:**
+### :gear: **Parameter Explanation:**
 
 - `docker network create`: Starts the creation of a new Docker network.
 - `-driver=bridge`: Specifies the network driver (bridge).
@@ -56,18 +56,18 @@ Command to add a container to the network:
 
 ```bash
 docker run -d \
-  --name my_container \
+  --name meu_container \
   --network br-lab \
-  container_image
+  imagem_do_container
 
 ```
 
-### :gear: **Explanation of Parameters:**
+### :gear: **Parameter Explanation:**
 
 - `docker run -d`: Runs the container in the background.
-- `-name my_container`: Container name.
+- `-name meu_container`: Container name.
 - `-network br-lab`: Connects the container to the `br-lab` network.
-- `container_image`: Specifies the container image to be used.
+- `imagem_do_container`: Specifies the container image to be used.
 
 ### :material-docker: **Using Docker Compose:**
 
@@ -81,16 +81,16 @@ networks:
     external: true
 
 services:
-  my_container:
-    image: container_image
+  meu_container:
+    image: imagem_do_container
     networks:
       br-lab:
-        ipv4_address: 172.10.10.101 # optional for static ip
+        ipv4_address: 172.10.10.101 # opcicional para ip estatico
 
 ```
 
 !!! warning "Attention"
-    When using static IPs, be sure to use IPs after `172.10.10.100` in order to avoid conflicts with existing containers.
+    When using static IPs, be sure to use IPs after `172.10.10.100` to avoid conflicts with existing containers.
 
 ### :gear: **Configuration Explanation:**
 
@@ -108,7 +108,7 @@ The `br-lab` network uses the `bridge` driver, which allows internal communicati
 
 ## :material-connection: **5. Connecting Routers with Virtual Cables**
 
-To connect routers in the `br-lab` network using virtual cables via Containerlab, you can configure the connections between interfaces.
+To connect routers on the `br-lab` network using virtual cables via Containerlab, you can configure the connections between interfaces.
 
 ### :gear: **Example Connections:**
 
@@ -124,11 +124,11 @@ links:
 
 ```
 
-### :material-lan-connect: **Explanation of Connections:**
+### :material-lan-connect: **Connection Explanation:**
 
 - Each line defines a "virtual cable" connecting two network interfaces (for example, `route1:eth1` is connected to `br-lab:eth1`).
 - This allows communication between devices (routers and monitoring tools) through these interfaces.
 
 ## :material-file-document-check: **6. Conclusion**
 
-With this guide, you have learned how to create and use the `br-lab` Docker network, add containers to the network, and connect routers virtually. This configuration is ideal for efficient monitoring in laboratory environments.
+With this guide, you have learned how to create and use the `br-lab` Docker network, how to add containers to the network, and how to connect routers virtually. This configuration is ideal for efficient monitoring in laboratory environments.

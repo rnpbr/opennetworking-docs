@@ -72,22 +72,22 @@ Now, you can use the simplified command **`nrx`** to execute NetReplica more qui
 nrx -c conf/<arquivo.conf>
 ```
 
-### Monitoring Execution
+### Monitoring the Execution
 
-- During execution, NetReplica will use the settings in the `.conf` file to access NetBox, start network replication, and analysis. Monitor the terminal output to track progress and view any relevant messages.
-- After completion of the execution, the replication and analysis results will be available in the output directory specified within the `.conf` file.
+- During execution, NetReplica will use the settings from the `.conf` file to access NetBox, start the replication and network analysis. Monitor the terminal output to track progress and view any relevant messages.
+- After the execution is complete, the replication and analysis results will be available in the output directory specified within the `.conf` file.
 
 ### Shutting Down the Container
 
-To shut down the NetReplica container and release resources, execute:
+To shut down the NetReplica container and release the resources, execute:
 
 ```bash
 docker compose down
 ```
 
-## Next Steps: `.conf` File Configuration
+## Next Steps: Configuring the `.conf` File
 
 Now that you know how to configure and run NetReplica,
 the next step is to understand how to correctly configure the `.conf` file to meet the needs of your network environment.
 
-proximos passos [`.conf` File Configuration](NetReplica Guia Configuração e Execução com NetBox.md)
+Next steps [Configuring the `.conf` File](NetReplica Guia Configuração e Execução com NetBox.md)

@@ -2,7 +2,6 @@
 
 Render Templates in NetBox are a powerful tool that allows you to dynamically generate network configurations customized for each device.
 These templates use the Jinja2 markup language to process variables and render configuration files based on the information stored in the NetBox database.
-
 ## :material-folder-cog: 1. Adding Templates
 
 ### :material-remote-desktop: 1.1 Remote Templates
@@ -19,7 +18,7 @@ Remote templates are available online in a Git repository. To add our template r
    https://git.rnp.br/redes-abertas/config-templates-data-source.git
    ```
 
-!!! warning "Attention"
+!!! warning "Warning"
     If the repository is private, add your authentication method in the backend parameters.
 
 4. Click **Create**.
@@ -27,14 +26,14 @@ Remote templates are available online in a Git repository. To add our template r
 
    If the synchronization is successful, a "Completed" message will appear in the Status section.
 
-6. Now, you can view the templates in the **Provisioning > Configuration Templates** tab.
+6. Now you can view the templates in the **Provisioning > Configuration Templates** tab.
 
 ### :material-monitor: 1.2 Local Templates
 
 To add local templates, follow these steps:
 
 1. Access NetBox and go to **Provisioning > Configuration Templates > Add**.
-2. Add a name, a description, and in **Data**, enter the Jinja2 code of the template you want to add. Fill in the other assignments as needed.
+2. Add a name, a description, and in **Data**, enter the Jinja2 code for the template you want to add. Fill in the other assignments as needed.
 
 Here is an example of a generic Jinja2 template:
 
@@ -85,12 +84,12 @@ VLANs: {% for vlan in interface.untagged_vlan.all() %}
 To associate a template with a specific device:
 
 1. Select the device in **Devices > Devices**.
-2. Click **Edit** or the pencil icon in the upper right corner.
+2. Click on **Edit** or the pencil icon in the right corner.
 3. Look for the **Management > Configuration Template** section.
 
    In this tab, you will see all available configurations.
 
-!!! info "Observation"
+!!! info "Note"
     Pay attention to the device's system, as configuration templates are created differently for different systems.
 
 4. After selecting the desired template, click **Save**.

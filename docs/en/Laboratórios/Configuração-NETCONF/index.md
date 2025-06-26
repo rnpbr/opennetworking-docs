@@ -1,11 +1,11 @@
 ## Introduction
 
-This lab provides a practical approach to configuring network devices using the NETCONF protocol and YANG data models.
+This lab provides a hands-on approach to configuring network devices using the NETCONF protocol and YANG data models.
 
 ### Prerequisites
 
 - containerlab
-- `uv` (if you want to manually create the virtual environment, use Python 3.12)
+- `uv` (if you want to create the virtual environment manually, use Python 3.12)
 
 To get started, clone the repository containing scripts and examples from:
 ```
@@ -15,11 +15,11 @@ https://git.rnp.br/redes-abertas/schema-driven-cfg
 
 In this section, we will use `containerlab` to deploy a simple network topology defined in the `simple-lab.yaml` file.
 
-1.  **Image Generation (if necessary):**
-    The virtual router images (vSRX for Juniper and NE40E for Huawei) need to be available locally. Use `vrnetlab` to build these images. See the [`vrnetlab` documentation](https://containerlab.dev/manual/vrnetlab/#vrnetlab) for detailed instructions on how to generate the `VSRX 20.1R1.13` and `Huawei NE40E V800R011C00SPC607B607` images.
+1.  **Image Generation (if needed):**
+    The virtual router images (vSRX for Juniper and NE40E for Huawei) must be available locally. Use `vrnetlab` to build these images. See the [`vrnetlab` documentation](https://containerlab.dev/manual/vrnetlab/#vrnetlab) for detailed instructions on how to generate the `VSRX 20.1R1.13` and `Huawei NE40E V800R011C00SPC607B607` images.
 
 2.  **Topology Deployment:**
-    With the images ready, run the following command to start the lab:
+    With the images ready, execute the following command to start the lab:
 
     ```bash
     sudo containerlab deploy -t simple-lab.yaml
@@ -63,7 +63,7 @@ If you prefer to manage the virtual environment manually with Python 3.12+ and `
 
 With the environment configured, we can test NETCONF operations using the `netconf_test.py` script. This script uses YAML configuration files to define device connection parameters and XML payloads for NETCONF operations.
 
-1.  **Update Device Configuration Files:**
+1.  **Update the Device Configuration Files:**
     Modify the `huawei_device_config.yaml` and `junos_device_config.yaml` files with the correct IP addresses of your devices (provided by `containerlab`) and the corresponding credentials.
 
     Example (`huawei_device_config.yaml`):
@@ -77,15 +77,15 @@ With the environment configured, we can test NETCONF operations using the `netco
     type: "huaweiyang"
     ```
 
-2.  **Run the `netconf_test.py` Script:**
+2.  **Execute the `netconf_test.py` Script:**
 
     **Script Usage:**
     ```bash
-    python netconf_test.py -c <config_yaml_file> -p <xml_payload_file>
+    python netconf_test.py -c <config_yaml_file> -p <payload_xml_file>
     ```
 
     **Arguments:**
-    -   `-c CONFIG`, `--config CONFIG`: Path to the device YAML configuration file (e.g., `huawei_device_config.yaml`).
+    -   `-c CONFIG`, `--config CONFIG`: Path to the YAML configuration file of the device (e.g., `huawei_device_config.yaml`).
     -   `-p PAYLOAD`, `--payload PAYLOAD`: Path to the XML file containing the NETCONF payload (e.g., `xml/huawei-native-interface-ip.xml`).
 
     **Example of Applying Interface Configuration on a Huawei Device:**
@@ -110,9 +110,9 @@ With the environment configured, we can test NETCONF operations using the `netco
     python netconf_test.py -c junos_device_config.yaml -p xml/junos-native-interface-ip-delete.xml
     ```
 
-    **Example with the use of OpenConfig models:**
+    **Example Using OpenConfig Models:**
 
-    Now try to perform the same operation using the OpenConfig model payloads:
+    Now try performing the same operation using OpenConfig model payloads:
     ```bash
     #Huawei
     python netconf_test.py -c huawei_device_config.yaml -p xml/openconfig-huawei-interface-ip.xml
@@ -122,13 +122,13 @@ With the environment configured, we can test NETCONF operations using the `netco
 
 ## Obtaining YANG Models from Devices
 
-YANG models define the structure of configuration and state data of network devices, serving as the basis for automation and interoperability via NETCONF. Understanding and exploring these models is essential for creating correct NETCONF payloads.
+YANG models define the structure of configuration and state data for network devices, serving as the basis for automation and interoperability via NETCONF. Understanding and exploring these models is essential for creating correct NETCONF payloads.
 
-The following presents methods for obtaining YANG models from the Huawei and Juniper devices in this example.
+Below, we present methods for obtaining YANG models from the Huawei and Juniper devices in this example.
 
 ### Obtaining YANG Models from Huawei Devices
 
-In the case of Huawei devices, we can obtain YANG models via NETCONF, without needing to change the initial device configuration done by containerlab. Use the `huawei_get_schema.py` script to download the models to a local folder.
+In the case of Huawei devices, we can obtain the YANG models via NETCONF, without needing to change the initial device configuration done by containerlab. Use the `huawei_get_schema.py` script to download the models to a local folder.
 
 **Script Usage:**
 
@@ -145,6 +145,6 @@ python huawei_get_schema.py <host> <username> <password> [output_dir]
 
 ### Obtaining YANG Models from Juniper Devices
 
-For Juniper devices (Junos OS), it is recommended to obtain the YANG models directly from the equipment CLI and transfer them to your local machine.
+For Juniper devices (Junos OS), it is recommended to obtain the YANG models directly from the equipment's CLI and transfer them to your local machine.
 
-Consult the [official Juniper documentation](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/task/netconf-yang-module-obtaining-and-importing.html) for detailed guidance.
+Refer to the [official Juniper documentation](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/task/netconf-yang-module-obtaining-and-importing.html) for detailed guidance.

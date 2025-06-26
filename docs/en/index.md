@@ -1,10 +1,10 @@
 # **Home**
 
-**Welcome to the Redes Abertas project!**
+**Welcome to the Open Networks project!**
 
 This project aims to provide a solid foundation for configuring and simulating networks using modern and efficient tools: **Netbox**, **Containerlab**, and **Netreplica**.
 
-The **Redes Abertas** project was developed for network professionals and enthusiasts who want to:
+The **Open Networks** project was developed for network professionals and enthusiasts who want to:
 
 - **Explore**: Test different network configurations in a controlled environment.
 - **Automate**: Use templates to standardize and automate network device configurations.
@@ -25,7 +25,7 @@ Below is a list of the main vendors supported by Containerlab:
 
 ## Lab Flowchart
 
-The flowchart illustrates the workflow of **Netreplica** in the context of a network simulation environment, in integration with **Containerlab**:
+The flowchart illustrates the workflow of **Netreplica** in the context of a network simulation environment, integrated with **Containerlab**:
 
 ![Workflow Netreplica](../img/tools_imgs/workflow-netreplica.gif)
 
@@ -43,7 +43,7 @@ The topology is documented and managed in **Netbox**, a centralized platform for
 
 ### 3. **Netreplica**
 
-**Netreplica** synchronizes configuration information from Netbox and prepares the data for simulation. It obtains data via API and generates YAML configuration files required for the simulation.
+**Netreplica** synchronizes configuration information from Netbox and prepares the data for simulation. It retrieves the data via API and generates YAML configuration files required for the simulation.
 
 ### 4. **Configurations**
 
@@ -55,11 +55,11 @@ The topology is documented and managed in **Netbox**, a centralized platform for
 
 ### 6. **Laboratory (Docker Stack)**
 
-The simulation is run in a lab environment using a Docker stack. The defined topology is reproduced, allowing tests and validations.
+The simulation is executed in a laboratory environment using a Docker stack. The defined topology is reproduced, allowing testing and validation.
 
 ### 7. **Graphite**
 
-To monitor and visualize metrics and simulation performance, **Graphite** is integrated into the lab. It collects and displays relevant data for analysis.
+To monitor and visualize simulation metrics and performance, **Graphite** is integrated into the laboratory. It collects and displays relevant data for analysis.
 
 ---
 
@@ -69,8 +69,8 @@ To monitor and visualize metrics and simulation performance, **Graphite** is int
 2. **Documentation in Netbox**: The topology is documented and managed in **Netbox**.
 3. **Synchronization with Netreplica**: **Netreplica** synchronizes information from **Netbox** via API and generates YAML configurations.
 4. **Topology Creation with Containerlab**: **Containerlab** uses the YAML configurations to create the network topology in Docker containers.
-5. **Simulation Execution**: The topology is executed in a Docker lab environment.
-6. **Monitoring with Graphite**: The performance and metrics of the simulation are monitored and visualized with **Graphite**.
+5. **Simulation Execution**: The topology is executed in a Docker laboratory environment.
+6. **Monitoring with Graphite**: The simulation's performance and metrics are monitored and visualized with **Graphite**.
 
 ---
 
@@ -87,23 +87,23 @@ To get started, read the [Configuration Guide](./Getting%20Started.md) to learn 
 
 ## Available Labs
 
-- [OSPF Routing](Laboratórios/Roteamento-OSPF/index.md) - OSPF Configuration lab based on the Juniper MX platform in a ring topology.
-- [Discovery](Laboratórios/Descoberta/index.md) - Network device discovery lab using OSPF and SNMP, integrating Zabbix and Netbox.
-- [ELK Monitoring](Laboratórios/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
-- [Telegraf Monitoring](Laboratórios/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.
-- [Zabbix Monitoring](Laboratórios/Monitoramento-Zabbix/index.md) - Router monitoring lab via SNMP with centralized collection by Zabbix Server.
-- [NETCONF Configuration](Laboratórios/Configuração-NETCONF/index.md) - Configure network devices using NETCONF.
+- [OSPF Routing](Laboratórios/Roteamento-OSPF/index.md) - OSPF Configuration laboratory based on Juniper's MX platform in a ring topology.
+- [Discovery](Laboratórios/Descoberta/index.md) - Network device discovery laboratory using OSPF and SNMP, integrating Zabbix and Netbox.
+- [ELK Monitoring](Laboratórios/Monitoramento-ELK/index.md) - IPFIX flow monitoring laboratory using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
+- [Telegraf Monitoring](Laboratórios/Monitoramento-Telegraf/index.md) - Traffic flow monitoring laboratory via Telegraf/IPFIX to InfluxDB.
+- [Zabbix Monitoring](Laboratórios/Monitoramento-Zabbix/index.md) - Router monitoring laboratory via SNMP with centralized collection by the Zabbix Server.
+- [NETCONF Configuration](Laboratórios/Configuração-NETCONF/index.md) - Device configuration laboratory via NETCONF.
+
 ---
 
 ## Tools
 
-- [Netbox](Getting Started.md): Tool for network infrastructure management
+- [Netbox](Getting Started.md): Tool for managing network infrastructure
 - [Containerlab](Getting Started.md): Tool for simulating complex network topologies
 - [Netreplica](Getting Started.md): Tool for replicating network environments from Netbox to Containerlab
-- [ELK](Ferramentas/Elasticsearch/index.md): Stack for monitoring logs and data flows in real time
+- [ELK](Ferramentas/Elasticsearch/index.md): Stack for real-time log and data flow monitoring
 - [Edgeshark](Ferramentas/Edgeshark/index.md): Tool for capturing and visualizing network traffic
 - [LibreNMS](Ferramentas/LibreNMS/index.md): Tool for monitoring network devices
-
 
 ---
 
