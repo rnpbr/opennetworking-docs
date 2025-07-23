@@ -58,19 +58,26 @@ plugins:
       lang:
         - en
         - pt
-  - i18n:
-      docs_structure: folder
-      reconfigure_search: true
-      languages:
-        - locale: pt
-          default: true
-          name: português
-          build: true
-        - locale: en
-          name: English (WIP)
-          build: true
+#  - i18n:
+#      docs_structure: folder
+#      reconfigure_search: true
+#      languages:
+#        - locale: pt
+#          default: true
+#          name: português
+#          build: true
+#        - locale: en
+#          name: English (WIP)
+#          build: true
 
 extra:
   analytics:
     provider: google
     property: G-NEEXQ81RDP
+  alternate:
+    - name: português
+      link: /pt/
+      lang: pt
+    - name: English
+      link: /en/
+      lang: en
