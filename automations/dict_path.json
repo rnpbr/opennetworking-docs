@@ -1,0 +1,15 @@
+{
+  "Guias": "Guides",
+  "Laboratórios": "Labs",
+  "Ferramentas": "Tools",
+  "Invetarios": "Inventories",
+  "Netreplica": "NetReplica",
+  "Roteamento-OSPF": "OSPF-Routing",
+  "Monitoramento-ELK": "Monitoring-ELK",
+  "Monitoramento-Zabbix": "Monitoring-Zabbix",
+  "Monitoramento-Telegraf": "Monitoring-Telegraf",
+  "Descoberta": "Discovery",
+  "Multvendor": "Multivendor",
+  "Configuração-NETCONF": "NETCONF-Config",
+  "Contribua": "Contribute"
+}

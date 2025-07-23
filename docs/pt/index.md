@@ -87,12 +87,12 @@ Para começar, leia o [Guia de Configuração](./Getting%20Started.md) para apre
 
 ## Laboratórios Disponíveis
 
-- [Roteamento OSPF](Laboratórios/Roteamento-OSPF/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da Juniper em uma topologia em anel.
-- [Descoberta](Laboratórios/Descoberta/index.md) - Laboratório de descoberta de dispositivos de rede utilizando OSPF e SNMP, integrando Zabbix e Netbox.
-- [Monitoramento ELK](Laboratórios/Monitoramento-ELK/index.md) - Laboratório de monitoramento de fluxos IPFIX utilizando o Elastic Stack (Elasticsearch, Kibana, Fleet Server e Elastic Agent).
-- [Monitoramento Telegraf](Laboratórios/Monitoramento-Telegraf/index.md) - Laboratório de monitoramento de fluxos de tráfego via Telegraf/IPFIX para InfluxDB.
-- [Monitoramento Zabbix](Laboratórios/Monitoramento-Zabbix/index.md) - Laboratório de monitoramento de roteadores via SNMP com coleta centralizada pelo Zabbix Server.
-- [Configuração NETCONF](Laboratórios/Configuração-NETCONF/index.md) - Laboratório de configuração de dispositivos via NETCONF.
+- [Roteamento OSPF](Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md) - Laboratório de Configuração de OSPF baseados na plataforma MX da Juniper em uma topologia em anel.
+- [Descoberta](Laboratórios/Juniper/Vjunos/Descoberta/index.md) - Laboratório de descoberta de dispositivos de rede utilizando OSPF e SNMP, integrando Zabbix e Netbox.
+- [Monitoramento ELK](Laboratórios/Juniper/Vjunos/Monitoramento-ELK/index.md) - Laboratório de monitoramento de fluxos IPFIX utilizando o Elastic Stack (Elasticsearch, Kibana, Fleet Server e Elastic Agent).
+- [Monitoramento Telegraf](Laboratórios/Juniper/Vjunos/Monitoramento-Telegraf/index.md) - Laboratório de monitoramento de fluxos de tráfego via Telegraf/IPFIX para InfluxDB.
+- [Monitoramento Zabbix](Laboratórios/Juniper/Vjunos/Monitoramento-Zabbix/index.md) - Laboratório de monitoramento de roteadores via SNMP com coleta centralizada pelo Zabbix Server.
+- [Configuração NETCONF](Laboratórios/Multvendor/Configuração-NETCONF/index.md) - Laboratório de configuração de dispositivos via NETCONF.
 ---
 
 ## Ferramentas

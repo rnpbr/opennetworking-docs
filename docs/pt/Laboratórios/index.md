@@ -27,27 +27,27 @@ Aqui está um exemplo de laboratório configurado para simular OSPF utilizando J
 ### Roteamento OSPF (Junos)
 
 - Simulação de OSPF com Junos, uma das tecnologias de roteamento mais utilizadas.
-- **Link**: [Roteamento OSPF (Junos) Lab](Roteamento-OSPF/index.md).
+- **Link**: [Roteamento OSPF (Junos) Lab](Juniper/VMX/Roteamento-OSPF/index.md).
 
 ### Descoberta (Junos)
 
 - Importação de roteadores com scripts, utilizando Zabbix e Netbox.
-- **Link**: [Descoberta (Junos) Lab](Descoberta/index.md).
+- **Link**: [Descoberta (Junos) Lab](Juniper/Vjunos/Descoberta/index.md).
 
 ### Monitoramento ELK (Junos)
 - Exportação de fluxos IPFIX para Elasticsearch com Elastic Agent.
 - Visualização dos fluxos em tempo real com dashboards no Kibana.
-- **Link**: [Monitoramento ELK (Junos)](Monitoramento-ELK/index.md).
+- **Link**: [Monitoramento ELK (Junos)](Juniper/Vjunos/Monitoramento-ELK/index.md).
 
 ### Monitoramento Telegraf (junos)
 - Exportação de fluxos de tráfego via Telegraf/IPFIX para InfluxDB.
 - Dashboards prontos no Grafana para análise de tráfego por interface e protocolo.
-- **Link**: [Monitoramento Telegraf (Junos)](Monitoramento-Telegraf/index.md).
+- **Link**: [Monitoramento Telegraf (Junos)](Juniper/Vjunos/Monitoramento-Telegraf/index.md).
 
 ### Monitoramento Zabbix (junos)
 - Monitoramento de roteadores via SNMP com coleta centralizada pelo Zabbix Server.
 - Permite visualização de métricas e alertas em tempo real no frontend do Zabbix.
-- **Link**: [Monitoramento Zabbix (Junos)](Monitoramento-Zabbix/index.md).
+- **Link**: [Monitoramento Zabbix (Junos)](Juniper/Vjunos/Monitoramento-Zabbix/index.md).
 ---
 
 ## Ferramentas de Análise Recomendadas
