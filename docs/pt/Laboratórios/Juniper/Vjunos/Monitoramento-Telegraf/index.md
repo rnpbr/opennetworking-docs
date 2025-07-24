@@ -12,7 +12,7 @@ O laboratório `telegraf-lab` tem como principal objetivo simular o monitorament
 
 ### :material-lan: 1.2 Topologia do Lab
 
-![Topologia do Lab](../../../../../img/labs_imgs/Topologia_Telegraf.svg)
+![Topologia do Lab](../../../../../../../img/labs_imgs/Topologia_Telegraf.svg)
 
 **Descrição da Topologia**
 
@@ -45,7 +45,7 @@ Este laboratório pode ser explorado em diversos cenários acadêmicos e de pesq
 Abaixo estão listados os requisitos mínimos de hardware e software necessários para executar o laboratório. Certifique-se de incluir as ferramentas essenciais, como **Containerlab** e **Docker**, além da rede `br-lab` previamente criada.
 para saber mais sobre este itens acesse:
 
-- [Criação da Rede br-lab](../../Ferramentas/Primeiros passos - preparando o ambiente.md)
+- [Criação da Rede br-lab](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
 -  <a target="_blank" href="https://www.docker.com/get-started/">Instalação do Docker</a>
 -  <a target="_blank" href="https://containerlab.dev/install/">Instalação do containerlab</a>
 

@@ -1,138 +1,138 @@
 {
     "docs/pt/Getting Started.md": {
         "timestamp": 1747769541.217777,
-        "datetime": "2025-07-23T17:47:11.114444"
+        "datetime": "2025-07-24T16:54:31.499942"
     },
     "docs/pt/index.md": {
-        "timestamp": 1753302853.560137,
-        "datetime": "2025-07-23T17:47:17.538173"
+        "timestamp": 1753388813.2879076,
+        "datetime": "2025-07-24T16:54:37.767738"
     },
     "docs/pt/Contribua.md": {
         "timestamp": 1750975023.3415868,
-        "datetime": "2025-07-23T17:47:30.307652"
+        "datetime": "2025-07-24T16:54:50.360845"
     },
     "docs/pt/Guias/Netbox/index.md": {
         "timestamp": 1747769541.2190108,
-        "datetime": "2025-07-23T17:47:41.845915"
+        "datetime": "2025-07-24T16:55:01.908996"
     },
     "docs/pt/Guias/Netbox/Plugins/Napalm/index.md": {
-        "timestamp": 1747769541.2184718,
-        "datetime": "2025-07-23T17:48:00.481170"
+        "timestamp": 1753389721.4903746,
+        "datetime": "2025-07-24T16:55:20.861666"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/Instalando o Diode Server.md": {
         "timestamp": 1747769541.218247,
-        "datetime": "2025-07-23T17:48:09.227679"
+        "datetime": "2025-07-24T16:55:29.261922"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/Instalando o Diode Client.md": {
         "timestamp": 1747769541.2180386,
-        "datetime": "2025-07-23T17:48:27.128916"
+        "datetime": "2025-07-24T16:55:46.757954"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/index.md": {
         "timestamp": 1747769541.2183208,
-        "datetime": "2025-07-23T17:48:30.083464"
+        "datetime": "2025-07-24T16:55:49.962827"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/Instalando o Diode Plugin.md": {
-        "timestamp": 1747769541.218147,
-        "datetime": "2025-07-23T17:48:38.295601"
+        "timestamp": 1753389721.495892,
+        "datetime": "2025-07-24T16:55:58.478754"
     },
     "docs/pt/Guias/Netbox/Render_Templates/Criando um Template.md": {
         "timestamp": 1747769541.2186184,
-        "datetime": "2025-07-23T17:48:47.716307"
+        "datetime": "2025-07-24T16:56:07.554055"
     },
     "docs/pt/Guias/Netbox/Render_Templates/index.md": {
         "timestamp": 1747769541.2187915,
-        "datetime": "2025-07-23T17:48:53.551044"
+        "datetime": "2025-07-24T16:56:13.153984"
     },
     "docs/pt/Guias/Netreplica/NetReplica Criando Templates.md": {
         "timestamp": 1747769541.2201374,
-        "datetime": "2025-07-23T17:48:59.241701"
+        "datetime": "2025-07-24T16:56:19.120510"
     },
     "docs/pt/Guias/Netreplica/index.md": {
         "timestamp": 1747769541.2203608,
-        "datetime": "2025-07-23T17:49:03.678614"
+        "datetime": "2025-07-24T16:56:23.523073"
     },
     "docs/pt/Guias/Netreplica/NetReplica Guia Configuração e Execução com NetBox.md": {
         "timestamp": 1747769541.2202752,
-        "datetime": "2025-07-23T17:49:17.992344"
+        "datetime": "2025-07-24T16:56:37.457831"
     },
     "docs/pt/Laboratórios/index.md": {
-        "timestamp": 1753302529.6677275,
-        "datetime": "2025-07-23T17:49:22.633282"
+        "timestamp": 1753388813.2875469,
+        "datetime": "2025-07-24T16:56:41.874484"
     },
     "docs/pt/Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md": {
-        "timestamp": 1753302529.6700518,
-        "datetime": "2025-07-23T17:49:30.433695"
+        "timestamp": 1753390322.2194211,
+        "datetime": "2025-07-24T16:56:48.001681"
     },
     "docs/pt/Laboratórios/Juniper/Vjunos/Monitoramento-ELK/index.md": {
-        "timestamp": 1753302853.5528626,
-        "datetime": "2025-07-23T17:49:40.513272"
+        "timestamp": 1753390031.3363261,
+        "datetime": "2025-07-24T16:56:57.750768"
     },
     "docs/pt/Laboratórios/Juniper/Vjunos/Monitoramento-Zabbix/index.md": {
-        "timestamp": 1753302853.5457206,
-        "datetime": "2025-07-23T17:49:51.951451"
+        "timestamp": 1753390031.349363,
+        "datetime": "2025-07-24T16:57:09.739480"
     },
     "docs/pt/Laboratórios/Juniper/Vjunos/Monitoramento-Telegraf/index.md": {
-        "timestamp": 1753302853.566509,
-        "datetime": "2025-07-23T17:50:03.447509"
+        "timestamp": 1753390031.341666,
+        "datetime": "2025-07-24T16:57:21.329841"
     },
     "docs/pt/Laboratórios/Juniper/Vjunos/Descoberta/index.md": {
-        "timestamp": 1753302853.5570798,
-        "datetime": "2025-07-23T17:50:15.680729"
+        "timestamp": 1753389783.8440297,
+        "datetime": "2025-07-24T16:57:35.238536"
     },
     "docs/pt/Laboratórios/Multvendor/Configuração-NETCONF/index.md": {
-        "timestamp": 1747769541.2215886,
-        "datetime": "2025-07-23T17:50:26.379518"
+        "timestamp": 1753388813.2872126,
+        "datetime": "2025-07-24T16:57:44.611508"
     },
     "docs/pt/Laboratórios/Contribua/Guia Criando Imagens para Representar Laboratórios.md": {
         "timestamp": 1747769541.2217093,
-        "datetime": "2025-07-23T17:50:31.187260"
+        "datetime": "2025-07-24T16:57:48.940039"
     },
     "docs/pt/Laboratórios/Contribua/index.md": {
         "timestamp": 1747769541.22192,
-        "datetime": "2025-07-23T17:50:41.190096"
+        "datetime": "2025-07-24T16:57:58.691754"
     },
     "docs/pt/Laboratórios/Contribua/Template lab.md": {
         "timestamp": 1747769541.2218204,
-        "datetime": "2025-07-23T17:50:51.681298"
+        "datetime": "2025-07-24T16:58:08.469531"
     },
     "docs/pt/Ferramentas/Primeiros passos - preparando o ambiente.md": {
         "timestamp": 1747769541.2172232,
-        "datetime": "2025-07-23T17:50:58.474703"
+        "datetime": "2025-07-24T16:58:15.172893"
     },
     "docs/pt/Ferramentas/index.md": {
         "timestamp": 1747769541.217681,
-        "datetime": "2025-07-23T17:51:07.907114"
+        "datetime": "2025-07-24T16:58:24.768533"
     },
     "docs/pt/Ferramentas/Edgeshark/index.md": {
         "timestamp": 1747769541.216516,
-        "datetime": "2025-07-23T17:51:16.229498"
+        "datetime": "2025-07-24T16:58:33.066576"
     },
     "docs/pt/Ferramentas/Telegraf/index.md": {
         "timestamp": 1747769541.2173595,
-        "datetime": "2025-07-23T17:51:23.787798"
+        "datetime": "2025-07-24T16:58:40.888746"
     },
     "docs/pt/Ferramentas/LibreNMS/index.md": {
         "timestamp": 1747769541.217114,
-        "datetime": "2025-07-23T17:51:24.697420"
+        "datetime": "2025-07-24T16:58:41.661746"
     },
     "docs/pt/Ferramentas/Zabbix/Configurando Auto Discovery.md": {
         "timestamp": 1747769541.2174847,
-        "datetime": "2025-07-23T17:51:32.790672"
+        "datetime": "2025-07-24T16:58:46.574507"
     },
     "docs/pt/Ferramentas/Zabbix/index.md": {
         "timestamp": 1747769541.2175813,
-        "datetime": "2025-07-23T17:51:39.643493"
+        "datetime": "2025-07-24T16:58:53.642414"
     },
     "docs/pt/Ferramentas/Elasticsearch/Configurando IPFIX no ELK.md": {
         "timestamp": 1747769541.2166405,
-        "datetime": "2025-07-23T17:51:44.358597"
+        "datetime": "2025-07-24T16:58:58.184932"
     },
     "docs/pt/Ferramentas/Elasticsearch/index.md": {
-        "timestamp": 1747769541.216745,
-        "datetime": "2025-07-23T17:51:52.082250"
+        "timestamp": 1753390436.6271682,
+        "datetime": "2025-07-24T16:59:06.043120"
     },
     "docs/pt/Ferramentas/Visual Studio Code/index.md": {
         "timestamp": 1750974517.1775067,
-        "datetime": "2025-07-23T17:51:58.009927"
+        "datetime": "2025-07-24T16:59:11.861379"
     }
 }

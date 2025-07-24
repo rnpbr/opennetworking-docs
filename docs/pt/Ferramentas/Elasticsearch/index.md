@@ -53,9 +53,9 @@ Para baixar o Docker Compose, execute o seguinte comando:
     ```
 
 === "Windows"
-```bash
-    curl -L -o get.bat "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.bat?inline=false" && call get.bat && cd ELK-Stack
-```
+    ```bash
+        curl -L -o get.bat "https://git.rnp.br/redes-abertas/docker-composes/-/raw/main/ELK-Stack/get.bat?inline=false" && call get.bat && cd ELK-Stack
+    ```
 
 Esse comando faz o download do script de instalação e, em seguida, navega para o diretório **ELK-Stack**.
 

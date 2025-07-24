@@ -83,8 +83,9 @@ def translate_files():
             if file_name.endswith(".md"):
                 src_path = os.path.join(root, file_name)
                 relative_path = os.path.relpath(src_path, SRC_DIR)
-                translated_relative_path = translate_path(relative_path)
-                dst_path = os.path.join(DST_DIR, translated_relative_path)
+                #translated_relative_path = translate_path(relative_path)
+                #dst_path = os.path.join(DST_DIR, translated_relative_path)
+                dst_path = os.path.join(DST_DIR, relative_path)
                 if needs_translation(src_path, dst_path, state):
                     with open(src_path, "r", encoding="utf-8") as src_file:
                         original_text = src_file.read()

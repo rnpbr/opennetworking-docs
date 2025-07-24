@@ -23,7 +23,7 @@ Below is a list of the main vendors supported by Containerlab:
 
 ---
 
-## Lab Flowchart
+## Laboratory Flowchart
 
 The flowchart illustrates the workflow of **Netreplica** in the context of a network simulation environment, integrated with **Containerlab**:
 
@@ -43,7 +43,7 @@ The topology is documented and managed in **Netbox**, a centralized platform for
 
 ### 3. **Netreplica**
 
-**Netreplica** synchronizes the configuration information from Netbox and prepares the data for simulation. It obtains the data via API and generates YAML configuration files necessary for the simulation.
+**Netreplica** synchronizes the configuration information from Netbox and prepares the data for simulation. It obtains the data via API and generates the YAML configuration files required for the simulation.
 
 ### 4. **Configurations**
 
@@ -55,7 +55,7 @@ The topology is documented and managed in **Netbox**, a centralized platform for
 
 ### 6. **Laboratory (Docker Stack)**
 
-The simulation is executed in a lab environment using a Docker stack. The defined topology is reproduced, allowing testing and validation.
+The simulation is executed in a laboratory environment using a Docker stack. The defined topology is reproduced, allowing tests and validations.
 
 ### 7. **Graphite**
 
@@ -63,7 +63,7 @@ To monitor and visualize metrics and simulation performance, **Graphite** is int
 
 ---
 
-## Workflow Summary
+## Flow Summary
 
 1. **Topology Definition**: The structure and interconnection of network devices are defined.
 2. **Documentation in Netbox**: The topology is documented and managed in **Netbox**.
@@ -81,13 +81,13 @@ Project in progress.
 ---
 
 ## Getting Started
-To get started, read the [Setup Guide](./Getting%20Started.md) to learn how to use Netbox, Containerlab, and Netreplica together.
+To get started, read the [Configuration Guide](./Getting%20Started.md) to learn how to use the Netbox, Containerlab, and Netreplica tools together.
 
 ---
 
 ## Available Labs
 
-- [OSPF Routing](Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md) - OSPF Configuration lab based on Juniper's MX platform in a ring topology.
+- [OSPF Routing](Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md) - OSPF Configuration Lab based on Juniper's MX platform in a ring topology.
 - [Discovery](Laboratórios/Juniper/Vjunos/Descoberta/index.md) - Network device discovery lab using OSPF and SNMP, integrating Zabbix and Netbox.
 - [ELK Monitoring](Laboratórios/Juniper/Vjunos/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
 - [Telegraf Monitoring](Laboratórios/Juniper/Vjunos/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.

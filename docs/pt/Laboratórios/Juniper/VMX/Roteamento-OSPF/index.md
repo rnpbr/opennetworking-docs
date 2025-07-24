@@ -8,7 +8,7 @@ Este laboratório simula uma rede com 3 roteadores em uma topologia em anel, con
 
 A topologia consiste em três roteadores (PB, PE, JPA) conectados em um anel. Cada roteador está configurado com interfaces de rede e endereços IP, além de protocolos OSPF para roteamento e SNMP para monitoramento, como podemos ver na imagem a seguir.
 
-![Topologia.png](../../../../../img/labs_imgs/Topologia_ospf_lab.png)
+![Topologia.png](../../../../../../../img/labs_imgs/Topologia_ospf_lab.png)
 
 Os roteadores estão configurados com as seguintes tecnologias:
 
@@ -24,7 +24,7 @@ Para iniciar o laboratório, é necessário a instalação e configuração dos 
 - Netreplica
 - Containerlab
 
-Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](../../../../Getting%20Started.md)
+Caso o seu ambiente não esteja configurado, siga os passos [Guia de Configuração](../../../../../Getting%20Started.md)
 
    
 ### :material-application-import: 2.2 Importando Template no Netbox:
