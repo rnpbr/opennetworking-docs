@@ -89,7 +89,7 @@ RUN pip install -r /opt/netbox/plugin_requirements.txt
 ### :material-docker: 2.4 docker-compose.override.yml
 As the name implies, this file contains the configurations that will override `docker-compose.yml`.
 
-If you have not yet configured the `br-lab` network, access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/Vjunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
+If you have not yet configured the `br-lab` network, access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
 1. Create the file and access it with an editor:
 ```bash
@@ -223,7 +223,7 @@ Access your Netbox and follow the instructions below.
 Ready! Now we have the Platform Config created for access to our devices!
 
 ### :fontawesome-solid-gears: 4.2 Configuring a Device
-To test the Napalm plugin, we need devices to query, for that, we will use the Discovery laboratory [More information](../../../../Laboratórios/Juniper/Vjunos/Lab%20Descoberta/index.md). Therefore, add at least one device to Netbox.
+To test the Napalm plugin, we need devices to query, for that, we will use the Discovery laboratory [More information](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md). Therefore, add at least one device to Netbox.
 
 #### :material-router-wireless: 4.2.1 Adding the Routers
 1. Clone the laboratory repository:

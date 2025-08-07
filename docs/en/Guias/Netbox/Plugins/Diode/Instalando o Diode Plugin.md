@@ -82,7 +82,7 @@ RUN pip install -r /opt/netbox/plugin_requirements.txt
 ### :material-docker: **2.4. docker-compose.override.yml**
 As the name implies, this file contains configurations that will override `docker-compose.yml`.
 
-If you haven't configured the `br-lab` network yet. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/Vjunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
+If you haven't configured the `br-lab` network yet. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
 1. Create the file and access it with an editor:
 ```bash

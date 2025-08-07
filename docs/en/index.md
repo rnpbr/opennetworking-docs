@@ -87,11 +87,11 @@ To get started, read the [Configuration Guide](./Getting%20Started.md) to learn 
 
 ## Available Labs
 
-- [OSPF Routing](Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md) - OSPF Configuration Lab based on Juniper's MX platform in a ring topology.
-- [Discovery](Laboratórios/Juniper/Vjunos/Descoberta/index.md) - Network device discovery lab using OSPF and SNMP, integrating Zabbix and Netbox.
-- [ELK Monitoring](Laboratórios/Juniper/Vjunos/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
-- [Telegraf Monitoring](Laboratórios/Juniper/Vjunos/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.
-- [Zabbix Monitoring](Laboratórios/Juniper/Vjunos/Monitoramento-Zabbix/index.md) - Router monitoring lab via SNMP with centralized collection by the Zabbix Server.
+- [OSPF Routing](Laboratórios/Juniper/vMX/Roteamento-OSPF/index.md) - OSPF Configuration Lab based on Juniper's MX platform in a ring topology.
+- [Discovery](Laboratórios/Juniper/vJunos/Descoberta/index.md) - Network device discovery lab using OSPF and SNMP, integrating Zabbix and Netbox.
+- [ELK Monitoring](Laboratórios/Juniper/vJunos/Monitoramento-ELK/index.md) - IPFIX flow monitoring lab using the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
+- [Telegraf Monitoring](Laboratórios/Juniper/vJunos/Monitoramento-Telegraf/index.md) - Traffic flow monitoring lab via Telegraf/IPFIX to InfluxDB.
+- [Zabbix Monitoring](Laboratórios/Juniper/vJunos/Monitoramento-Zabbix/index.md) - Router monitoring lab via SNMP with centralized collection by the Zabbix Server.
 - [NETCONF Configuration](Laboratórios/Multvendor/Configuração-NETCONF/index.md) - Device configuration lab via NETCONF.
 ---
 
