@@ -1,6 +1,6 @@
 # :material-power-plug-outline: Napalm Plugin
 
-The Napalm plugin for NetBox allows you to integrate real-time data collection functionality directly from network devices configured in the system. With it, you can obtain updated information such as operational status, neighbors (LLDP/CDP), and equipment configurations, enriching the visualization and management of assets in NetBox. This integration makes the tool more dynamic, bringing the documentation closer to the current reality of the network.
+The Napalm plugin for NetBox allows you to integrate real-time data collection functionalities directly from the network devices configured in the system. With it, you can obtain updated information such as operational status, neighbors (LLDP/CDP), and equipment configurations, enriching the visualization and management of assets in NetBox. This integration makes the tool more dynamic, bringing the documentation closer to the current reality of the network.
 
 ## :simple-git: Plugin Repository
 Copy the link below or click to access the [Github Repository](https://github.com/netbox-community/netbox-napalm-plugin)
@@ -19,9 +19,9 @@ This documentation used the following components with their respective versions:
 | **Netbox**            | v4.1.11 |
 | **Napalm Plugin**     | v0.3.1  |
 
-The following functionalities were tested in the documentation:
+The following features were tested in the documentation:
 
-| Functionalities         | Functioning |
+| Features         | Functioning |
 | ----------------------- | ----------- |
 | **Status Page**         | ✅ |
 | **LLDP Neighbors Page** | ✅ |
@@ -39,7 +39,7 @@ The files are:
 - `docker-compose.override.yml`.
 - `configuration/plugins.py`.
 
-### :fontawesome-solid-gear: 2.1 Configuring the Netbox Version:
+### :fontawesome-solid-gear: 2.1 Configuring the Netbox version:
 
 1. First, let's clone the Netbox repository:
 ```bash
@@ -59,10 +59,10 @@ git checkout 3.0.0
     We changed the repository branch to have access to Netbox version 4.1.11.
 
 !!! tip "Tip"
-    All commands below will be executed inside the root directory of netbox `netbox-docker/`.
+    All commands below will be executed inside the netbox root directory `netbox-docker/`.
 
 ### :material-text-box: 2.2 plugin_requirements.txt
-This file contains a list of Netbox plugins (as Python packages from PyPI) that should be installed during the Docker image build.
+This file contains a list of Netbox plugins (as PyPI Python packages) that should be installed during the Docker image build.
 
 Execute the following command to write the package inside the `plugin_requirements.txt` file.
 
@@ -71,7 +71,7 @@ echo "netbox-napalm-plugin" > plugin_requirements.txt
 ```
 
 ### :material-docker: 2.3 DockerFile-Plugins
-This is the DockerFile used to build the custom Docker image.
+This is the DockerFile used to build the custom docker image.
 
 1. Create the file and access it with an editor:
 ```bash
@@ -87,9 +87,9 @@ RUN pip install -r /opt/netbox/plugin_requirements.txt
 ```
 
 ### :material-docker: 2.4 docker-compose.override.yml
-As the name implies, this file contains the configurations that will override `docker-compose.yml`.
+As the name implies, this file contains the settings that will override `docker-compose.yml`.
 
-If you have not yet configured the `br-lab` network, access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
+If you haven't configured the `br-lab` network yet. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
 1. Create the file and access it with an editor:
 ```bash
@@ -141,12 +141,12 @@ networks:
 
 The changes made were:
 
-- Adding Netbox to the `br-lab` network.
-- Changing the dockerfile to `Dockerfile-Plugins`, created previously.
+- Added Netbox to the `br-lab` network.
+- Changed the dockerfile to `Dockerfile-Plugins`, created earlier.
 - Also changed the image of the services to: `netbox:latest-plugins`.
 
 ### :material-power-plug-outline: 2.5 plugins.py
-This file is responsible for setting the specific configurations for each plugin.
+This file is responsible for setting the specific configurations of each plugin.
 
 1. Access the file with the editor:
 ```bash
@@ -170,7 +170,7 @@ PLUGINS_CONFIG = {
 ---
 
 ## :simple-docker: 3. Build and Deploy!
-Now your Netbox is configured and ready for deployment, follow the commands below and build the new Netbox instance!
+Now your Netbox is configured and ready for deployment, follow the commands below and build the new instance of Netbox!
 
 1. Build the image:
 ```bash
@@ -184,7 +184,7 @@ docker compose up -d
 
 After the containers are up, execute the commands below to copy the static files requested by the Napalm plugin.
 
-1. First, change the file permissions using the command below:
+1. First, change the permissions of the files using the command below:
 ```bash
 docker compose exec -it --user root netbox chmod -R a+w /opt/netbox/netbox/static
 ```
@@ -199,12 +199,12 @@ docker compose exec netbox python3 manage.py collectstatic --noinput
 ## :fontawesome-solid-gear: 4. Configuring Napalm
 Now, with Netbox already configured and working, let's configure and better understand how Napalm works.
 
-**Important points to activate the Napalm plugin, we need the following requirements:**
+**Important points, to activate the Napalm plugin we need the following requirements:**
 
 - Napalm Platform Configs
 - Device
-    - Device Role
-    - Device Type
+    - Device role
+    - Device type
     - Status: Active
     - Platform
     - Primary IPv4
@@ -215,12 +215,12 @@ Access your Netbox and follow the instructions below.
 
 1. In the side menu, go to **Plugin** → **Napalm**.
 2. Click the **Add** button.
-3. `Platform`: Select a platform (e.g., **junos**)
+3. `Platform`: Select a platform (e.g.: **junos**)
 4. `NAPALM driver`: Here is the name of the driver used by Napalm to collect data from devices. To see the available drivers, access [Supported Devices](https://napalm.readthedocs.io/en/latest/support/#general-support-matrix). In this case, we will use **junos**.
 5. `NAPALM arguments` (Optional): Arguments passed when initializing the NAPALM driver. Arguments in: [Optional Arguments](https://napalm.readthedocs.io/en/latest/support/#optional-arguments). In our case, we will not fill it in.
-6. Click **Create**.
+6. Click on **Create**.
 
-Ready! Now we have the Platform Config created for access to our devices!
+Ready! Now we have the Plataform Config created to access our devices!
 
 ### :fontawesome-solid-gears: 4.2 Configuring a Device
 To test the Napalm plugin, we need devices to query, for that, we will use the Discovery laboratory [More information](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md). Therefore, add at least one device to Netbox.
@@ -241,8 +241,8 @@ cd discovery-lab/
 sudo clab deploy -t clab/discovery-lab.clab.yaml
 ```
 !!! warning "Debug"
-    Devices can take about 10 minutes to be fully operational.
-    If an error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
+    The devices may take about 10 minutes to become fully operational.
+    If any error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
 
 #### :octicons-diff-added-16: 4.2.2 Adding the router to Netbox.
 Create site
@@ -311,7 +311,7 @@ Create IP Address
 
 ---
 
-Adding Primary IPv4 to the Device
+Adding Primary IPv4 on the Device
 
 1. Go to **Devices**
 2. Click on **JPA** and then on **Edit**
@@ -320,7 +320,7 @@ Adding Primary IPv4 to the Device
 ---
 
 ## :material-eye: 5. Viewing the Plugin
-After registering, in the device tab, access **JPA**.
+After registration, in the device tab, access **JPA**.
 
 Now you should be seeing the additional Napalm plugin tabs.
 
@@ -335,47 +335,47 @@ The Status tab, enabled through the integration of NetBox with the NAPALM plugin
 
 - **Device Facts**: Basic and static device data, such as:
 
-    - `Hostname`: Identification of the device on the network (e.g., JPA)
+    - `Hostname`: Device identification on the network (e.g.: JPA)
 
-    - `Vendor / Model`: Manufacturer and model of the equipment (e.g., Juniper VMX)
+    - `Vendor / Model`: Equipment manufacturer and model (e.g.: Juniper VMX)
 
     - `Serial Number`: Hardware serial number
 
-    - `OS Version`: Operating system version (e.g., 22.2R1.9)
+    - `OS Version`: Operating system version (e.g.: 22.2R1.9)
 
-    - `Uptime`: Time since the last boot, with registered date and time
+    - `Uptime`: Time since the last boot, with recorded date and time
 
-- **Environment**: Environmental and performance metrics that assist in preventive maintenance and operation:
+- **Environment**: Environmental and performance metrics that help in preventive maintenance and operation:
 
-    - `CPU Usage`: Current utilization of the CPU(s), presented per core
+    - `CPU Usage`: Current usage of the CPU(s), presented per core
 
     - `Memory`: Amount of available and used memory
 
     - `Temperature, Fans, Power (PSUs)`: Status of sensors and power supplies (if the equipment provides this data)
 
-![Image of the Status tab](../../../../../img/netbox_imgs/napalmStatusPage.png)
+![Status Page Image](../../../../../img/netbox_imgs/napalmStatusPage.png)
 
 :simple-target: **Purpose**:
 
-This tab is especially useful for quick diagnostics, audits, and monitoring the health of devices, eliminating the need for manual login via SSH or console. The information is updated dynamically via the NAPALM API, as long as it is correctly configured in NetBox.
+This tab is especially useful for quick diagnostics, audits, and monitoring the health of devices, eliminating the need for manual login via SSH or console. The information is dynamically updated through the NAPALM API, as long as it is correctly configured in NetBox.
 
 ### :material-connection: 5.2 LLDP Neighbors
-This functionality displays the layer 2 neighbors detected through the LLDP (Link Layer Discovery Protocol). This functionality allows you to automatically identify the devices directly connected to the monitored equipment.
+This functionality displays the layer 2 neighbors detected via the LLDP (Link Layer Discovery Protocol). This functionality allows you to automatically identify the devices directly connected to the monitored equipment.
 
 :material-pin: **Important Behavior**:
 
-- The visualization of neighbors is limited to the interfaces previously registered in NetBox.
+- The viewing of neighbors is limited to the interfaces previously registered in NetBox.
 
 - If an interface exists on the real device, but has not been created in NetBox, the neighbors discovered by it will not be displayed.
 
-![Image of the LLDP Neighbors tab](../../../../../img/netbox_imgs/napalmLldpNeighborsPage.png)
+![LLDP Neighbors Page Image](../../../../../img/netbox_imgs/napalmLldpNeighborsPage.png)
 
 :simple-target: **Purpose**:
 
-This tab is useful for validating physical connections between devices, verifying the network topology in real-time, and detecting cabling or port configuration errors, in an automated way and integrated with the NetBox interface.
+This tab is useful for validating physical connections between devices, verifying the network topology in real time, and detecting cabling or port configuration errors, in an automated manner and integrated into the NetBox interface.
 
 ### :fontawesome-solid-gear: 5.3 Config
-The Config tab allows direct viewing of the network device configurations, extracted remotely via the API. It presents different versions of the configuration file, useful for comparison, auditing, and troubleshooting.
+The Config tab allows direct viewing of the network device's configurations, extracted remotely through the API. It presents different versions of the configuration file, useful for comparison, auditing, and troubleshooting.
 
 :material-file: **Types of Configurations Displayed**:
 
@@ -383,10 +383,10 @@ The Config tab allows direct viewing of the network device configurations, extra
 
 - `Running Config`: The configuration currently running on the device. May include unsaved changes.
 
-- `Candidate Config` (when supported by the operating system): Configuration being edited that has not yet been applied. Present in equipment that works with configuration staging (e.g., Juniper).
+- `Candidate Config` (when supported by the operating system): Configuration being edited that has not yet been applied. Present in equipment that works with configuration staging (e.g.: Juniper).
 
-![Image of the Config tab](../../../../../img/netbox_imgs/napalmConfigPage.png)
+![Config Page Image](../../../../../img/netbox_imgs/napalmConfigPage.png)
 
 :simple-target: **Purpose**:
 
-This tab is essential for managing and tracking changes in device configuration, in addition to providing a practical and secure way to validate if the persistent configurations are in accordance with those in execution — all within the NetBox interface without altering the documentation structure, adding anything, or changing the links or references.
+This tab is essential for managing and tracking changes in device configuration, as well as providing a practical and secure way to validate whether the persistent configurations are in accordance with the running ones — all within the NetBox interface. without changing the structure of the documentation and without adding anything and not changing the links or references.

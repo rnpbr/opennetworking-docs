@@ -1,6 +1,6 @@
-# :material-bookmark: Juniper vJunos Monitoring Zabbix
+# :material-bookmark: Juniper vJunos Zabbix Monitoring
 
-This lab simulates, via Containerlab, the interconnection between two routers representing the BA–ES connection in RNP, with monitoring via Zabbix and SNMPv2.
+This lab simulates, via Containerlab, the interconnection between two routers representing the BA–ES connection on the RNP, with monitoring via Zabbix and SNMPv2.
 
 ---
 
@@ -8,7 +8,7 @@ This lab simulates, via Containerlab, the interconnection between two routers re
 
 ### :octicons-goal-16: 1.1 Lab Objective
 
-The "zabbix-rnp-lab" laboratory demonstrates the simulation of the connection between two routers representing the interconnection between BA and ES in the RNP backbone, using Containerlab. Routing between devices is performed using the OSPF protocol, ensuring dynamic route exchange. The main focus is to integrate this topology with Zabbix via SNMPv2, enabling real-time monitoring. In addition, the lab highlights the functionality of automatic device discovery on the network.
+The “zabbix-rnp-lab” lab demonstrates the simulation of the connection between two routers representing the interconnection between BA and ES on the RNP backbone, using Containerlab. Routing between devices is performed using the OSPF protocol, ensuring dynamic route exchange. The main focus is to integrate this topology into Zabbix via SNMPv2, enabling real-time monitoring. In addition, the lab highlights the automatic discovery of devices on the network.
 
 ### :material-lan: 1.2 Lab Topology
 
@@ -23,45 +23,45 @@ The topology of this lab consists of two routers interconnected by a point-to-po
 
 ### **Application Example**
 
-This lab can be used in various academic and professional contexts. It is useful for simulating real-world network operation and monitoring scenarios, serving as a validation environment for configurations and interoperability testing between routing protocols and monitoring tools.
+This lab can be used in various academic and professional contexts. It is useful for simulating real-world network operation and monitoring scenarios, serving as an environment for validating configurations and testing interoperability between routing protocols and monitoring tools.
 
 **Possible Applications:**
 
-* **Training NOC (Network Operations Center) teams**: Replicates real-world connectivity situations between routers with OSPF and monitoring via SNMP to familiarize technicians with fault detection and analysis.
-* **Performance evaluation of automatic discovery via SNMP**: Allows testing the operation of host discovery in different network and topology conditions.
+* **NOC (Network Operations Center) team training**: Replicates real-world connectivity situations between routers with OSPF and monitoring via SNMP to familiarize technicians with fault detection and analysis.
+* **Performance evaluation of automatic discovery via SNMP**: Allows testing of host discovery in different network and topology conditions.
 * **Validation of SNMP templates in Zabbix**: Can be used to validate or develop SNMP monitoring templates for routers in controlled environments.
-* **Teaching dynamic routing protocols**: Provides a practical learning environment about configuration and route exchange via OSPF in point-to-point networks.
+* **Teaching dynamic routing protocols**: Provides a practical learning environment for configuring and exchanging routes via OSPF in point-to-point networks.
 
 ---
 
 ## :material-tools: 3. Requirements
 
-Below are listed the minimum hardware and software requirements to run the lab. Be sure to include essential tools such as **Containerlab** and **Docker**, as well as the previously created `br-lab` network.
-To learn more about these items access:
+Below are listed the minimum hardware and software requirements to run the lab. Be sure to include essential tools such as **Containerlab** and **Docker**, in addition to the previously created `br-lab` network.
+To learn more about these items, access:
 
 - [Creating the br-lab Network](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
 -  <a target="_blank" href="https://www.docker.com/get-started/">Docker Installation</a>
 -  <a target="_blank" href="https://containerlab.dev/install/">Containerlab Installation</a>
 - 
-And have Zabbix previously installed, to learn more about installing Zabbix access: [Zabbix Installation](../../../../Ferramentas/Zabbix/index.md)
+And have Zabbix previously installed, to learn more about Zabbix installation access: [Zabbix Installation](../../../../Ferramentas/Zabbix/index.md)
 
 ### :material-alert: Minimum Requirements Table:
 
 | Requirement           | Details                                                                 |
 | ------------------- | ------------------------------------------------------------------------ |
 | **CPUs**            | 4 vCPUs                                                                  |
-| **RAM**             | 8 GB                                                                     |
+| **RAM Memory**     | 8 GB                                                                     |
 | **Disk Space** | 10 GB (recommended)                                                      |
 | **Containerlab**    | 0.45.0                                                                   |
 | **Docker Engine**   | 23.0.3                                                                   |
 | **Images**         | `vr-vjunos:23.2R1.14`                                                    |
-| **Network Created**     | `br-lab`                                                                 |
+| **Created Network**     | `br-lab`                                                                 |
 
 
 !!! warning "Attention" 
-    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.  
-    - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).  
-    - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).  
+    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.
+    - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
+    - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
 
     Without this feature enabled, images like **vJunos-router** will not work correctly.
 
@@ -69,18 +69,18 @@ And have Zabbix previously installed, to learn more about installing Zabbix acce
 
 ## :fontawesome-solid-prescription-bottle: 4. Deploying the Lab
 
-Here are the instructions to **deploy the lab**. You can choose a **ready-made deployment** or a **customized one**.
+Here are the instructions to **deploy the lab**. You can choose a **ready-made deployment** or a **customized** one.
 
 ### :material-git: 4.1 Ready-Made Deployment
 
 This method allows the user to **download a pre-assembled version** of the lab, with the topology and configurations already defined. Simply download the repository and proceed to the start of execution.
 
 !!! tip "Tip" 
-    Ready-made deployment is useful for those who want to get started quickly with a configured environment.
+    The ready-made deployment is useful for those who want to get started quickly with a configured environment.
 
 #### :octicons-download-16: Downloading the Lab
 
-To download the lab, execute the command corresponding to your operating system.
+To download the lab, run the command corresponding to your operating system.
 
 === "Linux/Mac"
 
@@ -98,7 +98,7 @@ To download the lab, execute the command corresponding to your operating system.
 This command will download the installation script and direct you to the lab directory.
 
 !!! tip "Tip" 
-    Before running the scripts, verify that the execution permissions are correct (use `chmod +x get.sh` on Linux/Mac).
+    Before running the scripts, check if the execution permissions are correct (use `chmod +x get.sh` on Linux/Mac).
 
 ---
 
@@ -112,7 +112,7 @@ sudo containerlab deploy
 
 ```
 
-This command will start the topology defined in the lab and create all the necessary containers.
+This command will start the topology defined in the lab and create all necessary containers.
 
 !!! tip "Tip" 
     If an error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
@@ -125,7 +125,7 @@ After the lab is started, you can access the devices and services configured on 
 
 ### :material-table: 6.1 Table of IPs and Service Ports
 
-Here is an example of a table of devices, IPs, and service ports available in the lab.
+Here is an example table of devices, IPs, and service ports available in the lab.
 
 | Device           | Access IP  | Port   | Service           |
 | --------------------- | ------------- |---------| ----------------- |
@@ -155,4 +155,6 @@ Here is an example of a table of devices, IPs, and service ports available in th
 
 ## 7. :octicons-rocket-24: Next Steps
 
-When starting the lab, Zabbix will be raw without templates, to configure automatic discovery and templates, access [Configuring Auto Discovery](../../../../Ferramentas/Zabbix/Configurando%20Auto%20Discovery.md)
+When starting the lab, Zabbix will be raw without templates. To configure automatic discovery and templates, access [Configuring Auto Discovery](../../../../Ferramentas/Zabbix/Configurando%20Auto%20Discovery.md)
+
+---

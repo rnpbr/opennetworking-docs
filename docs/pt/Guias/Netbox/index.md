@@ -1,65 +1,122 @@
 # Netbox
 
-# Instalação do Netbox e importações
+## 1.Instalação do Netbox e importações
 
-## 1. Instalação
+NetBox é uma aplicação web open source para gerenciamento de infraestrutura de redes e data centers. Ele permite documentar dispositivos, racks, conexões, endereços IP, circuitos, entre outros recursos, facilitando o controle e a automação do ambiente de TI.
 
-Para instalar o NetBox usando o Docker, siga os passos abaixo:
+### 1.1 Pré-requisitos
 
-1. Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina. Se ainda não tiver, você pode encontrá-los nos seguintes links:
-    - Docker: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-    - Docker Compose: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-2. Clone o repositório oficial do NetBox Docker Compose no GitHub:
-    
-    ```
-    git clone <https://github.com/netbox-community/netbox-docker.git>
-    ```
-    
-3. Acesse o diretório clonado:
-    
-    ```
-    cd netbox-docker
-    ```
-    
-4. acesse os arquivo de ambiente `.env` a partir do exemplo fornecido:
-    
-    ```
-    cd env
-    ```
-    
-5. Edite o arquivo `.env` para ajustar as configurações conforme necessário. Especificamente, você pode alterar as credenciais de banco de dados, senhas, configurações de e-mail, etc., de acordo com suas preferências e requisitos, por padrão para execução rápida ele vem todo configurado mas é altamente recomendado alterar tais informações caso deseje por ele em produção.
-6. se quiser alterar a versão do netbox, edite pelo compose na parte da versão da imagem.
-**Obs.**: mudanças entre versões distantes podem ocasionar erro, procure pelas versões corretas em [https://github.com/netbox-community/netbox-docker/releases](https://github.com/netbox-community/netbox-docker/releases)
-7. Construa e execute os contêineres Docker:
-    
-    ```
-    tee docker-compose.override.yml <<EOF
-    version: '3.4'
-    services:
-      netbox:
-        ports:
-          - 8000:8080
-    EOF
-    docker compose pull
-    docker compose up
-    docker compose exec netbox /opt/netbox/netbox/manage.py createsuperuser
-    ```
-    
-    **Observação:** A porta de comunicação utilizada pode diferir da porta 8000, caso alguma outra aplicação ativa utilize esta porta. Neste caso, verifique uma outra porta disponível (por exemplo: 8080 ou 8081) e não esqueça de substituir adequadamente nos passos seguintes.
-    
-8. Aguarde até que os contêineres sejam construídos e inicializados.
-9. Abra o navegador da web e acesse: **[http://localhost:8000/](http://localhost:8000/)**.
-    
-    **Observação:** Se você deseja acessar o NetBox de uma máquina diferente, substitua "localhost" pelo endereço IP da máquina onde o Docker está sendo executado.
-    
-10. Será solicitado que você defina a senha de administração.
-11. Para criar o usuário de administração, execute o seguinte comando no terminal após a inicialização dos contêineres:
-    
+* **Docker** instalado → <a href="https://docs.docker.com/get-docker/" target="_blank">Guia oficial</a>
+* **Docker Compose** instalado → <a href="https://docs.docker.com/compose/install/" target="_blank">Guia oficial</a>
+* 
+* Acesso a **Git** para clonar repositórios.
+
+> **Nota:** Este procedimento é indicado para ambientes de teste ou homologação. Para produção, revise as configurações de segurança antes da publicação.
+
+### 1.2 Clonar o repositório oficial
+
+```bash
+git clone https://github.com/netbox-community/netbox-docker.git
+cd netbox-docker
+```
+
+
+### 1.3 Configuração de Variáveis de Ambiente
+
+O repositório possui arquivos `.env` de exemplo.
+
+1. Acesse a pasta `env/`:
+
+   ```bash
+   cd env
+   ```
+2. edite os arquivos conforme necessário:
+
+   * `netbox.env` → Configurações do NetBox (e-mail, secret key, idioma, timezone).
+   * `postgres.env` → Credenciais do banco de dados.
+   * `redis-cache.env` → Credencias do Redis.
+   * `redis.env` → Credencias do Redis.
+
+> **Recomendação:**
+> Mesmo para ambientes de teste, altere senhas padrão e credenciais antes de colocar em produção.
+
+
+### 1.4 Alterar a versão do NetBox (opcional)
+
+Para mudar a versão:
+
+* Edite o `docker-compose.yml` ou `docker-compose.override.yml` e ajuste a imagem:
+
+  ```yaml
+  image: netboxcommunity/netbox:<versão>
+  ```
+* Consulte as versões compatíveis em: [Releases Netbox Docker](https://github.com/netbox-community/netbox-docker/releases)
+
+> **Atenção:** Alterações entre versões muito distantes podem exigir ajustes no banco de dados ou configurações.
+
+
+### 1.5 Configuração de Porta (opcional)
+
+Crie o arquivo `docker-compose.override.yml` para expor uma porta específica:
+
+```bash
+tee docker-compose.override.yml <<EOF
+version: '3.4'
+services:
+  netbox:
+    ports:
+      - 8000:8080
+EOF
+```
+
+> Troque `8000` se a porta estiver em uso (ex.: `8080` ou `8081`).
+
+
+### 1.6 Construir e subir os contêineres
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! alert "Atenção"
+    Os contêineres podem demorar alguns minutos para iniciar. e caso o container netbox fique em loop sempre iniciando, use este comando para reiniciar este container:
+
     ```bash
-    bashCopy code
-    docker-compose exec <nome do container netbox> /opt/netbox/netbox/manage.py createsuperuser
+        docker compose restart netbox
     ```
-    
+    e para acessar os logs basta usar o comando:
+
+    ```bash
+        docker compose logs -f
+    ```
+
+### 1.7 Criar usuário administrador
+
+Após a inicialização dos contêineres:
+
+```bash
+docker compose exec netbox /opt/netbox/netbox/manage.py createsuperuser
+```
+
+Siga as instruções para definir **usuário, e-mail e senha**.
+
+
+### 1.8 Acessar a interface web
+
+* URL local: [http://localhost:8000](http://localhost:8000)
+* De outro host: `http://<IP_DO_SERVIDOR>:8000`
+
+> Substitua a porta se tiver alterado no passo 5.
+
+
+### 1.9 Resumo de boas práticas para produção
+
+* Alterar todas as credenciais padrão nos arquivos `.env`.
+* Configurar certificados TLS (HTTPS) com Nginx ou Traefik.
+* Ativar backup regular do banco de dados PostgreSQL.
+* Monitorar logs e consumo de recursos dos contêineres.
+
 
 ## 2. Acesso
 

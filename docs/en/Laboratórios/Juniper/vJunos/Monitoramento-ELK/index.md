@@ -1,4 +1,4 @@
-# :material-bookmark: Juniper vJunos Monitoring with ELK
+# :material-bookmark: Juniper vJunos ELK Monitoring
 
 This lab simulates, via Containerlab, the interconnection between three routers representing the GO–MS–MT connection in the RNP backbone, with dynamic routing via OSPF, flow export via IPFIX, and analysis/visualization via the Elastic Stack (Elasticsearch, Kibana, Fleet Server, and Elastic Agent).
 
@@ -16,12 +16,12 @@ The main objective of the `elk-lab` is to simulate the sending and analysis of I
 
 **Topology Description**
 
-*   Three routers (GO, MS, MT) interconnected in a linear topology with point-to-point /31 links.
-*   Dynamic routing via OSPF.
-*   IPFIX flow export to the **Fleet Server**.
-*   Elastic Agent installed to receive flows and send them to Elasticsearch.
-*   Data visualization and analysis via Kibana.
-*   `br-lab` external network connects the network elements to the ELK stack.
+* Three routers (GO, MS, MT) interconnected in a linear topology with point-to-point /31 links.
+* Dynamic routing via OSPF.
+* IPFIX flow export to the **Fleet Server**.
+* Elastic Agent installed to receive flows and send them to Elasticsearch.
+* Data visualization and analysis via Kibana.
+* External network `br-lab` connects the network elements to the ELK stack.
 
 ---
 
@@ -33,23 +33,24 @@ The `elk-lab` can be applied to different educational and research contexts, all
 
 #### Possible Applications:
 
-*   **IPFIX teaching in real environments**: Practical application of flow export to analysis tools.
-*   **Elastic Stack training for networks**: Demonstrates IPFIX integration with Elastic Agent and the use of dashboards in Kibana.
-*   **Network forensic and traffic analysis**: Supports studies on traffic patterns, anomalies, and threats.
-*   **Integration with Elasticsearch-based SIEMs**: Evaluation of data pipelines for use with network security.
-*   **Traffic flow visualization**: Composition of dynamic dashboards in real-time.
+* **Teaching IPFIX in real environments**: Practical application of flow export to analysis tools.
+* **Elastic Stack training for networks**: Demonstrates the integration of IPFIX with Elastic Agent and the use of dashboards in Kibana.
+* **Network traffic and forensic analysis**: Supports studies on traffic patterns, anomalies, and threats.
+* **Integration with Elasticsearch-based SIEMs**: Evaluation of data pipelines for use with network security.
+* **Traffic flow visualization**: Composition of dynamic real-time dashboards.
 
 ---
 
 ## :material-tools: 3. Requirements
 
-Below are the minimum hardware and software requirements to run the lab. Be sure to include essential tools such as **Containerlab** and **Docker**, in addition to the previously created `br-lab` network. To learn more about these items, visit:
+Below are listed the minimum hardware and software requirements needed to run the lab. Be sure to include the essential tools, such as **Containerlab** and **Docker**, in addition to the previously created `br-lab` network.
+to learn more about these items, access:
 
-- [br-lab Network Creation](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
+- [Creating the br-lab Network](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
 -  <a target="_blank" href="https://www.docker.com/get-started/">Docker Installation</a>
 -  <a target="_blank" href="https://containerlab.dev/install/">Containerlab Installation</a>
 
-And have the ELK stack previously installed, to learn more about the Zabbix installation, visit: [ELK Installation](../../../../Ferramentas/Elasticsearch/index.md)
+And have the ELK stack previously installed, to learn more about the Zabbix installation, access: [ELK Installation](../../../../Ferramentas/Elasticsearch/index.md)
 
 ### :material-alert: Minimum Requirements Table:
 
@@ -63,25 +64,24 @@ And have the ELK stack previously installed, to learn more about the Zabbix inst
 | **Images**         | `vr-vjunos:23.2R1.14` |
 | **Docker Network**     | `br-lab`              |
 
-!!! warning "Attention"
-    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.
-    - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
-    - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
+!!! warning "Attention" 
+    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.  
+    - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).  
+    - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).  
 
-    Without this feature enabled, images like the **vJunos-router** will not work correctly.
-
+    Without this feature enabled, images like **vJunos-router** will not work correctly.
 ---
 
 ## :fontawesome-solid-prescription-bottle: 4. Lab Deployment
 
-This method allows the user to **download a pre-assembled version** of the lab, with the topology and configurations already defined. Simply download the repository and proceed to the start of execution.
+This method allows the user to **download a pre-built version** of the lab, with the topology and configurations already defined. Just download the repository and proceed to the start of the execution.
 
-!!! tip "Tip"
-    Ready deployment is useful for those who want to get started quickly with a configured environment.
+!!! tip "Tip" 
+    Ready deployment is useful for those who want to start quickly with a configured environment.
 
 #### :octicons-download-16: Downloading the Lab
 
-Execute the script below to download the lab files:
+Run the script below to download the lab files:
 
 === "Linux/Mac"
 
@@ -89,11 +89,13 @@ Execute the script below to download the lab files:
     curl -L -o get.sh "https://git.rnp.br/redes-abertas/labs/-/raw/main/elk-lab/get.sh?ref_type=heads&inline=false" && sh get.sh && cd elk-lab
     ```
 
+
 === "Windows"
 
     ```bash
     curl -L -o get.bat "https://git.rnp.br/redes-abertas/labs/-/raw/main/elk-lab/get.bat?ref_type=heads&inline=false" && call get.bat && cd elk-lab
     ```
+
 
 ---
 
@@ -104,12 +106,14 @@ Run the command below inside the downloaded directory.
 
 ```bash
 sudo containerlab deploy
+
 ```
 
 This command will start the topology defined in the lab and create all the necessary containers.
 
 !!! tip "Debugging"
-    Use `docker logs -f <container_name>` to check the status of services if something doesn't work.
+    Use `docker logs -f <container_name>` to check the status of services, if something does not work.
+
 
 ## :material-access-point: 6. Accessing the Devices
 
@@ -117,22 +121,23 @@ This command will start the topology defined in the lab and create all the neces
 
 | Device       | Access IP  | Port(s) | Service           |
 | ----------------- |---------------| -------- | ----------------- |
-| **GO Router**   | 172.10.10.6   | 22       | SSH               |
-| **MS Router**   | 172.10.10.7   | 22       | SSH               |
-| **MT Router**   | 172.10.10.8   | 22       | SSH               |
+| **Router GO**   | 172.10.10.6   | 22       | SSH               |
+| **Router MS**   | 172.10.10.7   | 22       | SSH               |
+| **Router MT**   | 172.10.10.8   | 22       | SSH               |
 | **Fleet Server**  | 172.10.10.110 | 8220     | Data Ingestion |
 | **Elasticsearch** | 172.10.10.108 | 9200     | Database    |
 | **Kibana**        | 172.10.10.109 | 5601     | Web Interface     |
 
 ### :material-key-link: 6.2 Access Credentials
 
-| Service        | Username                                            | Password         |
+| Service        | User                                            | Password         |
 | -------------- | -------------------------------------------------- |---------------|
-| SSH Routers | `admin`                                            | `admin@123`   |
+| Routers SSH | `admin`                                            | `admin@123`   |
 | Kibana         | `elastic`                                          | `admin@123`   |
+
 
 ---
 
 ## :fontawesome-solid-retweet: 7. Flow Collection and Export
 To configure data collection using IPFIX, see our [IPFIX configuration guide](../../../../Ferramentas/Elasticsearch/Configurando%20IPFIX%20no%20ELK.md).
-without changing the structure of the documentation, adding anything, or altering the links or references.
+ without changing the structure of the documentation. and without adding anything and not changing the links or references.

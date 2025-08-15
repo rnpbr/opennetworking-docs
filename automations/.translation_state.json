@@ -4,20 +4,20 @@
         "datetime": "2025-07-24T16:54:31.499942"
     },
     "docs/pt/index.md": {
-        "timestamp": 1753388813.2879076,
-        "datetime": "2025-07-24T16:54:37.767738"
+        "timestamp": 1754577365.270438,
+        "datetime": "2025-08-15T09:57:24.072135"
     },
     "docs/pt/Contribua.md": {
         "timestamp": 1750975023.3415868,
         "datetime": "2025-07-24T16:54:50.360845"
     },
     "docs/pt/Guias/Netbox/index.md": {
-        "timestamp": 1747769541.2190108,
-        "datetime": "2025-07-24T16:55:01.908996"
+        "timestamp": 1755185195.2155356,
+        "datetime": "2025-08-15T09:57:37.102544"
     },
     "docs/pt/Guias/Netbox/Plugins/Napalm/index.md": {
-        "timestamp": 1753389721.4903746,
-        "datetime": "2025-07-24T16:55:20.861666"
+        "timestamp": 1754577365.2464693,
+        "datetime": "2025-08-15T09:57:56.307356"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/Instalando o Diode Server.md": {
         "timestamp": 1747769541.218247,
@@ -32,8 +32,8 @@
         "datetime": "2025-07-24T16:55:49.962827"
     },
     "docs/pt/Guias/Netbox/Plugins/Diode/Instalando o Diode Plugin.md": {
-        "timestamp": 1753389721.495892,
-        "datetime": "2025-07-24T16:55:58.478754"
+        "timestamp": 1754577365.2900124,
+        "datetime": "2025-08-15T09:58:06.532251"
     },
     "docs/pt/Guias/Netbox/Render_Templates/Criando um Template.md": {
         "timestamp": 1747769541.2186184,
@@ -56,8 +56,8 @@
         "datetime": "2025-07-24T16:56:37.457831"
     },
     "docs/pt/Laboratórios/index.md": {
-        "timestamp": 1753388813.2875469,
-        "datetime": "2025-07-24T16:56:41.874484"
+        "timestamp": 1754577365.250974,
+        "datetime": "2025-08-15T09:58:10.718604"
     },
     "docs/pt/Laboratórios/Juniper/VMX/Roteamento-OSPF/index.md": {
         "timestamp": 1753390322.2194211,
@@ -134,5 +134,25 @@
     "docs/pt/Ferramentas/Visual Studio Code/index.md": {
         "timestamp": 1750974517.1775067,
         "datetime": "2025-07-24T16:59:11.861379"
+    },
+    "docs/pt/Laboratórios/Juniper/vMX/Roteamento-OSPF/index.md": {
+        "timestamp": 1753390322.2194211,
+        "datetime": "2025-08-15T09:58:17.539395"
+    },
+    "docs/pt/Laboratórios/Juniper/vJunos/Monitoramento-ELK/index.md": {
+        "timestamp": 1753390031.3363261,
+        "datetime": "2025-08-15T09:58:27.198057"
+    },
+    "docs/pt/Laboratórios/Juniper/vJunos/Monitoramento-Zabbix/index.md": {
+        "timestamp": 1753390031.349363,
+        "datetime": "2025-08-15T09:58:38.244382"
+    },
+    "docs/pt/Laboratórios/Juniper/vJunos/Monitoramento-Telegraf/index.md": {
+        "timestamp": 1753390031.341666,
+        "datetime": "2025-08-15T09:58:50.022563"
+    },
+    "docs/pt/Laboratórios/Juniper/vJunos/Descoberta/index.md": {
+        "timestamp": 1753389783.8440297,
+        "datetime": "2025-08-15T09:59:03.298890"
     }
 }
