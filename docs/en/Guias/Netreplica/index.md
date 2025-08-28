@@ -1,6 +1,6 @@
-# NetReplica - Configuration and Execution Guide in a Container
+# NetReplica - Configuration and Execution Guide in Container
 
-This guide describes the steps necessary to configure and run NetReplica in a Docker container, using Docker Compose. NetReplica is a tool dedicated to network laboratory automation through software.
+This guide describes the necessary steps to configure and run NetReplica in a Docker container, using Docker Compose. NetReplica is a tool dedicated to the automation of network laboratories through software.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ cd netreplica-docker
 
 ## Step 2: Container Initialization
 
-1. To build the Docker image and start the NetReplica container, execute:
+1. To build the Docker image and start the NetReplica container, run:
 
 ```bash
 docker compose up -d
@@ -35,9 +35,9 @@ This command will create and start the container in the background.
 
 After the container is initialized, you can interact with NetReplica using the commands below.
 
-### NetReplica Execution
+### Running NetReplica
 
-1. Place any necessary configuration files (`.conf` files) in the `conf` folder that is inside the `nrx` directory where the repository was cloned.
+1. Place any necessary configuration files (`.conf` files) in the `conf` folder, which is inside the `nrx` directory where the repository was cloned.
 
 2. To run NetReplica with the `.conf` file, use the following command:
 
@@ -46,7 +46,7 @@ docker exec -it nrx nrx -c conf/<arquivo.conf>
 ```
 
 - Replace `<arquivo.conf>` with the name of the configuration file you want to use.
-- The output directory for the execution results is already specified within the `.conf` file, so it is not necessary to specify it in the command.
+- The output directory for the execution results is already specified within the `.conf` file, so there is no need to specify it in the command.
 
 ### Alias for Agility
 
@@ -66,28 +66,45 @@ alias nrx='docker exec -it nrx nrx'
 source ~/.bashrc   # or source ~/.zshrc, depending on your shell
 ```
 
-Now, you can use the simplified command **`nrx`** to execute NetReplica more quickly. For example:
+Now, you can use the simplified command **`nrx`** to run NetReplica more quickly. For example:
 
 ```bash
 nrx -c conf/<arquivo.conf>
 ```
 
-### Monitoring Execution
+Now to test if NetReplica is working, execute the following command:
 
-- During execution, NetReplica will use the settings in the `.conf` file to access NetBox, start the replication and network analysis. Monitor the terminal output to track progress and view any relevant messages.
+```bash
+nrx -c conf/teste.conf
+```
+
+this command will query the demonstration netbox generating a result equal to the one shown below:
+
+```bash
+--> nrx -c conf/teste.conf
+Reading platform map from: templates/platform_map.yaml
+Connecting to NetBox at: https://demo.netbox.dev
+Fetching devices from sites: ['DM-Akron']
+Created clab topology: conf/lab/lab.clab.yaml
+To deploy this topology, run: sudo -E clab dep -t conf/lab/lab.clab.yaml
+```
+
+### Monitoring the Execution
+
+- During execution, NetReplica will use the settings in the `.conf` file to access NetBox and start network replication and analysis. Monitor the terminal output to track progress and view any relevant messages.
 - After execution is complete, the replication and analysis results will be available in the output directory specified within the `.conf` file.
 
-### Stopping the Container
+### Shutting Down the Container
 
-To stop the NetReplica container and release resources, execute:
+To shut down the NetReplica container and release resources, run:
 
 ```bash
 docker compose down
 ```
 
-## Next Steps: `.conf` File Configuration
+## Next Steps: Configuring the `.conf` File
 
 Now that you know how to configure and run NetReplica,
 the next step is to understand how to correctly configure the `.conf` file to meet the needs of your network environment.
 
-Next steps [`.conf` File Configuration](NetReplica Guia Configuração e Execução com NetBox.md)
+next steps [Configuring the `.conf` File](NetReplica Guia Configuração e Execução com NetBox.md)

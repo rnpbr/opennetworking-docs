@@ -73,6 +73,23 @@ Agora, você pode utilizar o comando simplificado **`nrx`** para executar o NetR
 nrx -c conf/<arquivo.conf>
 ```
 
+Agora para testar se o NetReplica está funcionando, execute o seguinte comando:
+
+```bash
+nrx -c conf/teste.conf
+```
+
+este comando ira fazer uma consulta no netbox de demonstração gerando um resultado igual o demonstrado abaixo:
+
+```bash
+--> nrx -c conf/teste.conf
+Reading platform map from: templates/platform_map.yaml
+Connecting to NetBox at: https://demo.netbox.dev
+Fetching devices from sites: ['DM-Akron']
+Created clab topology: conf/lab/lab.clab.yaml
+To deploy this topology, run: sudo -E clab dep -t conf/lab/lab.clab.yaml
+```
+
 ### Monitorando a Execução
 
 - Durante a execução, o NetReplica usará as configurações do arquivo `.conf` para acessar o NetBox, iniciar a replicação e análise da rede. Monitore a saída do terminal para acompanhar o progresso e visualizar qualquer mensagem relevante.
