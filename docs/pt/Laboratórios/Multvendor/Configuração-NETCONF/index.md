@@ -9,14 +9,14 @@ Este laboratório oferece uma abordagem prática para configurar dispositivos de
 
 Para iniciar, clone o repositório contendo scripts e exemplos em:
 ```
-https://git.rnp.br/redes-abertas/schema-driven-cfg
+ssh://git@git.rnp.br:2022/redes-abertas/schema-driven-cfg.git
 ```  
 ## Construindo o Ambiente de Teste com `containerlab`
 
 Nesta seção, utilizaremos o `containerlab` para implantar uma topologia de rede simples definida no arquivo `simple-lab.yaml`.
 
 1.  **Geração de Imagens (se necessário):**
-    As imagens dos roteadores virtuais (vSRX para Juniper e NE40E para Huawei) precisam estar disponíveis localmente. Utilize o `vrnetlab` para construir essas imagens. Consulte a [documentação do `vrnetlab`](https://containerlab.dev/manual/vrnetlab/#vrnetlab) para instruções detalhadas sobre como gerar as imagens `VSRX 20.1R1.13` e `Huawei NE40E V800R011C00SPC607B607`.
+    As imagens dos roteadores virtuais (vSRX para Juniper e NE40E para Huawei) precisam estar disponíveis localmente. Utilize o `vrnetlab` para construir essas imagens. Consulte a [documentação do `vrnetlab`](https://containerlab.dev/manual/vrnetlab/#vrnetlab) para instruções detalhadas sobre como gerar as imagens `VSRX 20.1R1.13` e `Huawei NE40E V800R011C00SPC607B607`. A imagem Cisco XRd não precisa ser gerada dessa maneira, pois já é um container, basta seguir as instruções no site do containerlab.
 
 2.  **Implantação da Topologia:**
     Com as imagens prontas, execute o seguinte comando para iniciar o laboratório:
@@ -64,7 +64,7 @@ Se preferir gerenciar o ambiente virtual manualmente com Python 3.12+ e `pip`:
 Com o ambiente configurado, podemos testar as operações NETCONF usando o script `netconf_test.py`. Este script utiliza arquivos de configuração YAML para definir os parâmetros de conexão do dispositivo e payloads XML para as operações NETCONF.
 
 1.  **Atualize os Arquivos de Configuração do Dispositivo:**
-    Modifique os arquivos `huawei_device_config.yaml` e `junos_device_config.yaml` com os endereços IP corretos dos seus dispositivos (fornecidos pelo `containerlab`) e as credenciais correspondentes.
+    Modifique os arquivos `huawei_device_config.yaml`, `junos_device_config.yaml` e `cisco_device_config.yaml` com os endereços IP corretos dos seus dispositivos (fornecidos pelo `containerlab`) e as credenciais correspondentes.
 
     Exemplo (`huawei_device_config.yaml`):
     ```yaml
@@ -110,6 +110,17 @@ Com o ambiente configurado, podemos testar as operações NETCONF usando o scrip
     python netconf_test.py -c junos_device_config.yaml -p xml/junos-native-interface-ip-delete.xml
     ```
 
+    **Exemplo de Aplicação de Configuração de Interface em um Dispositivo Cisco:**
+    ```bash
+    python netconf_test.py -c cisco_device_config.yaml -p xml/cisco-native-interface-ip.xml
+    ```
+    Acesse o dispositivo e verifique que o IP `192.168.1.12` foi configurado na interface `GigabitEthernet0/0/0/0`.
+
+    Para remover a configuração utilize o payload de deleção:
+    ```bash
+    python netconf_test.py -c cisco_device_config.yaml -p xml/cisco-native-interface-ip-delete.xml
+    ```
+
     **Exemplo com o uso de modelos OpenConfig:**
 
     Agora tente realizar a mesma operação utilizando os payloads do modelo OpenConfig:
@@ -126,7 +137,7 @@ Com o ambiente configurado, podemos testar as operações NETCONF usando o scrip
 
 Os modelos YANG definem a estrutura dos dados de configuração e estado dos dispositivos de rede, servindo como base para automação e interoperabilidade via NETCONF. Compreender e explorar esses modelos é fundamental para criar payloads NETCONF corretos.
 
-A seguir, apresentamos métodos para obter os modelos YANG dos dispositivos Huawei e Juniper deste exemplo.
+A seguir, apresentamos métodos para obter os modelos YANG dos dispositivos Huawei, Juniper e Cisco deste exemplo.
 
 ### Obtendo Modelos YANG de Dispositivos Huawei
 
@@ -151,3 +162,20 @@ python huawei_get_schema.py <host> <username> <password> [output_dir]
 Para dispositivos Juniper (Junos OS), recomenda-se obter os modelos YANG diretamente pela CLI do equipamento e transferi-los para sua máquina local.
 
 Consulte a [documentação oficial da Juniper](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/task/netconf-yang-module-obtaining-and-importing.html) para orientações detalhadas.
+
+## Obtendo o modelo YANG de dispositivos Cisco
+
+Para obter o modelo YANG de um dispositivo Cisco, execute o script `cisco_get_schema.py` da seguinte maneira:
+```
+usage: cisco_get_schema.py [-h] [--port PORT] host username password [output_dir]
+argumentos:
+  host          Endereço IP ou hostname do dispositivo Cisco
+  username      Nome de usuário para autenticação no dispositivo
+  password      Senha para autenticação no dispositivo
+  output_dir    (Opcional) Caminho para o diretório onde os arquivos YANG serão salvos - default=cisco-schema
+  --port        (Opcional) Porta NETCONF - default=830
+ex:
+python cisco_get_schema.py 192.168.1.2 admin 'senha' cisco-schema --port 830
+```
+
+Os arquivos YANG serão baixados e salvos no diretório especificado (quando disponível, o nome seguirá o padrão `<modulo>@<revision>.yang`).
