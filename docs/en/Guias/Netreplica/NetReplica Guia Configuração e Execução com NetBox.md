@@ -1,15 +1,15 @@
 # :material-content-duplicate: NetReplica Guide: Configuration and Execution with NetBox
 
-This guide describes the necessary configurations to integrate NetReplica with NetBox. NetReplica is a tool used to replicate and analyze networks, while NetBox is a network asset management platform.
+This guide outlines the necessary configurations to integrate NetReplica with NetBox. NetReplica is a tool used for replicating and analyzing networks, while NetBox is a network asset management platform.
 
 ## :octicons-tools-24: Step 1: Direct Execution with NRX
 
 ---
 
 !!! tip "Note"
-    Before proceeding, verify that NetReplica is installed and that NetBox is installed. You can find more information here: [NetReplica Installation](index.md)
+    Before proceeding, verify that NetReplica and NetBox are installed. You can find more information here: [Netreplica Installation](index.md)
 
-`nrx` is the command-line interface of NetReplica that allows you to configure and execute tasks directly without needing to create a configuration file.  The following are the main commands you can use:
+`nrx` is the NetReplica command-line interface that allows you to configure and execute tasks directly without the need to create a configuration file. The following are the main commands you can use:
 
 ### :octicons-command-palette-24: Basic Commands
 
@@ -27,7 +27,7 @@ This command uses the `.conf` configuration file to export the specified topolog
    nrx -a http://<netbox_ip>:<port> -t '<tags>' -s '<site>' -o clab
    ```
 
-This command allows exporting using parameters directly on the command line, such as the NetBox API URL, tags, site, and output format.
+This command allows exporting using parameters directly on the command line, such as NetBox API URL, tags, site, and output format.
 
 3 **Use Authentication Tokens**:
 
@@ -56,10 +56,10 @@ This command disables TLS certificate verification.
 
 ### :material-text-box-search-outline: Common `nrx` Arguments
 
-- `-c, --config CONFIG`: Defines the configuration file to use.
+- `-c, --config CONFIG`: Defines the configuration file to be used.
 - `-a, --api API`: Defines the NetBox API URL.
-- `-s, --site SITE`: Specifies the NetBox site to export.
-- `-t, --tags TAGS`: Defines the NetBox tags to export.
+- `-s, --site SITE`: Specifies the NetBox site to be exported.
+- `-t, --tags TAGS`: Defines the NetBox tags to be exported.
 - `-o, --output OUTPUT`: Defines the output format (e.g., 'clab', 'cyjs').
 - `-D, --dir DIR`: Defines the output directory.
 - `--insecure`: Disables TLS certificate verification.
@@ -70,7 +70,7 @@ This command disables TLS certificate verification.
 
 ---
 
-The `.conf` configuration file provides a structured way to define the variables needed for topology export. It is particularly useful when you want to reuse the same settings or when there are many options to define.
+The `.conf` configuration file provides a structured way to define the variables necessary for topology export. It is particularly useful when you want to reuse the same configurations or when there are many options to define.
 
 Of course, here is the configuration file with a detailed explanation for each field:
 
@@ -111,7 +111,7 @@ EXPORT_TAGS          = []             # Tags to export
 
    * **Description**: NetBox API authentication token.
    * **Usage**: Required to authenticate requests to the API.
-   * **Example**: `''` (should be filled with the actual token).
+   * **Example**: `''` (must be filled in with the actual token).
 
 ### 3. **TLS\_VALIDATE**
   * **Description**: Controls TLS certificate validation.
@@ -131,7 +131,7 @@ EXPORT_TAGS          = []             # Tags to export
 ### 5. **TOPOLOGY\_NAME**
 
    * **Description**: Name of the exported topology.
-   * **Usage**: Identifies exported files and groups the topology.
+   * **Usage**: Identifies the exported files and groups the topology.
    * **Example**: `'lab'`.
 
 ### 6. **OUTPUT\_FORMAT**
@@ -143,7 +143,7 @@ EXPORT_TAGS          = []             # Tags to export
 ### 7. **OUTPUT\_DIR**
 
    * **Description**: Destination directory for the exported files.
-   * **Usage**: Overrides the default export directory.
+   * **Usage**: Replaces the default export directory.
    * **Example**: `'conf/lab'`.
 
 ### 8. **TEMPLATES\_PATH**
@@ -188,12 +188,13 @@ EXPORT_TAGS          = []             # Tags to export
 
 ---
 
-This configuration file allows detailed customization of how NetReplica interacts with NetBox and exports the data, helping to meet specific visualization and export needs.
+This configuration file allows detailed customization of how NetReplica interacts with NetBox and exports data,
+helping to meet specific visualization and export needs.
 
 
 ### :fontawesome-solid-arrow-right-to-bracket: **Next Steps**
 
-Now, to delve deeper, you can check out the next guide that shows how to create and configure new Templates and add new images to NetReplica. Check it out here [NetReplica Creating Templates](NetReplica%20Criando%20Templates.md).
+Now to delve deeper you can check out the next guide that shows how to create and configure new Templates and add new images to netreplica. check it out here [NetReplica Creating Templates](NetReplica%20Criando%20Templates.md).
 
 ### :fontawesome-solid-link: References
 

@@ -1,6 +1,6 @@
 # :material-power-plug-outline: Installing the Diode Plugin
 
-The Diode Plugin is an essential component for enabling automated data ingestion into NetBox. It provides direct integration with the NetBox ORM and manages API keys, allowing the Diode server to securely send validated, structured data. With this plugin, NetBox receives real-time inventory updates, facilitating continuous discovery, documentation, and synchronization of the network infrastructure.
+The Diode Plugin is an essential component to enable automated data ingestion into NetBox. It provides direct integration with the NetBox ORM and manages API keys, allowing the Diode server to send structured data securely and validated. With this plugin, NetBox receives real-time inventory updates, facilitating the discovery, documentation, and continuous synchronization of the network infrastructure.
 
 ## :simple-git: **Plugin Repository**
 Copy the link below or click to access the [Github Repository](https://github.com/netboxlabs/diode-netbox-plugin)
@@ -22,7 +22,8 @@ This documentation used the following components with their respective versions:
 ---
 
 ## :material-file-document-arrow-right: **2. Installing and Configuring the Plugin in Netbox**
-To install the plugin in Netbox, we need to modify and add some files that are responsible for the Netbox configuration.
+To install the plugin in Netbox, we need to change and add some files
+that are responsible for the Netbox configuration.
 
 The files are:
 
@@ -47,15 +48,15 @@ cd netbox-docker
 ```bash
 git checkout 3.0.0
 ```
-!!! tip "Information" 
-    We changed the repository branch to access version 4.1.11 of Netbox.
+!!! tip "Information"
+    We changed the repository branch to have access to Netbox version 4.1.11.
 
-!!! tip "Hint" 
-    All commands below will be executed inside the root directory of netbox `netbox-docker/`.
+!!! tip "Tip"
+    All commands below will be executed within the root directory of netbox `netbox-docker/`.
 
 
 ### :material-text-box: **2.2. plugin_requirements.txt**
-This file contains a list of Netbox plugins (as PyPI Python packages) that should be installed during the Docker image build.
+This file contains a list of Netbox plugins (as PyPI Python packages) to be installed during the Docker image build.
 
 Execute the following command to write the package inside the `plugin_requirements.txt` file.
 
@@ -82,7 +83,7 @@ RUN pip install -r /opt/netbox/plugin_requirements.txt
 ### :material-docker: **2.4. docker-compose.override.yml**
 As the name implies, this file contains the settings that will override `docker-compose.yml`.
 
-If you have not yet configured the `br-lab` network. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
+If you have not yet configured the `br-lab` network, access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
 1. Create the file and access it with an editor:
 ```bash
@@ -135,12 +136,12 @@ networks:
 
 The changes made were:
 
-- Adding Netbox to the `br-lab` network.
-- Changing the dockerfile to `Dockerfile-Plugins`, created earlier.
+- adding Netbox to the `br-lab` network.
+- changing the dockerfile to `Dockerfile-Plugins`, created previously.
 - Also changed the image of the services to: `netbox:latest-plugins`.
 
 ### :material-power-plug-outline: **2.5. plugins.py**
-This file is responsible for setting the specific configurations of each plugin.
+This file is responsible for setting the specific configurations for each plugin.
 
 1. Access the file with the editor:
 ```bash
@@ -156,7 +157,7 @@ PLUGINS = [
 PLUGINS_CONFIG = {
     "netbox_diode_plugin": {
         # Auto-provision users for Diode plugin
-        "auto_provision_users": True, 
+        "auto_provision_users": True,
 
         # Diode gRPC target for communication with Diode server
         "diode_target_override": "grpc://172.10.10.120:80/diode",
@@ -173,8 +174,8 @@ PLUGINS_CONFIG = {
 }
 ```
 
-!!! tip "Hint" 
-    We recommend leaving the `auto_provision_users` configuration as `True` to automate the creation of users, groups and API keys that are responsible for integration with the Diode Server.
+!!! tip "Tip"
+    We suggest leaving the `auto_provision_users` configuration as `True` to automate the creation of user, groups, and API keys that are responsible for integration with the Diode Server.
 
 ---
 
@@ -194,8 +195,8 @@ docker compose up -d
 ---
 
 ## :octicons-rocket-24: **4. Next Steps**
-With the Diode plugin installed, your NetBox environment is now prepared to receive data from the Diode server, enabling automated ingestion of network information.
+With the Diode plugin installed, your NetBox environment is now ready to receive data from the Diode server, allowing automated ingestion of network information.
 
-The next step is to configure the Diode Server, responsible for processing and forwarding this data to NetBox.
+The next step is to configure the Diode Server, which is responsible for processing and forwarding this data to NetBox.
 
 Next: [Installing the Diode Server](./Instalando%20o%20Diode%20Server.md)

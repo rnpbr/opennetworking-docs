@@ -10,18 +10,18 @@ This lab simulates a network with 2 routers configured with OSPF and SNMP, integ
 
 ### :octicons-goal-16: 1.1 **Lab Objective**
 
-The objective of this lab is to import network devices and their configurations into Netbox from Zabbix, in addition to demonstrating the basic operation of OSPF routing between two routers connected in a ring and monitored via SNMP.
+The objective of this lab is to import network devices and their configurations into Netbox from Zabbix, as well as demonstrate the basic operation of OSPF routing between two routers connected in a ring and monitored via SNMP.
 
 
 ### :material-lan: 1.2 **Lab Topology**
-Below is the topology in image format, representing the routers, servers and their connections.
+Below is the topology in image format, representing the routers, servers, and their connections.
 
 ![Topologia.svg](../../../../../../../img/labs_imgs/Topologia_discovery_lab.svg)
 
 The routers are configured with the following technologies:
 
 - **OSPF (Open Shortest Path First)**: Used for dynamic routing in the network, allowing routers to exchange information about routes and topology updates.
-- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to telemetry information from devices.
+- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to device telemetry information.
 ---
 
 ## :octicons-search-16: **2. Applications**
@@ -32,9 +32,9 @@ This lab is focused on practical experimentation with automatic device discovery
 
 #### Possible Applications:
 
-- **Network discovery automation:** Demonstrates how to automatically identify active devices in a network using Zabbix and how to import this data into Netbox, reducing manual effort in asset mapping.
+- **Network discovery automation:** Demonstrates how to automatically identify active devices on a network using Zabbix and how to import this data into Netbox, reducing manual effort in asset mapping.
 
-- **Training in NetDevOps and inventory management:** Excellent for training professionals in modern network operations practices, with a focus on tool integration via API and automation of infrastructure documentation.
+- **Training in NetDevOps and inventory management:** Excellent for training professionals in modern network operations practices, focusing on tool integration via API and automation of infrastructure documentation.
 
 - **Creation of a centralized device repository:** Enables building a reliable database about the network in real-time, from information discovered via SNMP and documented in Netbox.
 
@@ -48,7 +48,7 @@ This lab is focused on practical experimentation with automatic device discovery
 ## :material-tools: **3. Requirements**
 ### :material-alert: 3.1 Prerequisites
 
-To start the lab, the installation and configuration of the following components are required:
+To start the lab, it is necessary to install and configure the following components:
 
 - Netbox
 - Containerlab
@@ -69,10 +69,10 @@ If your environment is not configured, follow the steps in the [Configuration Gu
 | **Created Network**     | br-lab |
 
 !!! tip "Tip"
-    Check if the Docker and Containerlab versions are compatible to avoid errors during deployment.
+    Verify that the Docker and Containerlab versions are compatible to avoid errors during deployment.
 
 !!! warning "Warning"
-    Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.
+    Verify that your processor has **hardware virtualization support** and that this feature is **enabled in the BIOS/UEFI**.
     - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
     - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
 
@@ -110,21 +110,21 @@ Execute the script below to download and configure the lab automatically:
     ```
 
 !!! tip "Tip"
-    On Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execution permission.
+    On Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execute permission.
 
 
 ---
 
 ## :fontawesome-solid-house-chimney: 5. Environment Deployment
 
-### :material-router-wireless: 5.1 Raising the Routers with Containerlab
+### :material-router-wireless: 5.1 Starting the Routers with Containerlab
 
 Start the topology with the command:
 
 ```bash
 sudo clab deploy -t clab/discovery-lab.clab.yaml
 ```
-    
+
 !!! warning "Debug"
     The devices may take about 10 minutes to be fully operational.
     If an error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
@@ -132,9 +132,9 @@ sudo clab deploy -t clab/discovery-lab.clab.yaml
 
 ### :material-server: 5.2 Starting Zabbix
 !!! tip "Tip"
-    If you already have a configured Zabbix environment, just skip this step.
+    If you already have a configured Zabbix environment, simply skip this step.
 
-To start the container with Zabbix:
+To bring up the container with Zabbix:
 
 ```bash
 docker compose -f zabbix-docker/docker-compose.yml up -d
@@ -145,7 +145,7 @@ The Zabbix web interface will be available on port 81.
 ## :material-relation-one-to-one: 6. Integration with Zabbix and Netbox
 In this step, you need to create an API token in both Zabbix and Netbox to add the token to the .env file.
 
-### :material-import: 6.1 Importing Routers to Zabbix
+### :material-import: 6.1 Importing Routers into Zabbix
 
 1. Access the scripts folder:
 ```bash
@@ -156,7 +156,7 @@ cd scripts/
 python3 -m venv venv
 source venv/bin/activate
 ```
-3. Install Python dependencies:
+3. Install the python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -165,25 +165,25 @@ pip install -r requirements.txt
 mv .env.example .env
 nano .env
 ```
-.env example:
+Example of .env:
 ```bash
  # Zabbix
 ZABBIX_TOKEN=zabbix_token                     # API Token
-ZABBIX_URL=http://yourdomain/api_jsonrpc.php  # API Access URL
+ZABBIX_URL=http://yourdomain/api_jsonrpc.php  # API access URL
 ZABBIX_USER=Admin                             # Default User
 ZABBIX_PASSWORD=zabbix                        # Default Password
 ZABBIX_GROUP=Juniper                          # Group to add the routers
 ZABBIX_TEMPLATE="Juniper by SNMP"             # Monitoring template for Juniper routers
 
 # Netbox
-NETBOX_URL=http://yourdomain/api              # API Access URL
+NETBOX_URL=http://yourdomain/api              # API access URL
 NETBOX_TOKEN=netbox_token                     # API Token
 
 # Devices
-DEVICE_USERNAME=admin                         # Default username to access routers
-DEVICE_PASSWORD=admin@123                     # Default password to access routers
+DEVICE_USERNAME=admin                         # Default username to access the routers
+DEVICE_PASSWORD=admin@123                     # Default password to access the routers
 ```
-5. Now, to import the routers to Zabbix, run the command:
+5. Now to import the routers into Zabbix, run the command:
 ```bash
 python3 import_zabbix.py
 ```
@@ -193,7 +193,7 @@ Creating an API Token in Zabbix.
 
 1. Access the Zabbix interface.
 2. Go to **Users** > **API Tokens**.
-3. Click **Create**, fill it in, and copy the generated token.
+3. Click **Create**, fill in the information, and copy the generated token.
 4. Update the `ZABBIX_TOKEN` field in `.env`.
 
 Creating an API Token in Netbox.
@@ -203,8 +203,8 @@ Creating an API Token in Netbox.
 3. Click **Add**, associate it with a user, and copy the token.
 4. Update the `NETBOX_TOKEN` field in `.env`.
 
-### :material-import: 6.3 Importing Routers to Netbox
-Now with the environment fully configured, you can import the routers to Netbox with the command:
+### :material-import: 6.3 Importing Routers into Netbox
+Now that the environment is fully configured, you can import the routers to Netbox with the command:
 ```bash
 python3 import_netbox.py
 ```
@@ -243,14 +243,14 @@ Here is the table with the access passwords for the services configured in the l
 ---
 
 ## :octicons-rocket-24: 8. Next Steps
-With the lab finished, you can follow some of the steps below as **extra**.
+With the lab completed, you can follow some steps below as an **extra**.
 
 - Monitor the routers via SNMP in the Zabbix interface.
 - Explore Netbox to view and manage the network inventory.
 - Modify the topology as needed (in future custom versions).
-- Consult the OSPF guide to validate the dynamic communication between routers.
+- Consult the OSPF guide to validate dynamic communication between routers.
 ---
 
 ### :fontawesome-solid-paintbrush: 9. Conclusion
 
-✅ Ready! Your environment is now configured, monitored, and documented in Netbox. Feel free to customize or expand the topology according to the objectives of your study or project. without changing the structure of the documentation, or adding anything, and do not change the links or references.
+✅ Ready! Your environment is now configured, monitored, and documented in Netbox. Feel free to customize or expand the topology according to the objectives of your study or project, without changing the structure of the documentation, adding anything, or altering the links or references.

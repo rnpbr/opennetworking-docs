@@ -1,6 +1,6 @@
 ## Introduction
 
-This lab offers a practical approach to configuring network devices using the NETCONF protocol and YANG data models.
+This lab provides a practical approach to configuring network devices using the NETCONF protocol and YANG data models.
 
 ### Prerequisites
 
@@ -15,10 +15,10 @@ https://git.rnp.br/redes-abertas/schema-driven-cfg
 
 In this section, we will use `containerlab` to deploy a simple network topology defined in the `simple-lab.yaml` file.
 
-1.  **Image Generation (if necessary):**
-    The virtual router images (vSRX for Juniper and NE40E for Huawei) need to be available locally. Use `vrnetlab` to build these images. See the [`vrnetlab` documentation](https://containerlab.dev/manual/vrnetlab/#vrnetlab) for detailed instructions on how to generate the `VSRX 20.1R1.13` and `Huawei NE40E V800R011C00SPC607B607` images.
+1.  **Generating Images (if necessary):**
+    The virtual router images (vSRX for Juniper and NE40E for Huawei) must be available locally. Use `vrnetlab` to build these images. Refer to the [`vrnetlab` documentation](https://containerlab.dev/manual/vrnetlab/#vrnetlab) for detailed instructions on how to generate the `VSRX 20.1R1.13` and `Huawei NE40E V800R011C00SPC607B607` images.
 
-2.  **Topology Deployment:**
+2.  **Deploying the Topology:**
     With the images ready, execute the following command to start the lab:
 
     ```bash
@@ -61,9 +61,9 @@ If you prefer to manage the virtual environment manually with Python 3.12+ and `
 
 ## Testing NETCONF Operations
 
-With the environment configured, we can test NETCONF operations using the `netconf_test.py` script. This script uses YAML configuration files to define device connection parameters and XML payloads for NETCONF operations.
+With the environment configured, we can test NETCONF operations using the `netconf_test.py` script. This script uses YAML configuration files to define the device connection parameters and XML payloads for NETCONF operations.
 
-1.  **Update the Device Configuration Files:**
+1.  **Update Device Configuration Files:**
     Modify the `huawei_device_config.yaml` and `junos_device_config.yaml` files with the correct IP addresses of your devices (provided by `containerlab`) and the corresponding credentials.
 
     Example (`huawei_device_config.yaml`):
@@ -85,7 +85,7 @@ With the environment configured, we can test NETCONF operations using the `netco
     ```
 
     **Arguments:**
-    -   `-c CONFIG`, `--config CONFIG`: Path to the device YAML configuration file (e.g., `huawei_device_config.yaml`).
+    -   `-c CONFIG`, `--config CONFIG`: Path to the device's YAML configuration file (e.g., `huawei_device_config.yaml`).
     -   `-p PAYLOAD`, `--payload PAYLOAD`: Path to the XML file containing the NETCONF payload (e.g., `xml/huawei-native-interface-ip.xml`).
 
     **Example of Applying Interface Configuration on a Huawei Device:**
@@ -110,9 +110,9 @@ With the environment configured, we can test NETCONF operations using the `netco
     python netconf_test.py -c junos_device_config.yaml -p xml/junos-native-interface-ip-delete.xml
     ```
 
-    **Example using OpenConfig models:**
+    **Example with the use of OpenConfig models:**
 
-    Now try performing the same operation using the OpenConfig model payloads:
+    Now try to perform the same operation using the OpenConfig model payloads:
     ```bash
     #Huawei
     python netconf_test.py -c huawei_device_config.yaml -p xml/openconfig-huawei-interface-ip.xml
@@ -122,9 +122,9 @@ With the environment configured, we can test NETCONF operations using the `netco
 
 ## Obtaining YANG Models from Devices
 
-YANG models define the structure of configuration and state data of network devices, serving as the basis for automation and interoperability via NETCONF. Understanding and exploring these models is fundamental to creating correct NETCONF payloads.
+YANG models define the structure of the configuration and state data of network devices, serving as the basis for automation and interoperability via NETCONF. Understanding and exploring these models is fundamental to creating correct NETCONF payloads.
 
-Below, we present methods for obtaining YANG models from the Huawei and Juniper devices in this example.
+Below, we present methods for obtaining the YANG models from the Huawei and Juniper devices in this example.
 
 ### Obtaining YANG Models from Huawei Devices
 
@@ -145,6 +145,6 @@ python huawei_get_schema.py <host> <username> <password> [output_dir]
 
 ### Obtaining YANG Models from Juniper Devices
 
-For Juniper devices (Junos OS), it is recommended to obtain the YANG models directly from the equipment CLI and transfer them to your local machine.
+For Juniper devices (Junos OS), it is recommended to obtain the YANG models directly through the equipment's CLI and transfer them to your local machine.
 
-See the [official Juniper documentation](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/task/netconf-yang-module-obtaining-and-importing.html) for detailed guidance.
+Refer to the [official Juniper documentation](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/task/netconf-yang-module-obtaining-and-importing.html) for detailed guidance.

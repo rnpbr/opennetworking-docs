@@ -2,17 +2,17 @@
 
 ## :octicons-book-24: 1. Introduction
 
-This guide outlines the installation of **Zabbix**, an open-source monitoring tool that will be used for collecting and analyzing metrics in the **br-lab** laboratory. Zabbix provides real-time monitoring of devices, servers, and applications, aiding in the identification and resolution of issues. The installation utilizes Docker Compose to provision the services in an agile and pre-configured manner, ensuring a practical and efficient implementation in the laboratory environment.
+This guide presents the installation of **Zabbix**, an open-source monitoring tool that will be used for collecting and analyzing metrics in the **br-lab** laboratory. Zabbix provides real-time monitoring of devices, servers, and applications, assisting in the identification and resolution of problems. The installation uses Docker Compose to provision services quickly and pre-configured, ensuring a practical and efficient implementation in the laboratory environment.
 
 ---
 
 ## :material-network-pos: 2. What is Zabbix?
 
-**Zabbix** is an open-source monitoring platform that collects, processes, and displays performance metrics from servers, applications, and network devices. It offers an intuitive graphical interface, alert notifications, and reports to identify problems and assist administrators in proactively managing their infrastructures.
+**Zabbix** is an open-source monitoring platform that collects, processes, and displays performance metrics from servers, applications, and network devices. It offers an intuitive graphical interface, alert notifications, and reports to identify problems and help administrators proactively manage their infrastructures.
 
 ### Main components:
 - **Zabbix Server**: Processes monitoring data, stores it in the database, and sends alerts.
-- **Web Interface (Frontend)**: Allows for the viewing, configuration, and analysis of metrics.
+- **Web Interface (Frontend)**: Allows viewing, configuring, and analyzing metrics.
 - **Zabbix Agent**: Collects metrics from the host where it is installed.
 - **Database**: Stores historical data, configurations, and performance statistics.
 
@@ -20,10 +20,10 @@ This guide outlines the installation of **Zabbix**, an open-source monitoring to
 
 ## :octicons-checklist-24: 3. Prerequisites
 
-Ensure that you meet the following prerequisites before installation:
+Make sure to meet the following prerequisites before installation:
 
 1. **br-lab network configured**:
-    - The **br-lab** network is required to isolate services in the environment. For more details on this configuration, consult the guide [**First Steps: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md).
+    - The **br-lab** network is mandatory to isolate services in the environment. For more details on this configuration, see the guide [**First Steps: Preparing the Environment**](../Primeiros passos - preparando o ambiente.md).
 
 2. **Required Packages**:
     - `docker`, `docker-compose`, `curl`.
@@ -32,11 +32,11 @@ Ensure that you meet the following prerequisites before installation:
 
 ## :octicons-tools-24: 4. Preparing the Environment
 
-To quickly initialize the Zabbix environment in the **br-lab** network, we will use Docker Compose with an automated script.
+To quickly initialize the Zabbix environment on the **br-lab** network, we will use Docker Compose with an automated script.
 
 ## :fontawesome-brands-docker: 5. Downloading Docker Compose
 
-To download Docker Compose, execute the following command:
+To download Docker Compose, run the following command:
 
 === "Linux/ Mac"
 
@@ -54,7 +54,7 @@ This command downloads the installation script and then navigates to the **Zabbi
 
 ---
 
-## :octicons-container-24: 5. Spinning up the containers
+## :octicons-container-24: 5. Starting the containers
 
 To start the Zabbix services, use the command below:
 
@@ -66,7 +66,7 @@ This command will start the following containers:
 
 1. **PostgreSQL**: Database that stores Zabbix metrics.
     - **IP**: `172.10.10.118`
-    - **Access Credentials**:
+    - **Access credentials**:
         - **User**: `zabbix`
         - **Password**: `zabbixdatabase`
     - **Default Port**: `5432` (exposed only within the **br-lab** network).
@@ -86,7 +86,7 @@ This command will start the following containers:
     - **Default Port**: `10050`.
    - **Documentation**: <a href="https://www.zabbix.com/documentation/7.0/en/manual/installation/containers" target="_blanck">Zabbix documentation</a>
 
-To verify that all containers are running, use:
+To check if all containers are running, use:
 
 ```bash
 docker compose ps
@@ -94,7 +94,7 @@ docker compose ps
 
 ## :fontawesome-solid-display: 6. Accessing the Zabbix Frontend
 
-After the services are initialized, the Zabbix web interface will be available at the address:
+After the services are initialized, the Zabbix Web interface will be available at:
 
 ```bash
   http://<SERVER_IP>:880
@@ -104,7 +104,7 @@ After the services are initialized, the Zabbix web interface will be available a
 
 The default credentials for logging into the Zabbix Frontend are:
 
-- **Username**: `Admin`
+- **User**: `Admin`
 - **Password**: `zabbix`
 
 ### 6.2. Changing the Default Password

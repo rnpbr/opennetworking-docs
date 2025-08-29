@@ -6,14 +6,14 @@ In this guide, we will cover the initial steps to prepare the monitoring environ
 This network was created to facilitate access, monitoring, and use of analysis tools in laboratories managed by Containerlab.
 Configuring the br-lab network is a necessary step for using most of the tools that will be shown in this guide.
 After configuring the monitoring tools on the br-lab network, they can be used in any laboratory,
-eliminating the need for reconfiguration for each new environment. This simplifies testing multiple configurations
+eliminating the need for reconfiguration with each new environment. This simplifies testing multiple configurations
 and allows the use of various analysis tools more efficiently.
 
 ### :material-checkbox-marked-outline: **Advantages:**
 
-- **Single Configuration**: Monitoring tools only need to be configured once, regardless of the laboratory in use.
-- **Ease of Testing**: Enables the creation and testing of various laboratory configurations without the need for continuous adjustments to the tools.
-- **Flexible Integration**: Allows easily adding new laboratories and devices to the network without impacting the already configured infrastructure.
+- **Single configuration**: Monitoring tools only need to be configured once, regardless of the laboratory in use.
+- **Ease of testing**: Enables the creation and testing of various laboratory configurations without the need for continuous adjustments to the tools.
+- **Flexible integration**: Allows you to easily add new laboratories and devices to the network without impacting the already configured infrastructure.
 
 ---
 
@@ -23,7 +23,7 @@ and allows the use of various analysis tools more efficiently.
 
 ### :fontawesome-solid-diagram-project: **Monitoring Network Diagram**
 
-Below is a visual example showing how the `br-lab` monitoring network is configured, connecting different laboratories and devices for a unified and efficient testing environment.
+Below is a visual example that shows how the `br-lab` monitoring network is configured, connecting different laboratories and devices for a unified and efficient testing environment.
 ![br-lab_diagram.svg](../../img/tools_imgs/br-lab_diagram.svg)
 ---
 
@@ -45,7 +45,7 @@ docker network create \
 - `docker network create`: Starts the creation of a new Docker network.
 - `-driver=bridge`: Specifies the network driver (bridge).
 - `-opt com.docker.network.bridge.name=br-lab`: Defines the name of the bridge network interface on the host.
-- `-subnet=172.10.10.0/24`: Defines the sub-network (up to 254 available IPs).
+- `-subnet=172.10.10.0/24`: Defines the subnet (up to 254 IPs available).
 - `br-lab`: Network name.
 
 ## :octicons-diff-added-24: **3. Adding Containers to the Network**
@@ -56,18 +56,18 @@ Command to add a container to the network:
 
 ```bash
 docker run -d \
-  --name my_container \
+  --name meu_container \
   --network br-lab \
-  container_image
+  imagem_do_container
 
 ```
 
 ### :gear: **Parameter Explanation:**
 
 - `docker run -d`: Runs the container in the background.
-- `-name my_container`: Container name.
+- `-name meu_container`: Container name.
 - `-network br-lab`: Connects the container to the `br-lab` network.
-- `container_image`: Specifies the container image to be used.
+- `imagem_do_container`: Specifies the container image to be used.
 
 ### :material-docker: **Using Docker Compose:**
 
@@ -81,8 +81,8 @@ networks:
     external: true
 
 services:
-  my_container:
-    image: container_image
+  meu_container:
+    image: imagem_do_container
     networks:
       br-lab:
         ipv4_address: 172.10.10.101 # optional for static ip
@@ -90,7 +90,7 @@ services:
 ```
 
 !!! warning "Attention"
-    When using static IPs, make sure to use IPs after `172.10.10.100` to avoid conflicts with existing containers.
+    When using static ips, be sure to use ips after `172.10.10.100` in order to avoid conflicts with existing containers.
 
 ### :gear: **Configuration Explanation:**
 
@@ -104,11 +104,11 @@ services:
 The `br-lab` network uses the `bridge` driver, which allows internal communication between containers, keeping them isolated from the host system. This offers:
 
 - **Isolation**: Containers do not interfere with other host processes.
-- **Internal Communication**: Containers can communicate using IPs in the specified sub-network.
+- **Internal communication**: Containers can communicate using IPs in the specified subnet.
 
 ## :material-connection: **5. Connecting Routers with Virtual Cables**
 
-To connect routers on the `br-lab` network using virtual cables via Containerlab, you can configure the connections between interfaces.
+To connect routers in the `br-lab` network using virtual cables via Containerlab, you can configure the connections between interfaces.
 
 ### :gear: **Connection Example:**
 
@@ -126,9 +126,9 @@ links:
 
 ### :material-lan-connect: **Connection Explanation:**
 
-- Each line defines a "virtual cable" connecting two network interfaces (for example, `route1:eth1` is connected to `br-lab:eth1`).
+- Each line defines a “virtual cable” connecting two network interfaces (for example, `route1:eth1` is connected to `br-lab:eth1`).
 - This allows communication between devices (routers and monitoring tools) through these interfaces.
 
 ## :material-file-document-check: **6. Conclusion**
 
-With this guide, you learned how to create and use the `br-lab` Docker network, add containers to the network, and connect routers virtually. This configuration is ideal for efficient monitoring in laboratory environments.
+With this guide, you have learned how to create and use the Docker `br-lab` network, how to add containers to the network, and how to connect routers virtually. This configuration is ideal for efficient monitoring in laboratory environments.

@@ -2,48 +2,48 @@
 
 ## :octicons-book-24: **Introduction**
 
-Before you start using the monitoring tools, it is essential to configure the communication base between your labs. For this, we use a dedicated Docker network called **br-lab**. The **br-lab** network facilitates the integration of analysis tools with the labs created in Containerlab, eliminating the need to repeatedly configure each tool for different labs.
+Before you start using the monitoring tools, it is crucial to configure the communication base between your laboratories. For this, we use a dedicated Docker network called **br-lab**. The **br-lab** network facilitates the integration of analysis tools with the laboratories created in Containerlab, eliminating the need to repeatedly configure each tool for different laboratories.
 
 ### :octicons-gear-24: **Step 1: Configuring the br-lab Docker Network**
 
-Access the [br-lab Network Configuration Guide](Primeiros passos - preparando o ambiente.md) to configure your Docker network. This network will be responsible for efficiently connecting your labs to the monitoring system, allowing multiple tools to work in an integrated manner.
+Access the [br-lab Network Configuration Guide](Primeiros passos - preparando o ambiente.md) to configure your Docker network. This network will be responsible for efficiently connecting your laboratories to the monitoring system, allowing multiple tools to function in an integrated manner.
 
 ---
 
 ## :octicons-search-24: **Step 2: Choosing a Monitoring Tool**
 
-After configuring the **br-lab** network, you can select the tool that best suits your needs. Each of the tools listed below offers specific functionalities for different types of monitoring, whether of network devices, traffic, or logs.
+After configuring the **br-lab** network, you can select the tool that best suits your needs. Each of the tools listed below offers specific functionalities for different types of monitoring, whether it is network devices, traffic, or logs.
 
 ### :material-compare-horizontal: **Tool Comparison**
 
-The following table provides an overview of the tools we cover in our tutorials, highlighting their key features, monitoring type, and pricing options:
+The following table provides an overview of the tools we cover in our tutorials, highlighting their main features, type of monitoring, and pricing options:
 
 ### **Table: Monitoring Tool Comparison**
 
-| **Tools** | **Collection and Integration Technologies** | **Cost** | **Implementation Difficulty** | **Integrations** | **Strong Point** | **Community/Documentation** |
+| **Tools** | **Collection and Integration Technologies** | **Cost** | **Implementation Difficulty** | **Integrations** | **Strengths** | **Community/Documentation** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Zabbix** | [SNMP, ICMP, JMX, IPMI, API_rest, Agent](https://www.zabbix.com/documentation/current/manual/appendix/protocols), | [Free](https://www.zabbix.com/pricing) | [Easy](https://www.zabbix.com/documentation/current/manual/quickstart/installation) | [Grafana, prometheus,elastic, kafka, Graylog, ..etc](https://www.zabbix.com/integrations?cat=logfiles) | [Advanced Alerts](https://www.zabbix.com/documentation/current/manual/config/notifications) | [Complete](https://www.zabbix.com/community) |
-| **ELK Stack** | [Syslog, IPFIX , Netflow, SNMP, ICMP](https://www.elastic.co/integrations/data-integrations)  | [Freemium](https://www.elastic.co/pricing/) | [Moderate](https://www.elastic.co/guide/en/observability/current/monitoring-getting-started.html) | [Fleet, logstash, filebeat, grafana, .etc](https://www.elastic.co/integrations/data-integrations) | [Centralized Log Analysis, Ready-made Dashboards](https://www.elastic.co/kibana/kibana-dashboard) | [Complete](https://www.elastic.co/docs) |
-| **Telegraf + InfluxDB + Grafana** | [SNMP, IPFIX, SFLOW, Syslog, gMNIC, Netflow, GRPC, etc](https://docs.influxdata.com/telegraf/v1/plugins/) | [Freemium](https://www.influxdata.com/products/pricing/) | [Moderate](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) | [Prometheus, Loki,](https://grafana.com/docs/grafana/latest/datasources/)  | [Modular and Scalable Stack](https://www.influxdata.com/time-series-platform/) | [Extensive](https://docs.influxdata.com) |
+| **Zabbix** | [SNMP, ICMP, JMX, IPMI, API_rest, Agent](https://www.zabbix.com/documentation/current/manual/appendix/protocols), | [Free](https://www.zabbix.com/pricing) | [Easy](https://www.zabbix.com/documentation/current/manual/quickstart/installation) | [Grafana, prometheus,elastic, kafka, Graylog, ..etc](https://www.zabbix.com/integrations?cat=logfiles) | [Advanced alerts](https://www.zabbix.com/documentation/current/manual/config/notifications) | [Complete](https://www.zabbix.com/community) |
+| **ELK Stack** | [Syslog, IPFIX , Netflow, SNMP, ICMP](https://www.elastic.co/integrations/data-integrations)  | [Freemium](https://www.elastic.co/pricing/) | [Moderate](https://www.elastic.co/guide/en/observability/current/monitoring-getting-started.html) | [Fleet, logstash, filebeat, grafana, .etc](https://www.elastic.co/integrations/data-integrations) | [Centralized log analysis, Ready-made dashboards](https://www.elastic.co/kibana/kibana-dashboard) | [Complete](https://www.elastic.co/docs) |
+| **Telegraf + InfluxDB + Grafana** | [SNMP, IPFIX, SFLOW, Syslog, gMNIC, Netflow, GRPC, etc](https://docs.influxdata.com/telegraf/v1/plugins/) | [Freemium](https://www.influxdata.com/products/pricing/) | [Moderate](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) | [Prometheus, Loki,](https://grafana.com/docs/grafana/latest/datasources/)  | [Modular and scalable stack](https://www.influxdata.com/time-series-platform/) | [Extensive](https://docs.influxdata.com) |
 | **LibreNMS** | [SNMP, Syslog, API_Rest](https://docs.librenms.org/Support/Configuration/) | [Free](https://www.librenms.org/#pricing) | [Easy](https://docs.librenms.org/Installation/) | [Grafana, Graylog, Proxmox](https://docs.librenms.org/Extensions/Applications/) | [Autodiscovery](https://docs.librenms.org/Support/Features/) | [Medium](https://docs.librenms.org) |
 
 ---
 
 ## :material-test-tube: **Step 3: Implementation and Testing**
 
-After selecting the most suitable tool, follow the specific tutorials to configure and integrate the chosen solution with your network environment created in **Containerlab**. Each guide offers step-by-step instructions to ensure a smooth and functional integration of the monitoring tools with your labs.
+After selecting the most suitable tool, follow the specific tutorials to configure and integrate the chosen solution with your network environment created in **Containerlab**. Each guide offers step-by-step instructions to ensure a smooth and functional integration of the monitoring tools with your laboratories.
 
 ### :octicons-tools-24: **Test Scenario Examples**:
 
-- **Monitoring Network Devices with LibreNMS**: Configure LibreNMS to monitor switches and routers within your lab.
+- **Monitoring Network Devices with LibreNMS**: Configure LibreNMS to monitor switches and routers within your laboratory.
 - **Log and Event Analysis with ELK Stack**: Collect and visualize log data generated by network devices.
-- **Packet Capture with EDSHARK**: Run network diagnostics and analyze captured packets directly from routers.
+- **Packet Capture with EDSHARK**: Perform network diagnostics and analyze captured packets directly from routers.
 
 ---
 
 ## :material-ip-network: **br-lab Network Configuration and Fixed Addresses**
 
-All tools are configured to be attached to the **br-lab** network, and to facilitate their use regardless of the lab, they have fixed IPs. These IPs can be found in the list below, allowing you to connect directly to each tool without the need for additional configurations for each new lab.
+All tools are configured to be attached to the **br-lab** network, and to facilitate their use, regardless of the laboratory, they have fixed IPs. These IPs can be consulted in the list below, allowing you to connect directly to each tool without the need for additional configurations for each new laboratory.
 
 ### **Table: Fixed IPs of the Tools**
 
@@ -69,11 +69,11 @@ All tools are configured to be attached to the **br-lab** network, and to facili
 | zabbix-agent | 172.10.10.117 | Zabbix |
 | zabbix-database | 172.10.10.118 | Zabbix |
 
-These fixed IPs ensure stable and facilitated communication between the tools and the labs configured in **Containerlab**. This allows you to efficiently integrate multiple monitoring tools without having to redefine network configurations for each new lab.
+These fixed IPs ensure stable and facilitated communication between the tools and the laboratories configured in **Containerlab**. This allows you to efficiently integrate multiple monitoring tools without having to redefine network configurations for each new laboratory.
 
 ---
 
-This addition includes the Docker network configuration, the explanation about the fixed IPs, and how they facilitate the integration of tools in your lab environment.
+This addition includes the Docker network configuration, the explanation about the fixed IPs, and how they facilitate the integration of tools in your laboratory environment.
 
 ## :material-tools: **Future Tools**
 
@@ -84,5 +84,5 @@ We are constantly testing and adding new tools to our repertoire. Some options w
 - **OpenNMS**: Robust tool for monitoring networks and systems, with a focus on large-scale networks.
 - **Akivorado**: Data flow monitoring tool for networks.
 
-These tools can be integrated into your lab environment with **Containerlab**,
+These tools can be integrated into your laboratory environment with **Containerlab**,
 allowing you to create a robust ecosystem for network management and analysis.
