@@ -26,7 +26,7 @@ git clone https://git.rnp.br/redes-abertas/docs.git
 
 2. Instale as dependências do projeto:
 
-primeiramente, instale o pipx para instalar o poetry docemtação [aqui](https://pypa.github.io/pipx/)
+primeiramente, instale o pipx para instalar o poetry documentação [aqui](https://pypa.github.io/pipx/)
 
 Agora, instale o poetry, que é o gerenciador de dependências do projeto:
 
@@ -163,7 +163,7 @@ Substitua `sua-chave-aqui` pela chave obtida no Passo 1.
 Após configurar a chave de API no arquivo `.env`, basta executar o comando abaixo para iniciar a tradução:
 
 ```bash
-task translate
+poetry run task translate
 ```
 
 Este comando irá:
@@ -208,7 +208,7 @@ A documentação do projeto é escrita em Markdown e está localizada na pasta d
 onde toda a padronização e a recomendada pelo [mkdocs](https://www.mkdocs.org/) e [mkdocs-material](https://squidfunk.github.io/mkdocs-material/), logo para visualizar a documentação localmente, execute o seguinte comando:
 
 ```bash
-task docs
+poetry run task docs
 ```
 
 !!! info "Dica"
@@ -235,7 +235,7 @@ O projeto utiliza o `commitizen` para padronizar as mensagens de commit. Para cr
      ```
 
 ```bash
-task commit
+poetry run task commit
 ```
 
 Agora é só preencher as informações solicitadas e o commit será feito de forma padronizada. Após o commit, você pode fazer o push para o repositório remoto.

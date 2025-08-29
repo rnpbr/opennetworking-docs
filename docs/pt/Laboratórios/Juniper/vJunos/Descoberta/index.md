@@ -2,7 +2,7 @@
 
 ## :material-bookmark: **Introdução**
 
-Este laboratório simula uma rede com 2 roteadores configurados com OSPF e SNMP, integrando o Zabbix e o Netbox para importação e gerenciamento automatizado de dispositivos.
+Este laboratório simula uma rede com 3 roteadores configurados com OSPF e SNMP, integrando o Zabbix e o Netbox para importação e gerenciamento automatizado de dispositivos.
 
 ---
 
@@ -10,7 +10,7 @@ Este laboratório simula uma rede com 2 roteadores configurados com OSPF e SNMP,
 
 ### :octicons-goal-16: 1.1 **Objetivo do Lab**
 
-O objetivo deste laboratório é importar os dispositivos de rede e suas configurações no Netbox a partir do Zabbix, além de demonstrar o funcionamento básico do roteamento OSPF entre dois roteadores conectados em anel e monitorados via SNMP.
+O objetivo deste laboratório é importar os dispositivos de rede e suas configurações no Netbox a partir do Zabbix, além de demonstrar o funcionamento básico do roteamento OSPF entre três roteadores conectados em anel e monitorados via SNMP.
 
 
 ### :material-lan: 1.2 **Topologia do Lab**
@@ -222,8 +222,9 @@ Aqui está a tabela de dispositivos, IPs e portas de serviço disponíveis no la
 
 | Dispositivo | IP de Acesso | Porta | Serviço |
 | --- | --- | --- | --- |
-| **RO** | 172.10.10.101 | 22 | SSH |
-| **AC** | 172.10.10.102 | 22 | SSH |
+| **GO** | 172.10.10.12 | 22 | SSH |
+| **MS** | 172.10.10.17 | 22 | SSH |
+| **MT** | 172.10.10.18 | 22 | SSH |
 | **Servidor de Monitoramento** | 172.20.20.1 | 8080 | Web (Graphite) |
 | **Servidor Zabbix** | 172.10.10.115 | 81 | Zabbix |
 
@@ -234,7 +235,8 @@ Aqui está a tabela com as senhas de acesso dos serviços configurados no labora
 | Serviço | Usuário | Senha |
 | --- | --- | --- |
 | **AC (SSH)** | admin | admin@123 |
-| **RO (SSH)** | admin | admin@123 |
+| **MS (SSH)** | admin | admin@123 |
+| **MT (SSH)** | admin | admin@123 |
 | **Graphite (Web)** | admin | admin@123 |
 | **Servidor Zabbix(Web)** | Admin | zabbix |
 
