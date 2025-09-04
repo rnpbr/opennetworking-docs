@@ -132,6 +132,7 @@ Esse comando criará os containers dos roteadores, configurará os links e inici
 | **Chronograf**  | 172.10.10.113 | 8888 | UI de análise      |
 | **Grafana**     | 172.10.10.111 | 3000 | Dashboard Web      |
 | **Graphite** | 172.10.10.119 | 8080    | Web UI (Graphite) |
+
 ### :material-key-link: 6.2 Senhas de Acesso
 
 | Serviço          | Usuário | Senha             |
