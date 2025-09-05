@@ -150,6 +150,47 @@ Esse comando criará os containers dos roteadores, configurará os links e inici
 
 ## :octicons-browser-16: 7. Observabilidade e Visualização
 
+!!! Warning "Atenção"
+    Devido à forma como as configurações são aplicadas no vJunos-router, a configuração do syslog deve ser feita manualmente.
+    Siga o passo a passo abaixo para enviar todos os logs do sistema para o servidor de logs remoto.
+
+### Passo a passo
+
+Acesse o node1 via ssh e execute:
+
+```junos
+configure
+```
+
+* Entra no **modo de configuração** do Junos.
+* Todos os comandos seguintes vão alterar a configuração do equipamento.
+
+```junos
+set system syslog host 172.10.10.114 any any
+```
+
+* Define o servidor de logs remoto (**172.10.10.114**) como destino.
+* `any any` significa: enviar **qualquer facility** (sistema, kernel, daemon, auth etc.) em **qualquer nível de severidade** (emergency, alert, critical, warning, info, debug).
+* Na prática: **todos os eventos do sistema serão enviados para esse servidor**.
+
+```junos
+set system syslog host 172.10.10.114 source-address 172.10.10.201
+```
+
+* Define o **IP de origem** dos pacotes de log como **172.10.10.201** (o IP do vJunos-router).
+* Isso garante que o tráfego de syslog saia pela interface que possui esse endereço.
+* É importante para o servidor de logs reconhecer corretamente a origem das mensagens.
+
+```junos
+commit
+```
+
+* Aplica as alterações feitas na configuração.
+* Somente após esse comando os logs começam a ser enviados para o destino configurado.
+
+
+
+
 ### 7.1 Telegraf
 
 O Telegraf está configurado para coletar métricas via:
