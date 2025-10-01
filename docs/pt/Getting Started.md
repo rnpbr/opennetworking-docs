@@ -1,4 +1,4 @@
-# Geting started
+# Getting started
 
 Este guia abrangente o conduzirá pela configuração de um ambiente de simulação de rede, utilizando as ferramentas Netbox, Containerlab e Netreplica.
 
