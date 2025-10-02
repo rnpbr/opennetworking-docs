@@ -1,6 +1,6 @@
 # :material-power-plug-outline: Branching Plugin
 
-The Branching plugin for NetBox is a solution that enables the creation of branches from the data stored in the system, allowing different teams or work environments to make changes, tests, and validations without directly impacting the main database. With it, NetBox gains flexibility to manage versioning, experimentation, and collaboration scenarios, facilitating the comparison of configurations, change control, and the consolidation of updates in the documented infrastructure.
+The Branching plugin for NetBox is a solution that enables the creation of branches of the data stored in the system, allowing different teams or work environments to make changes, test, and validate without directly impacting the main database. With it, NetBox gains flexibility to manage versioning, experimentation, and collaboration scenarios, facilitating configuration comparison, change control, and the consolidation of updates in the documented infrastructure.
 
 ## :simple-git: Plugin Repository
 Copy the link below or click to access the [Github Repository](https://github.com/netboxlabs/netbox-branching)
@@ -22,7 +22,7 @@ This documentation used the following components with their respective versions:
 ---
 
 ## :material-file-document-arrow-right: 2. Installing and Configuring the Plugin in Netbox
-To install the plugin in Netbox, we need to modify and add some files that are responsible for the Netbox configuration.
+To install the plugin in Netbox, we need to modify and add some files that are responsible for Netbox configuration.
 
 The files are:
 
@@ -32,7 +32,7 @@ The files are:
 - `configuration/plugins.py`.
 - `configuration/local_settings.py`
 
-### :fontawesome-solid-gear: 2.1 Configuring the Netbox version:
+### :fontawesome-solid-gear: 2.1 Configuring the Netbox Version:
 
 1. First, let's clone the Netbox repository:
 ```bash
@@ -48,17 +48,16 @@ cd netbox-docker
 ```bash
 git checkout 3.2.1
 ```
-!!! tip "Information" 
-    We changed the repository branch to have access to version 4.2.4 of Netbox.
+!!! tip "Information"
+    We changed the repository branch to access version 4.2.4 of Netbox.
 
-!!! tip "Tip" 
+!!! tip "Tip"
     All commands below will be executed inside the netbox root directory `netbox-docker/`.
 
-
 ### :material-text-box: 2.2 plugin_requirements.txt
-This file contains a list of Netbox plugins (as Python PyPI packages) that should be installed during the Docker image build.
+This file contains a list of Netbox plugins (as Python packages from PyPI) that should be installed during the Docker image build.
 
-Execute the following command to write the package inside the `plugin_requirements.txt` file.
+Execute the following command to write the package into the `plugin_requirements.txt` file.
 
 ```bash
 echo "netboxlabs-netbox-branching==0.5.7" >> plugin_requirements.txt
@@ -67,7 +66,7 @@ echo "netboxlabs-netbox-branching==0.5.7" >> plugin_requirements.txt
 ### :material-docker: 2.3 DockerFile-Plugins
 This is the DockerFile used to build the custom docker image.
 
-1. Create the file and access it with an editor: 
+1. Create the file and access it with an editor:
 ```bash
 nano DockerFile-Plugins
 ```
@@ -84,7 +83,7 @@ COPY ./configuration/local_settings.py /opt/netbox/netbox/netbox/local_settings.
 ```
 
 ### :material-docker: 2.4 docker-compose.override.yml
-As the name implies, this file contains the configurations that will override the `docker-compose.yml`.
+As the name implies, this file contains the configurations that will override `docker-compose.yml`.
 
 If you haven't configured the `br-lab` network yet. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
@@ -138,8 +137,8 @@ networks:
 
 The changes made were:
 
-- Adding Netbox to the `br-lab` network.
-- Changing the dockerfile to `Dockerfile-Plugins`, created previously.
+- Add Netbox to the `br-lab` network.
+- Changed the dockerfile to `Dockerfile-Plugins`, created earlier.
 - Also changed the image of the services to: `netbox:latest-plugins`.
 
 ### :material-power-plug-outline: 2.5 plugins.py
@@ -160,17 +159,17 @@ PLUGINS = [
 ### :fontawesome-solid-gear: 2.5 local_settings.py
 Now, let's create the plugin configuration file that allows the Netbox database to create replicas of the tables.
 
-1. First, create the file in `./configuration/`, with the following command:
+1. First create the file in `./configuration/`, with the following command:
 ```bash
 nano ./configuration/local_settings.py
 ```
 
-2. Now, copy the content below and paste it into the created file.
+2. Now, copy the content below, and paste it into the created file.
 ```bash
 import sys
 import os
 
-# Adiciona o diretório atual ao sys.path
+# Adds the current directory to sys.path
 sys.path.append(os.path.dirname(__file__))
 
 from netbox_branching.utilities import DynamicSchemaDict
@@ -190,19 +189,19 @@ DATABASE_ROUTERS = [
 ---
 
 ## :simple-docker: 3. Build and Deploy!
-Now your Netbox is configured and ready to deploy, follow the commands below and build the new Netbox instance!
+Now your Netbox is configured and ready for deployment, follow the commands below and build the new Netbox instance!
 
 1. Build the image:
 ```bash
 docker compose build --no-cache
 ```
 
-2. Bring up the containers:
+2. Start the containers:
 ```bash
 docker compose up -d
 ```
 
-3. After bringing up the containers, verify that the PostgreSQL user which NetBox uses to authenticate has permission to create new schemas in the database. The result should be: `GRANT`.
+3. After starting the containers, verify that the PostgreSQL user which NetBox uses to authenticate, has permission to create new schemas in the database. The result should be: `GRANT`.
 
 ```bash
 docker exec -it netbox-docker-postgres-1 psql -U netbox -d netbox -c "GRANT CREATE ON DATABASE netbox TO netbox;"
@@ -210,7 +209,7 @@ docker exec -it netbox-docker-postgres-1 psql -U netbox -d netbox -c "GRANT CREA
 
 ## 4. Visualization
 
-With the plugin installed you can visualize the interface that is available for you to work with branches in Netbox
+With the plugin installed you can view the interface that is provided for you to work with branches in Netbox
 
 - Top bar
 <br />
@@ -220,6 +219,6 @@ With the plugin installed you can visualize the interface that is available for 
 <br />
 <img src="../../../../../img/netbox_imgs/branchingMenu.png"/>
 
-To validate if the plugin is installed correctly, just go to Menu > Admin > Plugins
+To validate that the plugin is installed correctly, just go to Menu > Admin > Plugins
 <br />
 <img src="../../../../../img/netbox_imgs/branchingPlugin.png"/>

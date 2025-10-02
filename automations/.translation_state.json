@@ -1,15 +1,15 @@
 {
     "docs/pt/Getting Started.md": {
-        "timestamp": 1756354932.0566366,
-        "datetime": "2025-08-28T21:53:36.784966"
+        "timestamp": 1759418522.07558,
+        "datetime": "2025-10-02T11:29:45.268593"
     },
     "docs/pt/index.md": {
-        "timestamp": 1756354932.0625408,
-        "datetime": "2025-08-28T21:53:43.125227"
+        "timestamp": 1759418522.0758865,
+        "datetime": "2025-10-02T11:29:52.866497"
     },
     "docs/pt/Contribua.md": {
-        "timestamp": 1756354932.0545683,
-        "datetime": "2025-08-28T21:53:54.997942"
+        "timestamp": 1757015843.2671287,
+        "datetime": "2025-10-02T11:30:05.777998"
     },
     "docs/pt/Guias/Netbox/index.md": {
         "timestamp": 1756354932.0578475,
@@ -152,23 +152,27 @@
         "datetime": "2025-08-28T21:56:13.992855"
     },
     "docs/pt/Laboratórios/Juniper/vJunos/Descoberta/index.md": {
-        "timestamp": 1756409513.7154417,
-        "datetime": "2025-08-29T10:47:28.065283"
+        "timestamp": 1757015843.2744918,
+        "datetime": "2025-10-02T11:30:53.209266"
     },
     "docs/pt/Laboratórios/Multvendor/Monitoramento-Zabbix/index.md": {
         "timestamp": 1756474735.0483828,
         "datetime": "2025-08-29T10:47:40.504763"
     },
     "docs/pt/Laboratórios/Multvendor/Logs-Telegraf/index.md": {
-        "timestamp": 1756474735.0482657,
-        "datetime": "2025-08-29T10:47:53.286440"
+        "timestamp": 1757079995.9625769,
+        "datetime": "2025-10-02T11:31:06.989311"
     },
     "docs/pt/Guias/Netbox/Plugins/Branching/index.md": {
-        "timestamp": 1756325867.2560198,
-        "datetime": "2025-08-29T10:46:34.977407"
+        "timestamp": 1757015843.2675278,
+        "datetime": "2025-10-02T11:30:15.912284"
     },
     "docs/pt/Laboratórios/Juniper/vJunos/Descoberta-Diode/index.md": {
-        "timestamp": 1756475170.6406612,
-        "datetime": "2025-08-29T10:47:13.166149"
+        "timestamp": 1757015843.2735431,
+        "datetime": "2025-10-02T11:30:37.770954"
+    },
+    "docs/pt/Ferramentas/Visual Studio Code/Guia: Deploy usando vscode.md": {
+        "timestamp": 1759418727.5795035,
+        "datetime": "2025-10-02T11:31:16.506560"
     }
 }

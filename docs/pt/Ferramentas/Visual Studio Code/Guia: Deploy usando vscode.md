@@ -162,6 +162,8 @@ Essa funcionalidade é equivalente ao uso do Wireshark em um ambiente real, send
 
 O recurso **Link Impairment** permite adicionar condições adversas à rede simulada:
 
+![Link Imparciment](../../img/vscode/9-Link-imparciment.gif)
+
 * **Delay (ms)** – tempo de resposta.
 * **Jitter** – variação do delay.
 * **Loss (%)** – perda de pacotes.
@@ -170,7 +172,6 @@ O recurso **Link Impairment** permite adicionar condições adversas à rede sim
 
 Esse tipo de simulação é muito valioso para avaliar como sistemas de produção se comportariam em cenários de instabilidade.
 
-![Link Imparciment](../../img/vscode/9-Link-imparciment.gif)
 
 ---
 

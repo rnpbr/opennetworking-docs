@@ -1,6 +1,6 @@
 # :material-bookmark: Multivendor Logs Telegraf
 
-This lab simulates, via Containerlab, the interconnection between three Juniper, Huawei, and Cisco routers, with dynamic routing via OSPF, log exporting via Syslog using Telegraf, InfluxDB, Chronograf, and Grafana.
+This lab simulates, via Containerlab, the interconnection between three Juniper, Huawei and Cisco routers, with dynamic routing via OSPF, log export via Syslog using Telegraf, InfluxDB, Chronograf and Grafana.
 
 ---
 
@@ -8,7 +8,7 @@ This lab simulates, via Containerlab, the interconnection between three Juniper,
 
 ### :octicons-goal-16: 1.1 Lab Objective
 
-The objective of the lab is to simulate the export of logs from three routers from different manufacturers (Juniper, Huawei, and Cisco) to a centralized monitoring server, using the Syslog protocol. The monitoring system is composed of Telegraf, InfluxDB, Chronograf, and Grafana, allowing the collection, storage, and visualization of network metrics in real time.
+The objective of the lab is to simulate the export of logs from three routers from different manufacturers (Juniper, Huawei and Cisco) to a centralized monitoring server, using the Syslog protocol. The monitoring system is composed of Telegraf, InfluxDB, Chronograf and Grafana, allowing the collection, storage and visualization of network metrics in real time.
 
 ### :material-lan: 1.2 Lab Topology
 
@@ -16,11 +16,11 @@ The objective of the lab is to simulate the export of logs from three routers fr
 
 **Topology Description**
 
-*   Three routers (Juniper, Cisco, Huawei) interconnected in a linear topology with point-to-point /31 links.
-*   Dynamic routing via OSPF between the routers.
-*   Log collection via Syslog udp (514).
-*   Observability with the TICK stack (Telegraf, InfluxDB, Chronograf) and Grafana.
-*   External network `br-lab` connects the nodes to the monitoring infrastructure.
+* Three routers (Juniper, Cisco, Huawei) interconnected in a linear topology with point-to-point /31 links.
+* Dynamic routing via OSPF between routers.
+* Log collection via Syslog udp (514).
+* Observability with the TICK stack (Telegraf, InfluxDB, Chronograf) and Grafana.
+* External network `br-lab` connects the nodes to the monitoring infrastructure.
 
 ---
 
@@ -28,48 +28,46 @@ The objective of the lab is to simulate the export of logs from three routers fr
 
 ### Application Examples
 
-This lab can be explored in various academic and applied research scenarios, serving as a basis for experimentation in monitoring and visualizing traffic in networks with multiple routers.
+This lab can be explored in several academic and applied research scenarios, serving as a basis for experimentation with monitoring and visualization of traffic in networks with multiple routers.
 
 #### Possible Applications:
 
-*   **NOC team training in a multivendor environment**: Simulates real operations with Juniper, Huawei, and Cisco routers, using OSPF and log exporting via Syslog, allowing connectivity analysis and troubleshooting.
-*   **Validation and testing of log collection via Syslog**: Allows verification of the compatibility and behavior of different vendors in sending logs to Telegraf.
-*   **Real-time metrics visualization and analysis**: Validate and test ways to grafana templates to work with logs.
-*   **Centralized monitoring with Telegraf**: Evaluates Telegraf's ability to receive and process logs from heterogeneous devices, ensuring data integrity and consistency.
-*   **Teaching monitoring system integration**: Provides practical learning on Syslog configuration, metric collection, and visualization in TICK and Grafana stacks in a multivendor scenario.
-
+* **Training of NOC teams in a multivendor environment**: Simulates real operations with Juniper, Huawei and Cisco routers, using OSPF and log export via Syslog, allowing analysis of connectivity and fault resolution.
+* **Validation and testing of log collection via Syslog**: Allows verifying the compatibility and behavior of different vendors in sending logs to Telegraf.
+* **Real-time metrics visualization and analysis**: Validate and test Grafana template forms to work with logs.
+* **Centralized monitoring with Telegraf**: Evaluates Telegraf's ability to receive and process logs from heterogeneous devices, ensuring data integrity and consistency.
+* **Teaching monitoring system integration**: Provides practical learning about Syslog configuration, metric collection and visualization in TICK stacks and Grafana in a multivendor scenario.
 ---
 
 ## :material-tools: 3. Requirements
 
-Below are the minimum hardware and software requirements needed to run the lab. Be sure to include essential tools such as **Containerlab** and **Docker**, in addition to the previously created `br-lab` network.
-To learn more about these items, access:
+Below are listed the minimum hardware and software requirements to run the lab. Be sure to include the essential tools such as **Containerlab** and **Docker**, in addition to the previously created `br-lab` network.
+to learn more about these items access:
 
-- [br-lab Network Creation](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
+- [Creation of the br-lab Network](../../../../Ferramentas/Primeiros passos - preparando o ambiente.md)
 - <a target="_blank" href="https://www.docker.com/get-started/">Docker Installation</a>
 - <a target="_blank" href="https://containerlab.dev/install/">Containerlab Installation</a>
 
-And have the telegraf stack previously installed, to learn more about zabbix installation access: [Telegraf Installation](../../../../Ferramentas/Telegraf/index.md)
+And have the telegraf stack previously installed, to learn more about installing zabbix access: [Telegraf Installation](../../../../Ferramentas/Telegraf/index.md)
 
 ### :material-alert: Minimum Requirements Table:
 
-| Requirement           | Details                       |
-| --------------------- | ----------------------------- |
-| **CPUs**              | 4 vCPUs                       |
-| **RAM Memory**        | 8 GB                          |
-| **Disk Space**        | 10 GB (recommended)           |
-| **Containerlab**      | 0.45.0 or higher              |
-| **Docker Engine**     | 23.0.3 or higher              |
-| **Images**            | `vr-vjunos:23.2R1.14`, `vrnetlab/huawei_vrp:ne40e-8.180`, `xrd-control-plane:7.10.2` |
-| **Docker Network**    | `br-lab`                      |
+| Requirement           | Details              |
+| ------------------- |-----------------------|
+| **CPUs**            | 4 vCPUs               |
+| **RAM Memory**     | 8 GB                  |
+| **Disk Space** | 10 GB (recommended)   |
+| **Containerlab**    | 0.45.0 or higher    |
+| **Docker Engine**   | 23.0.3 or higher    |
+| **Images**         | `vr-vjunos:23.2R1.14`, `vrnetlab/huawei_vrp:ne40e-8.180`, `xrd-control-plane:7.10.2` |
+| **Docker Network**     | `br-lab`              |
 
 !!! warning "Attention"
     Check if your processor has **hardware virtualization support** and if this feature is **enabled in the BIOS/UEFI**.
     - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
     - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
 
-    Without this feature enabled, images such as **vJunos-router** will not work correctly.
-
+    Without this feature enabled, images such as the **vJunos-router** will not work correctly.
 ---
 
 ## :fontawesome-solid-prescription-bottle: 4. Deploying the Lab
@@ -78,7 +76,7 @@ You can perform the deployment using a ready-made script or manually configure t
 
 ### :material-git: 4.1 Ready Deployment
 
-This method allows the user to **download a pre-assembled version** of the laboratory, with the topology and configurations already defined. Simply download the repository and proceed to the start of execution.
+This method allows the user to **download a pre-assembled version** of the lab, with the topology and configurations already defined. Just download the repository and proceed to the beginning of execution.
 
 !!! tip "Tip"
     Ready deployment is useful for those who want to get started quickly with a configured environment.
@@ -100,7 +98,7 @@ Execute the script below to download and configure the lab automatically:
     ```
 
 !!! tip "Tip"
-    In Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execute permission.
+    In Linux/Mac, use `chmod +x get.sh` before running the script, if it does not have execution permission.
 
 ---
 
@@ -116,52 +114,90 @@ sudo containerlab deploy
 This command will create the router containers, configure the links, and start the monitoring services.
 
 !!! tip "Debugging"
-    Use `docker logs -f <container_name>` to check the status of the services if something doesn't work.
+    Use `docker logs -f <container_name>` to check the status of the services, if something does not work.
 
 ---
 
-## :material-access-point: 6. Accessing the Devices
+## :material-access-point: 6. Access to Devices
 
-### :material-table: 6.1 Service IPs and Ports
+### :material-table: 6.1 IPs and Ports of Services
 
-| Device          | Access IP      | Port(s) | Service             |
-| --------------- | -------------- |-------| ------------------- |
-| **node1**       | 172.10.10.201  | 22    | SSH                 |
-| **node2**       | 172.10.10.202  | 22    | SSH                 |
-| **node3**       | 172.10.10.203  | 22    | SSH                 |
-| **Telegraf**    | 172.10.10.114  | 161   | Metric Collection   |
-| **InfluxDB**    | 172.10.10.112  | 8086  | Time Series Database|
-| **Chronograf**  | 172.10.10.113  | 8888  | Analysis UI         |
-| **Grafana**     | 172.10.10.111  | 3000  | Web Dashboard       |
-| **Graphite**    | 172.10.10.119  | 8080  | Web UI (Graphite)   |
+| Device     | Access IP  | Port(s) | Service            |
+| --------------- | ------------- |-----| ------------------ |
+| **node1**           | 172.10.10.201 | 22      | SSH               |
+| **node2**           | 172.10.10.202 | 22      | SSH               |
+| **node3**           | 172.10.10.203 | 22      | SSH               |
+| **Telegraf**    | 172.10.10.114 | 161 | Metric collection |
+| **InfluxDB**    | 172.10.10.112 | 8086 | Time series database    |
+| **Chronograf**  | 172.10.10.113 | 8888 | Analysis UI      |
+| **Grafana**     | 172.10.10.111 | 3000 | Web Dashboard      |
+| **Graphite** | 172.10.10.119 | 8080    | Web UI (Graphite) |
 
 ### :material-key-link: 6.2 Access Passwords
 
-| Service          | User    | Password          |
-| ---------------- | ------- | ----------------- |
-| **node1 (SSH)**  | `admin` | `admin@123`       |
-| **node2 (SSH)**  | `clab`  | `clab@123`        |
-| **node3 (SSH)**  | `admin` | `admin`           |
+| Service          | User | Password             |
+| ---------------- | ------- |-------------------|
+| **node1 (SSH)**     | `admin`  | `admin@123`      |
+| **node2 (SSH)**     | `clab`   | `clab@123`       |
+| **node3 (SSH)**     | `admin`  | `admin`          |
 | Grafana          | `admin` | `admin`           |
 | InfluxDB         | `admin` | `influxpassword`  |
 
-!!! warning "Startup Verification"
-    Before accessing the services, use `docker ps` and check the containers' logs to ensure they are working correctly.
+!!! warning "Initialization Verification"
+    Before accessing the services, use `docker ps` and check the container logs to ensure they are working correctly.
 
 ---
 
 ## :octicons-browser-16: 7. Observability and Visualization
 
+!!! Warning "Attention"
+    Due to the way configurations are applied to the vJunos-router, the syslog configuration must be done manually.
+    Follow the step-by-step instructions below to send all system logs to the remote log server.
+
+### Step by step
+
+Access node1 via ssh and execute:
+
+```junos
+configure
+```
+
+* Enters **configuration mode** of Junos.
+* All subsequent commands will change the equipment's configuration.
+
+```junos
+set system syslog host 172.10.10.114 any any
+```
+
+* Defines the remote log server (**172.10.10.114**) as the destination.
+* `any any` means: send **any facility** (system, kernel, daemon, auth etc.) at **any severity level** (emergency, alert, critical, warning, info, debug).
+* In practice: **all system events will be sent to this server**.
+
+```junos
+set system syslog host 172.10.10.114 source-address 172.10.10.201
+```
+
+* Defines the **source IP** of the log packets as **172.10.10.201** (the IP of the vJunos-router).
+* This ensures that syslog traffic leaves through the interface that has this address.
+* It is important for the log server to correctly recognize the origin of the messages.
+
+```junos
+commit
+```
+
+* Applies the changes made to the configuration.
+* Only after this command will the logs begin to be sent to the configured destination.
+
 ### 7.1 Telegraf
 
 Telegraf is configured to collect metrics via:
 
-*   **syslog**: log exporting
-*   **IPFIX**: traffic flow exporting.
+* **syslog**: log export
+* **IPFIX**: export of traffic flows.
 
 ### 7.2 InfluxDB
 
-Time series database where Telegraf's metrics are stored. Can be accessed on port 8086.
+Time series database where Telegraf metrics are stored. Can be accessed via port 8086.
 
 ### 7.3 Chronograf
 
@@ -169,4 +205,4 @@ Web interface for analyzing metrics stored in InfluxDB. Accessible at `http://17
 
 ### 7.4 Grafana
 
-Interactive visualization platform where data is presented in custom dashboards.
+Interactive visualization platform where data is presented in customized dashboards.
