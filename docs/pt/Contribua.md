@@ -68,7 +68,7 @@ onde cada pasta tem a seguinte função:
 - `en`: contém a documentação em inglês.
 - `img`: contém as imagens usadas na documentação.
 - `Ferramentas`: contém as ferramentas que foram testadas e documentadas nos laboratórios.
-- `Guias`: contém as guias de configuração dos laboratórios e ultilizações mais específicas do laboratórios
+- `Guias`: contém as guias de configuração dos laboratórios e utilizações mais específicas do laboratórios
 - `inventarios`: contém os inventários dos laboratorios no formato de importação do netbox.
 - `Laboratórios`: contém os laboratórios que foram testados e documentados de topologias de redes.
 - `Templates`: contém os templates do netreplica para vendors ainda não suportados por padrão.
@@ -94,7 +94,7 @@ docs/
 ## Mão na massa
 
 Agora que você já tem as dependências instaladas e entendeu como o poetry funciona, você pode começar a contribuir com o código,
-a seguir algumas dicas para contribuir com o projeto assim como ultilizar as ferramentas de automação e padronização do projeto.
+a seguir algumas dicas para contribuir com o projeto assim como utilizar as ferramentas de automação e padronização do projeto.
 
 !!! info "Dica"
     antes de começar a editar o código, é importante entrar no ambiente virtual do poetry, para isso, execute o seguinte comando:
@@ -112,9 +112,9 @@ poetry shell
 ### :material-tools: Ferramentas
 
 o projeto conta com algumas ferramentas de automação e padronização, como o `taskpy` e o `black`, que são usadas para automatizar tarefas e padronizar o código, respectivamente.
-#### :material-translate: Tradução Automatica
+#### :material-translate: Tradução Automática
 
-O comando `task translate` é responsável por traduzir os arquivos Markdown localizados na pasta `docs/pt` para o idioma **inglês** e salvar as traduções em `docs/en` ultilizando o modelo **Gemini 2.0 Flash** para realizar a tradução. Ele garante que o conteúdo seja traduzido de forma precisa sem alterar a estrutura da documentação e mantendo todas as referências e links intactos.
+O comando `task translate` é responsável por traduzir os arquivos Markdown localizados na pasta `docs/pt` para o idioma **inglês** e salvar as traduções em `docs/en` utilizando o modelo **Gemini 2.0 Flash** para realizar a tradução. Ele garante que o conteúdo seja traduzido de forma precisa sem alterar a estrutura da documentação e mantendo todas as referências e links intactos.
 
 
 #### :material-code-tags-check: Como configurar e utilizar a tradução de arquivos
@@ -215,7 +215,7 @@ poetry run task docs
     Para contribuir com a documentação, você pode editar os arquivos Markdown diretamente ou criar novos arquivos conforme necessário, seguindo a estrutura de pastas, subpastas e arquivos existentes.
 
 !!! info "Dica"
-    Você pode ultilizar qualquer feature disponivel no mkdocs de personalizações, para saber mais acesse a documentação abaixo:
+    Você pode utilizar qualquer feature disponivel no mkdocs de personalizações, para saber mais acesse a documentação abaixo:
 
 links uteis:
 
