@@ -186,6 +186,11 @@ commit
 ```
 
 * Aplica as alterações feitas na configuração.
+
+!!! warning "atenção"
+    Após a configuração, pode levar entre 2 e 6 minutos para que os logs comecem a ser enviados.
+
+
 * Somente após esse comando os logs começam a ser enviados para o destino configurado.
 
 
