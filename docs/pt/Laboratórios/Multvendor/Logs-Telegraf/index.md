@@ -174,7 +174,7 @@ set system syslog host 172.10.10.114 any any
 * Na prática: **todos os eventos do sistema serão enviados para esse servidor**.
 
 ```junos
-set system syslog host 172.10.10.114 source-address 172.10.10.201
+set system syslog source-address 172.10.10.201
 ```
 
 * Define o **IP de origem** dos pacotes de log como **172.10.10.201** (o IP do vJunos-router).
@@ -188,7 +188,7 @@ commit
 * Aplica as alterações feitas na configuração.
 
 !!! warning "atenção"
-    Após a configuração, pode levar entre 2 e 6 minutos para que os logs comecem a ser enviados.
+    Após o inicio do Vjunos, pode levar entre 3 a 6 minutos para subir todas as rotas e a configuração funcionar corretamente.
 
 
 * Somente após esse comando os logs começam a ser enviados para o destino configurado.
