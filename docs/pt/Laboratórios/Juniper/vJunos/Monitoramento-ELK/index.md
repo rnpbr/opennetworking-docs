@@ -58,8 +58,8 @@ E tenha a stack ELK previamente instalado, para saber mais sobre a instalação 
 | Requisito           | Detalhes              |
 | ------------------- |-----------------------|
 | **CPUs**            | 6 vCPUs               |
-| **Memória RAM**     | 16 GB                 |
-| **Espaço em Disco** | 15 GB (recomendado)   |
+| **Memória RAM**     | 24 GB                 |
+| **Espaço em Disco** | 30 GB (recomendado)   |
 | **Containerlab**    | 0.45.0 ou superior    |
 | **Docker Engine**   | 23.0.3 ou superior    |
 | **Imagens**         | `vr-vjunos:23.2R1.14` |

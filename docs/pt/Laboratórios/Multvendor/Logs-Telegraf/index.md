@@ -16,7 +16,7 @@ O objetivo do laboratório é simular a exportação de logs de três roteadores
 
 **Descrição da Topologia**
 
-* Três roteadores (Juniper, Cisco, Huawei) interligados em topologia linear com links ponto a ponto /31.
+* Três roteadores (Juniper, Cisco, Huawei) interligados em topologia em anel com links ponto a ponto /31.
 * Roteamento dinâmico via OSPF entre os roteadores.
 * Coleta de logs via Syslog udp (514).
 * Observabilidade com a pilha TICK (Telegraf, InfluxDB, Chronograf) e Grafana.
