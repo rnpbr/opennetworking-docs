@@ -92,7 +92,7 @@ Para começar, leia o [Guia de Configuração](./Getting%20Started.md) para apre
 - [Monitoramento ELK](Laboratórios/Juniper/vJunos/Monitoramento-ELK/index.md) - Laboratório de monitoramento de fluxos IPFIX utilizando o Elastic Stack (Elasticsearch, Kibana, Fleet Server e Elastic Agent).
 - [Monitoramento Telegraf](Laboratórios/Juniper/vJunos/Monitoramento-Telegraf/index.md) - Laboratório de monitoramento de fluxos de tráfego via Telegraf/IPFIX para InfluxDB.
 - [Monitoramento Zabbix](Laboratórios/Juniper/vJunos/Monitoramento-Zabbix/index.md) - Laboratório de monitoramento de roteadores via SNMP com coleta centralizada pelo Zabbix Server.
-- [Configuração NETCONF](Laboratórios/Multvendor/Configuração-NETCONF/index.md) - Laboratório de configuração de dispositivos via NETCONF.
+- [Configuração NETCONF](Laboratórios/Multivendor/Configuração-NETCONF/index.md) - Laboratório de configuração de dispositivos via NETCONF.
 ---
 
 ## Ferramentas
