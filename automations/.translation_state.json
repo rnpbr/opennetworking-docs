@@ -172,7 +172,31 @@
         "datetime": "2025-10-02T11:30:37.770954"
     },
     "docs/pt/Ferramentas/Visual Studio Code/Guia: Deploy usando vscode.md": {
-        "timestamp": 1759418727.5795035,
-        "datetime": "2025-10-02T11:31:16.506560"
+        "timestamp": 1764880883.1388419,
+        "datetime": "2025-12-05T09:57:37.209694"
+    },
+    "docs/pt/Laboratórios/Multivendor/Monitoramento-Zabbix/index.md": {
+        "timestamp": 1764880883.139572,
+        "datetime": "2025-12-05T09:56:22.986263"
+    },
+    "docs/pt/Laboratórios/Multivendor/Descoberta-Diode/index.md": {
+        "timestamp": 1764939225.6876085,
+        "datetime": "2025-12-05T09:56:43.796986"
+    },
+    "docs/pt/Laboratórios/Multivendor/Logs-Telegraf/index.md": {
+        "timestamp": 1764880883.139482,
+        "datetime": "2025-12-05T09:57:00.090028"
+    },
+    "docs/pt/Laboratórios/Multivendor/Logs-ELK/index.md": {
+        "timestamp": 1764880883.1393924,
+        "datetime": "2025-12-05T09:57:17.438906"
+    },
+    "docs/pt/Laboratórios/Multivendor/Configuração-NETCONF/index.md": {
+        "timestamp": 1764880883.1392994,
+        "datetime": "2025-12-05T09:57:27.580096"
+    },
+    "docs/pt/Ferramentas/Elasticsearch/Configurando Syslog no ELK.md": {
+        "timestamp": 1764880883.1387005,
+        "datetime": "2025-12-05T09:57:28.433506"
     }
 }

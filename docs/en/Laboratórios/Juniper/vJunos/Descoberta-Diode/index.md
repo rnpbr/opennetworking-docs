@@ -1,4 +1,4 @@
-# Juniper Vjuniper Discovery
+# Juniper vJuniper Discovery
 
 ## :material-bookmark: **Introduction**
 
@@ -10,20 +10,19 @@ This lab simulates a network with 3 routers configured with OSPF and SNMP, integ
 
 ### :octicons-goal-16: 1.1 **Lab Objective**
 
-The objective of this lab is to demonstrate, in a practical way, the process of automated import of network devices and their respective configurations into Netbox, using the diode-plugin, the diode-server, and the ora-agent.
+The objective of this lab is to demonstrate, in a practical way, the process of automated import of network devices and their respective configurations into Netbox, using the diode-plugin, diode-server, and orb-agent.
 
-![Topologia.svg](../../../../../../../img/labs_imgs/Diagrama_fluxo_diode.svg)
-
+![Topology.svg](../../../../../../../img/labs_imgs/Diagrama_fluxo_diode.svg)
 
 ### :material-lan: 1.2 **Lab Topology**
 Below is the topology in image format, representing the routers, servers, and their connections.
 
-![Topologia.svg](../../../../../../../img/labs_imgs/Topologia_discovery_lab_diode.svg)
+![Topology.svg](../../../../../../../img/labs_imgs/Topologia_discovery_lab_diode.svg)
 
 The routers are configured with the following technologies:
 
 - **OSPF (Open Shortest Path First)**: Used for dynamic routing in the network, allowing routers to exchange information about routes and topology updates.
-- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to device telemetry information.
+- **SNMP (Simple Network Management Protocol)**: Used for network monitoring and management, allowing access to telemetry information from devices.
 ---
 
 ## :octicons-search-16: **2. Applications**
@@ -34,19 +33,18 @@ This lab is focused on practical experimentation with discovery and automatic im
 
 #### Possible Applications:
 
-- **Automation of network discovery:** Automatic identification of devices and registration in Netbox.
+- **Network discovery automation:** Automatic identification of devices and registration in Netbox.
 - **Training in NetDevOps and inventory management:** Training in the integration of network documentation tools via API.
-- **Creation of a centralized device repository:** Building a reliable database of network data in real-time.
+- **Creation of a centralized device repository:** Building a reliable database of network data in real time.
 - **Study of Diode + Netbox integration via API:** Demonstrates how the agent collects, the server processes, and the plugin registers in the inventory.
-- **Teaching SNMP discovery and centralized management:** Practice of collecting and integrating network data.
+- **Teaching SNMP discovery and centralized management:** Practice in collecting and integrating network data.
 
 ---
-
 
 ## :material-tools: **3. Requirements**
 ### :material-alert: 3.1 Prerequisites
 
-To start the lab, the installation and configuration of the following components is required:
+To start the lab, it is necessary to install and configure the following components:
 
 - Netbox
 - Diode Plugin
@@ -56,7 +54,6 @@ To start the lab, the installation and configuration of the following components
 - Docker
 
 If your environment is not configured, follow the steps in [Configuration Guide](../../../../Getting%20Started.md)
-
 
 ### :material-alert: 3.2 Computational Requirements Table
 
@@ -68,15 +65,15 @@ If your environment is not configured, follow the steps in [Configuration Guide]
 | **Containerlab**    | 0.64.0 |
 | **Created Network**     | br-lab |
 
-!!! tip "Tip" 
-    Verify that the Docker and Containerlab versions are compatible to avoid errors during deployment.
+!!! tip "Tip"
+    Check if the Docker and Containerlab versions are compatible to avoid errors during deployment.
 
-!!! warning "Attention" 
+!!! warning "Attention"
     Verify that your processor has **hardware virtualization support** and that this feature is **enabled in the BIOS/UEFI**.
     - In **Intel** processors, this technology is called **VT-x** (Intel Virtualization Technology).
     - In **AMD** processors, it is known as **AMD-V** (AMD Virtualization).
 
-    Without this feature enabled, images like **vJunos-router** will not function correctly.
+    Without this feature enabled, images like **vJunos-router** will not work correctly.
 ---
 
 ## :octicons-tools-16: 4. Installation
@@ -110,29 +107,27 @@ Execute the script below to download and configure the lab automatically:
     ```
 
 !!! tip "Tip"
-    On Linux/Mac, use `chmod +x get.sh` before running the script if it doesn't have execution permission.
-
+    In Linux/Mac, use `chmod +x get.sh` before running the script if it does not have execution permission.
 
 ---
 
 ## :fontawesome-solid-house-chimney: 5. Environment Deployment
 
-### :material-router-wireless: 5.1 Starting the Routers with Containerlab
+### :material-router-wireless: 5.1 Spinning up the Routers with Containerlab
 
 Start the topology with the command:
 
 ```bash
 sudo clab deploy -t clab/discovery-lab.clab.yaml
 ```
-    
-!!! warning "Debug" 
+
+!!! warning "Debug"
     The devices may take about 10 minutes to be fully operational.
     If an error occurs, check the command output for possible error messages. Use `docker logs <container_name>` to debug.
 
-
-### :material-server: 5.2 Starting the Diode Server
-!!! tip "Tip" 
-    If you already have the Diode server configured, just skip this step.
+### :material-server: 5.2 Launching the Diode Server
+!!! tip "Tip"
+    If you already have the Diode server configured, simply skip this step.
 
 1. Let's create a new folder to store the diode-server files:
 ```bash
@@ -146,7 +141,7 @@ curl -sSfLo quickstart.sh https://raw.githubusercontent.com/netboxlabs/diode/rel
 chmod +x quickstart.sh
 ```
 
-3. Then, just run the script passing the url of your netbox:
+3. Then, simply run the script passing the URL of your Netbox:
 ```bash
 ./quickstart.sh https://<netbox-server>
 ```
@@ -156,7 +151,7 @@ chmod +x quickstart.sh
 docker compose up -d
 ```
 
-5. To extract the credentials needed to install the plugin, execute the command below:
+5. To extract the credentials required for plugin installation, execute the command below:
 ```bash
 echo $(jq -r '.[] | select(.client_id == "netbox-to-diode") | .client_secret' ./oauth2/client/client-credentials.json)
 ```
@@ -164,10 +159,9 @@ echo $(jq -r '.[] | select(.client_id == "netbox-to-diode") | .client_secret' ./
 !!! tip "Tip"
     **Store the token**, you will need to add it in the following configuration.
 
-
 ---
 ### :material-relation-one-to-one: 5.3 Installing the Plugin in Netbox
-In this step, we will install the diode plugin, which is responsible for establishing the connection between the diode-server and Netbox.
+In this step, we will install the Diode plugin, responsible for establishing the connection between the Diode server and Netbox.
 
 #### :fontawesome-solid-gear: **5.3.1 Configuring the Netbox version:**
 
@@ -181,15 +175,14 @@ cd netbox-docker/
 git checkout 3.2.1
 ```
 
-!!! tip "Information" 
-    We changed the repository branch to have access to version 4.2.4 of Netbox.
+!!! tip "Information"
+    We changed the repository branch to have access to Netbox version 4.2.4.
 
-!!! tip "Tip" 
-    All the commands below will be executed inside the root directory of netbox `netbox-docker/`.
-
+!!! tip "Tip"
+    All commands below will be executed within the Netbox root directory `netbox-docker/`.
 
 #### :material-text-box: **5.3.2 plugin_requirements.txt**
-This file contains a list of Netbox plugins (as Python packages from PyPO) that must be installed during the construction of the Docker image.
+This file contains a list of Netbox plugins (as PyPO Python packages) that should be installed during the Docker image build.
 
 Execute the following command to write the package inside the `plugin_requirements.txt` file.
 
@@ -198,7 +191,7 @@ echo "netboxlabs-diode-netbox-plugin" >> plugin_requirements.txt
 ```
 
 #### :material-docker: **5.3.3 DockerFile-Plugins**
-This is the DockerFile used to build the customized docker image.
+This is the DockerFile used to build the customized Docker image.
 
 1. Create the file and access it with an editor:
 ```bash
@@ -214,7 +207,7 @@ RUN /usr/local/bin/uv pip install -r /opt/netbox/plugin_requirements.txt
 ```
 
 #### :material-docker: **5.3.4. docker-compose.override.yml**
-As the name implies, this file contains the settings that will overwrite `docker-compose.yml`.
+As the name implies, this file contains the configurations that will override `docker-compose.yml`.
 
 If you have not yet configured the `br-lab` network. Access: [Configuring the Docker Network](../../../../Laboratórios/Juniper/vJunos/Lab%20Descoberta/index.md/#31-configurando-a-rede-docker)
 
@@ -300,13 +293,13 @@ PLUGINS_CONFIG = {
 }
 ```
 
-!!! tip "Tip" 
+!!! tip "Tip"
     The token stored during the diode-server installation must be passed in the option: `netbox_to_diode_client_secret`.
 
 ---
 
 #### :simple-docker: **5.3.6 Build and Deploy!**
-Now your Netbox is configured and ready for deploy, follow the commands below and build the new instance of Netbox!
+Now your Netbox is configured and ready for deployment, follow the commands below and build the new Netbox instance!
 
 1. Build the image:
 ```bash
@@ -323,19 +316,19 @@ docker compose up -d
 docker compose exec -it netbox ./manage.py migrate netbox_diode_plugin
 ```
 
-#### :material-import: **5.3.7. Generating the credentials for the agent**
-We need to create the credentials for the diode agent to communicate and pass the data collected from the devices to the diode-server
+#### :material-import: **5.3.7. Generating credentials for the agent**
+We need to create credentials for the Diode agent to communicate and pass the collected data from the devices to the Diode server.
 
 1. Access your Netbox and go to the side menu.
 2. Go to `Diode` > `Client Credentials`.
-3. Click on the top button `Add Credential`.
+3. Click the `Add Credential` button at the top.
 4. Enter a name for your credential.
-5. Store the `Client Id` and the `Client Secret`.
+5. Store the `Client Id` and `Client Secret`.
 
 ---
 
 ## :octicons-key-16: 6. Orb-Agent
-The orb-agent is a diode component responsible for collecting data from the devices.
+The orb-agent is a diode component responsible for collecting data from devices.
 
 ### 6.1 **Configuring the agent**
 
@@ -358,23 +351,23 @@ JUNIPER_PASSWORD=admin@123      # Device Password
 JUNIPER_COMMUNITY="public"      # Device Community
 ```
 
-Here is the `Client Id` and the `Client Secret` generated in the diode plugin in Netbox.
+Here are the `Client Id` and `Client Secret` generated in the Diode plugin in Netbox.
 
-3. Now, let's apply the variables in the juniper import template with the command:
+3. Now, let's apply the variables to the Juniper import template with the command:
 ```bash
 set -o allexport && source .env && envsubst < ./juniper/agent.device.template.yaml > agent.yaml
 ```
 
 ### 6.2 **Starting data collection**
-Finally, just start the container to start importing devices to Netbox!
+Finally, just bring up the container to start importing devices into Netbox!
 
 ```bash
 docker compose up
 ```
 
-✅ Follow in real-time in Netbox the devices being collected by the agent.
+✅ Follow in real time on Netbox the devices being collected by the agent.
 
-⏱️ In addition, you can configure a collection interval for the agent to perform the import automatically and periodically, without the need for manual intervention.
+⏱️ In addition, you can configure a collection interval so that the agent performs the import automatically and periodically, without the need for manual intervention.
 ___
 
 ## :material-access-point: 7. Access
@@ -395,7 +388,7 @@ Here is the table of devices, IPs, and service ports available in the lab.
 
 ### :material-key-link: 7.2 Access Passwords
 
-Here is the table with the access passwords of the services configured in the lab.
+Here is the table with the access passwords for the services configured in the lab.
 
 | Service | User | Password |
 | --- | --- | --- |
@@ -405,8 +398,8 @@ Here is the table with the access passwords of the services configured in the la
 | **Graphite (Web)** | admin | admin@123 |
 | **Netbox (Web)** | Admin | Admin |
 
-!!! warning "Attention" 
-    Before accessing, access the log of a device to verify that it was started and configured correctly.
+!!! warning "Attention"
+    Before accessing, check the log of a device to verify that it has been started and configured correctly.
 ---
 
 ## :octicons-rocket-24: 8. Next Steps
@@ -415,9 +408,9 @@ With the lab completed, you can follow some steps below as **extra**.
 - Explore other types of import, such as Network and SNMP discovery.
 - Explore Netbox to view and manage the network inventory.
 - Modify the topology as needed (in future custom versions).
-- Consult the configurations imported by the agent.
+- Consult the settings imported by the agent.
 ---
 
 ### :fontawesome-solid-paintbrush: 9. Conclusion
 
-✅ Done! Now you know how to use the Diode components to import your own network into Netbox, so you can also, through Netreplica, generate your own Digital Twin!.
+✅ Ready! Now you know how to use the Diode components to import your own network into Netbox, so you can also generate your own Digital Twin through Netreplica!
