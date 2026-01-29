@@ -1,7 +1,8 @@
 site_name: Redes Abertas
+site_url: https://rnpbr.github.io/opennetworking-docs/
 edit_uri: tree/main/docs/
 repo_name: Redes Abertas
-repo_url: https://git.rnp.br/redes-abertas/docs
+repo_url: https://github.com/rnpbr/opennetworking-docs
 
 theme:
   name: material
